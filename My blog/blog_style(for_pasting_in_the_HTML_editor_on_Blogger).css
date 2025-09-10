@@ -1,0 +1,61 @@
+#header {
+  display:flex;
+}
+
+#Header1 > div {
+  display: flex;
+  align-items: center;
+}
+
+#navigation {
+  display:flex;
+  list-style: none;
+}
+
+#navigation li {
+  margin:0 10px 0 10px;
+  height:100%;
+  display: flex;
+  align-items: center;
+}
+
+#navigation li a {
+  color:black;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#footer {
+  background-color:white;
+  position: abosolute;
+  left:0;
+  right:0;
+}
+
+@media (max-width:1024px) {
+  #Blog1 div.blog-posts.hfeed.container article {
+    width:100%;
+  }
+  
+  #Blog1 {
+    width:100%;
+  } 
+  
+  #page_body {
+    width:100%;
+  }
+}
+
+.sideBarWidener {
+  max-width:100% !important;
+  width:100% !important;
+}
+
+@media (max-width:745px) {
+  #Header1 > div {
+    padding:30px;
+  }
+
+  #Header1 > div > div > h1 > a {
+    font-size:22px;
+  }
+}
