@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AI Coding Assistant Market Trends — US (2025)</title>
+  <style>
+    body{font-family:Inter,system-ui,Arial,Helvetica,sans-serif;margin:24px;color:#111}
+    header{border-bottom:1px solid #e6e6e6;padding-bottom:12px;margin-bottom:18px}
+    h1{font-size:24px;margin:0}
+    h2{font-size:18px;margin-top:22px}
+    p.lead{color:#333;margin-top:6px}
+    .section{margin-bottom:18px}
+    .chart-wrapper{max-width:900px;margin:12px 0}
+    pre.code{background:#0f1724;color:#d1fae5;padding:12px;border-radius:6px;overflow:auto}
+    footer{font-size:13px;color:#444;border-top:1px solid #eee;padding-top:12px;margin-top:20px}
+    .sources li{margin-bottom:6px}
+  </style>
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header>
+    <h1>AI Coding Assistant Market Trends — United States (2025)</h1>
+    <p class="lead">Detailed analysis for internal strategy. Focus: commercial AI coding assistants (GitHub Copilot, ChatGPT as coding aid, Anthropic Claude, AWS CodeWhisperer, Tabnine/Codeium). Includes embedded Chart.js charts for visualization.</p>
+  </header>
+
+  <section class="section" id="exec-summary">
+    <h2>Executive summary</h2>
+    <p>Market research and developer surveys for 2025 indicate continued rapid growth for AI coding assistants. Major findings (US-focused):</p>
+    <ul>
+      <li>Estimated US market size: <strong>≈ $1.95B in 2024 → ≈ $2.44B in 2025</strong> (implied ~25% YoY growth consistent with published CAGRs of ~24–26%).</li>
+      <li>Wide adoption across developer roles: frontend, full-stack, and data-science teams show the highest usage; DevOps and backend show strong but slightly lower adoption.</li>
+      <li>Commercial tool leaderboard (by developer adoption): GitHub Copilot leads, followed by ChatGPT (used as a coding aid), Anthropic/Claude, AWS CodeWhisperer, and Tabnine/Codeium.</li>
+    </ul>
+  </section>
+
+  <section class="section" id="growth">
+    <h2>Market growth (2024 → 2025)</h2>
+    <p>Industry market reports project strong CAGR for the AI code tools / assistants market in the mid-20% range; using US regional shares and published 2024 baselines yields an estimated US market size of <strong>$2.44B in 2025</strong>, a ~25% increase versus 2024.</p>
+
+    <div class="chart-wrapper">
+      <canvas id="growthChart"></canvas>
+    </div>
+
+    <p><em>Note:</em> 2025 value is an estimate derived from published CAGRs and North America regional share figures; see Sources.</p>
+  </section>
+
+  <section class="section" id="usage-by-role">
+    <h2>Usage by developer type</h2>
+    <p>Stack Overflow and industry polling show broad usage across roles. Reported and estimated adoption rates (US, 2025):</p>
+    <ul>
+      <li>Frontend: ~75%</li>
+      <li>Backend: ~70%</li>
+      <li>Full Stack: ~80% (largest pool)</li>
+      <li>Data Science / ML engineers: ~67%</li>
+      <li>DevOps / SRE: ~65%</li>
+    </ul>
+
+    <div class="chart-wrapper">
+      <canvas id="usageChart"></canvas>
+    </div>
+
+    <p>Methodology: Stack Overflow survey items provide direct percentages for popular tools; where role-specific figures were unavailable we applied conservative estimates anchored to reported tool adoption and role-specific survey responses.</p>
+  </section>
+
+  <section class="section" id="market-share">
+    <h2>Market share / tool adoption</h2>
+    <p>Commercial tool adoption in 2025 (developer-reported usage). These figures represent percent of developers reporting they use the tool (many developers use multiple tools):</p>
+    <ul>
+      <li>GitHub Copilot: ~55–68% (lead adoption)</li>
+      <li>ChatGPT (used as coding assistant): ~40–82% depending on metric (most-used AI product overall)</li>
+      <li>Anthropic Claude: ~15%</li>
+      <li>AWS CodeWhisperer: ~10%</li>
+      <li>Tabnine / Codeium: ~8%</li>
+    </ul>
+
+    <div class="chart-wrapper">
+      <canvas id="shareChart"></canvas>
+    </div>
+
+    <p>Important: these percentages overlap (multi-tool usage). Several sources indicate Copilot has the largest single-tool reach while ChatGPT remains the most commonly used general AI product among developers.</p>
+  </section>
+
+  <section class="section" id="implications">
+    <h2>Strategic implications (for internal planning)</h2>
+    <ol>
+      <li><strong>Enterprise adoption is primary growth driver.</strong> Focus sales motions and compliance features for enterprise buyers (security, SSO, audit logs).</li>
+      <li><strong>Integrations win.</strong> IDE and cloud integrations (VS Code, JetBrains, AWS, GitHub) accelerate adoption—prioritize plugins and SDKs.</li>
+      <li><strong>Role-specific productization.</strong> Tailor capabilities for data scientists vs. frontend devs vs. DevOps (different prompts, snippets, libraries).</li>
+      <li><strong>Trust & accuracy matter.</strong> Survey data shows declining unconditional trust—invest in guardrails, provenance, and explainability.</li>
+    </ol>
+  </section>
+
+  <section class="section" id="methodology">
+    <h2>Methodology & notes</h2>
+    <p>This report synthesizes: industry market-research reports (published 2024–2025), the Stack Overflow Developer Survey (2024–2025 AI pages), and contemporary industry commentary. Where role- or region-specific numbers were not published, conservative model-based estimates were used and labeled as such in the text. The figures are US-focused; global numbers are cited in Sources for context.</p>
+  </section>
+
+  <footer>
+    <h3>Sources</h3>
+    <ol class="sources">
+      <li>Mordor Intelligence — "AI Code Tools Market" (market size & CAGR): https://www.mordorintelligence.com/industry-reports/artificial-intelligence-code-tools-market</li>
+      <li>Market.US — "AI Code Assistant Market" (global/regional estimates): https://market.us/report/ai-code-assistant-market/</li>
+      <li>Stack Overflow — 2025 AI pages / survey (developer tool usage): https://survey.stackoverflow.co/2025/ai and https://survey.stackoverflow.co/2025/
+      </li>
+      <li>Tenet / industry summary on Copilot adoption (usage stats): https://www.wearetenet.com/blog/github-copilot-usage-data-statistics</li>
+      <li>ITPro / news summary on developer adoption & trust metrics: https://www.itpro.com/software/development/developers-arent-quite-ready-to-place-their-trust-in-ai-nearly-half-say-they-dont-trust-the-accuracy-of-outputs-and-end-up-wasting-time-debugging-code</li>
+      <li>GlobalDataRouteAnalytics — US-specific market sizing: https://globaldatarouteanalytics.com/report/27/united-states-ai-code-assistant-software-market
+    </ol>
+  </footer>
+
+  <!-- Live chart scripts (kept separate from code snippets above so the page also renders charts) -->
+  <script>
+    // Growth chart
+    const ctxG = document.getElementById('growthChart').getContext('2d');
+    new Chart(ctxG, { type:'bar', data:{ labels:['2024','2025'], datasets:[{ label:'US Market Size (USD billions)', data:[1.95,2.44] }] }, options:{ scales:{ y:{ beginAtZero:true } } } });
+
+    // Usage chart
+    const ctxU = document.getElementById('usageChart').getContext('2d');
+    new Chart(ctxU, { type:'bar', data:{ labels:['Frontend','Backend','Full Stack','Data Science','DevOps'], datasets:[{ label:'% using AI assistants', data:[75,70,80,67,65] }] }, options:{ scales:{ y:{ beginAtZero:true, max:100 } } } });
+
+    // Market share chart
+    const ctxS = document.getElementById('shareChart').getContext('2d');
+    new Chart(ctxS, { type:'bar', data:{ labels:['GitHub Copilot','ChatGPT','Claude','CodeWhisperer','Tabnine/Codeium'], datasets:[{ label:'Developer adoption (%)', data:[55,40,15,10,8] }] }, options:{ scales:{ y:{ beginAtZero:true, max:100 } } } });
+  </script>
+</body>
+</html>
