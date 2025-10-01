@@ -68,6 +68,10 @@ pre {
   overflow-x: auto;
 }
 
+pre strong {
+  font-size:17px;
+}
+
 a {
   color: #2563eb;
   text-decoration: none;
@@ -230,3 +234,4 @@ li img {
   display:flex;
 
 }
+
