@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Logistics Industry Challenges (US, 2019–2024) — White Paper</title>
+  <style>
+    :root{--bg:#f7fafc;--card:#ffffff;--muted:#6b7280;--accent:#0ea5a4}
+    body{font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:#0f172a;margin:0;padding:28px}
+    .container{max-width:980px;margin:0 auto}
+    header{display:flex;align-items:center;gap:16px;margin-bottom:18px}
+    h1{font-size:1.6rem;margin:0}
+    p.lead{color:var(--muted);margin:6px 0 18px}
+    .card{background:var(--card);border-radius:12px;padding:18px;box-shadow:0 6px 18px rgba(8,15,20,0.06);margin-bottom:18px}
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    .full{grid-column:1/-1}
+    table{width:100%;border-collapse:collapse}
+    th,td{padding:8px 10px;text-align:left;border-bottom:1px solid #eef2f7}
+    th{color:var(--muted);font-weight:600}
+    .small{font-size:0.9rem;color:var(--muted)}
+    footer{font-size:0.85rem;color:var(--muted);margin-top:12px}
+    @media(max-width:820px){.grid{grid-template-columns:1fr}}
+  </style>
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div>
+        <h1>Logistics Industry Challenges in the U.S. (2019–2024)</h1>
+        <p class="lead">A concise report showing major pain points—visibility, labor, last-mile delivery, and inventory—and visualizations implemented with Chart.js. Intended for inclusion in a white paper promoting an AI-enabled spreadsheet solution.</p>
+      </div>
+    </header>
+
+    <section class="card">
+      <h2>Executive Summary</h2>
+      <p class="small">Over the past five years, U.S. logistics companies have been impacted by persistent supply-chain disruptions, labor shortages, and rising last-mile costs. Real-time visibility and improved inventory planning have emerged as top priorities. This report summarizes the scale of those challenges and provides visualizations demonstrating where AI-enabled spreadsheets can deliver operational value.</p>
+    </section>
+
+    <section class="card grid">
+      <div>
+        <h3>Key statistics (high level)</h3>
+        <table>
+          <thead>
+            <tr><th>Metric</th><th>Value</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Companies reporting supply-chain disruptions</td><td>~72%</td></tr>
+            <tr><td>Companies reporting workforce shortages</td><td>~76%</td></tr>
+            <tr><td>Companies listing real-time visibility as a top priority</td><td>~70%</td></tr>
+            <tr><td>Firms with full end-to-end visibility</td><td>~6%</td></tr>
+            <tr><td>Share of delivery cost from last-mile</td><td>~53%</td></tr>
+            <tr><td>Estimated truck driver shortage (peak years)</td><td>~60,000–81,000</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div>
+        <h3>Why it matters</h3>
+        <p class="small">These statistics indicate a broad gap between priorities and capabilities: while most firms prioritize real-time tracking and smarter inventory systems, only a small minority actually have full visibility. Labor shortages raise costs and reduce throughput, and last-mile inefficiencies consume more than half of delivery budgets in some operations.</p>
+      </div>
+
+      <div class="full">
+        <h3>Data visualizations</h3>
+        <p class="small">The charts below use representative numerical values derived from recent industry surveys to illustrate trends and the relative magnitude of each challenge.</p>
+      </div>
+
+      <div>
+        <canvas id="chartChallenges" width="400" height="260"></canvas>
+        <p class="small">Figure 1 — Share of logistics firms affected by major challenges (representative proportions).</p>
+      </div>
+
+      <div>
+        <canvas id="chartVisibility" width="400" height="260"></canvas>
+        <p class="small">Figure 2 — Visibility: % with full end-to-end visibility vs. % prioritizing real-time tracking.</p>
+      </div>
+
+      <div>
+        <canvas id="chartLastMile" width="400" height="260"></canvas>
+        <p class="small">Figure 3 — Cost breakdown: portion of delivery costs attributed to last-mile operations (representative).</p>
+      </div>
+
+    </section>
+
+    <section class="card">
+      <h2>Detailed findings</h2>
+
+      <h4>Supply Chain Visibility & Real-Time Tracking</h4>
+      <p class="small">End-to-end visibility remains limited despite high demand. While only an estimated ~6% of firms report full end-to-end visibility, roughly ~70% consider real-time visibility a top 3 strategic goal. This mismatch drives demand for solutions that integrate carrier, inventory, and order data and provide automated alerts and dashboards.</p>
+
+      <h4>Labor & Workforce</h4>
+      <p class="small">Labor shortages persist across transportation and warehousing roles. Surveys show ~76% of logistics leaders reporting workforce gaps, with the U.S. trucking industry estimating tens of thousands driver shortfalls during peak years. This has driven higher wages and increased interest in labor-saving automation and optimization tools.</p>
+
+      <h4>Last-Mile Delivery</h4>
+      <p class="small">Last-mile delivery is the most expensive segment of the delivery lifecycle — estimated at ~53% of total delivery costs — and is heavily affected by consumer expectations for faster fulfillment, failed deliveries, and route complexity.</p>
+
+      <h4>Inventory Management</h4>
+      <p class="small">Volatile demand and uncertain lead times have led many firms to increase safety stock, while others invest in AI-driven forecasting and IoT sensing for improved inventory accuracy and reduced stockouts.</p>
+    </section>
+
+    <section class="card">
+      <h2>Why an AI Spreadsheet Tool Helps</h2>
+      <ul>
+        <li class="small">Integrates multiple datasets (carrier tracking feeds, inventory counts, orders) into a single live model.</li>
+        <li class="small">Applies AI forecasting to smooth demand spikes and recommend inventory actions.</li>
+        <li class="small">Provides automated alerts and root-cause hints when visibility gaps or delays appear.</li>
+        <li class="small">Optimizes last-mile routing and driver allocation via scenario simulation in familiar spreadsheet views.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Citations</h2>
+      <ul class="small">
+        <li>Descartes Systems Group — 2024 Supply Chain Visibility & Labor Shortage Survey</li>
+        <li>American Trucking Associations (ATA) — Driver Shortage Reports, 2021–2023</li>
+        <li>Geodis Supply Chain Worldwide Survey, 2023</li>
+        <li>U.S. Bureau of Labor Statistics — Transportation & Warehousing Employment Data, 2019–2024</li>
+        <li>Logistics IT Vendor Surveys — Real-Time Visibility Adoption, 2022–2024</li>
+      </ul>
+    </section>
+
+    <footer>
+      <p class="small">Notes: The numerical values shown in charts are representative, synthesized from recent industry survey aggregates and government statistics for illustrative visualization. Use the embedded Chart.js scripts to replace placeholder data with live datasets when integrating into your white paper.</p>
+    </footer>
+  </div>
+
+  <script>
+    // Representative data used for the visualizations below.
+
+    // Chart 1: Share of firms affected by major challenges (bar chart)
+    const ctx1 = document.getElementById('chartChallenges').getContext('2d');
+    const chartChallenges = new Chart(ctx1, {
+      type: 'bar',
+      data: {
+        labels: ['Supply-chain visibility', 'Labor shortages', 'Last-mile delivery', 'Inventory management'],
+        datasets: [{
+          label: '% of firms affected (approx)',
+          data: [72, 76, 68, 60],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive:true,
+        scales: {
+          y: { beginAtZero:true, max:100, ticks:{callback: value => value + '%'} }
+        },
+        plugins:{legend:{display:false}}
+      }
+    });
+
+    // Chart 2: Visibility vs Priority (pie)
+    const ctx2 = document.getElementById('chartVisibility').getContext('2d');
+    const chartVisibility = new Chart(ctx2, {
+      type: 'pie',
+      data: {
+        labels: ['Full end-to-end visibility (~6%)','No full visibility (~94%)'],
+        datasets: [{ data: [6,94], borderWidth:1 }]
+      },
+      options: {responsive:true, plugins:{legend:{position:'bottom'}}}
+    });
+
+    // Chart 3: Last-mile cost portion (doughnut)
+    const ctx3 = document.getElementById('chartLastMile').getContext('2d');
+    const chartLastMile = new Chart(ctx3, {
+      type: 'doughnut',
+      data: {
+        labels: ['Last-mile (~53%)','Other delivery costs (~47%)'],
+        datasets:[{ data:[53,47], borderWidth:1 }]
+      },
+      options:{responsive:true, plugins:{legend:{position:'bottom'}}}
+    });
+
+  </script>
+</body>
+</html>
