@@ -107,11 +107,11 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // Code to set a link of the div `article-card-content` the url included in the attribute `value` of the div.
+
   const articleCardContent = document.getElementsByClassName('article-card-content')[0];
 
   articleCardContent.addEventListener('click', () => {
     window.location.href = articleCardContent.getAttribute("value");
   });
 });
-
-
