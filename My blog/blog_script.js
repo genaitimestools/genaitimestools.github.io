@@ -107,9 +107,10 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  const articleCardContent = document.getElementByClass("article-card-content");
+  const articleCardContent = document.getElementsByClassName('article-card-content')[0];
 
   articleCardContent.addEventListener('click', () => {
-    window.location.href = articleCardContent.value;
+    window.location.href = articleCardContent.getAttribute("value");
   });
 });
+
