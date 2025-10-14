@@ -10,7 +10,7 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-function activateTab(buttonToActivate, guideToShow) {
+function activateTab(allButtons, allGuides, buttonToActivate, guideToShow) {
   allButtons.forEach(button => {
     button.style.border = "none";
     button.style.backgroundColor = "white";
