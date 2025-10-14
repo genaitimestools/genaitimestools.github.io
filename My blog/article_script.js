@@ -10,7 +10,7 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-function activateTab(allButtons, allGuides, buttonToActivate, guideToShow) {
+function activateTab(allButtons, allGuides, buttonIndex, guideIndex) {
   allButtons.forEach(button => {
     button.style.border = "none";
     button.style.backgroundColor = "white";
@@ -20,8 +20,8 @@ function activateTab(allButtons, allGuides, buttonToActivate, guideToShow) {
     guide.style.display = "none";
   });
 
-  buttonToActivate.style.border = "2px double black";
-  buttonToActivate.style.borderRadius = "5px 5px 0px 0px";
-  buttonToActivate.style.backgroundColor = "white";
-  guideToShow.style.display = "block";
+  allButtons[buttonIndex].style.border = "2px double black";
+  allButtons[buttonIndex].style.borderRadius = "5px 5px 0px 0px";
+  allButtons[buttonIndex].style.backgroundColor = "white";
+  allGuides[guideIndex].style.display = "block";
 }
