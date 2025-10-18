@@ -5,7 +5,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
   for(let i = 0; i < articleCardContent.length; i++) {
     articleCardContent[i].addEventListener('click', () => {
-      window.location.href = articleCardContent[i].getAttribute("value")
+      window.location.href = articleCardContent[i].getAttribute("value");
     });
   }
 });
