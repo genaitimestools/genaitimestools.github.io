@@ -115,12 +115,7 @@ tr:nth-child(even) {
 }
 
 .twitter-tweet {
-  padding-left:30px;
-  padding-right:30px;
-  border-radius:5px;
   margin:auto;
-  width:70%;
-  background-color:#ebf8fd;
 }
 
 li img {
@@ -341,5 +336,6 @@ li img {
     line-height:1.5;
   }
 }
+
 
 
