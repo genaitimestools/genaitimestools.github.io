@@ -8,6 +8,13 @@ window.addEventListener('DOMContentLoaded', () => {
       window.location.href = articleCardContent[i].getAttribute("value");
     });
   }
+
+  //A script to center X post widgets.
+  const twitterWidgets = document.getElementsByClassName("twitter-tweet");
+
+  for(let i = 0; i < twitterWidgets.length; i++) {
+    twitterWidgets[i].style.margin = "auto";
+  }
 });
 
 function activateTab(allButtons, allGuides, buttonIndex) {
