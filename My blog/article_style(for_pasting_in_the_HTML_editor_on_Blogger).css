@@ -327,6 +327,12 @@ li img {
   }
 }
 
+@media screen and (max-width:425px) {
+  .video-cotainer iframe {
+    height: calc(auto * 0.9);
+  }
+}
+
 @media screen and (max-width:398px) {
   .thumbnail {
     display:none;
@@ -343,3 +349,4 @@ li img {
   align-items:center;
   justify-content:center;
 }
+
