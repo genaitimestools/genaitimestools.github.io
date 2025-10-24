@@ -343,3 +343,6 @@ li img {
   align-items:center;
 }
 
+.video-container iframe {
+  width:100%; 
+}
