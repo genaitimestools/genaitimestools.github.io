@@ -341,8 +341,10 @@ li img {
   width:100%;
   display:flex;
   align-items:center;
+  justify-content:center;
 }
 
 .video-container iframe {
   width:100%; 
 }
+
