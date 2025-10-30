@@ -66,8 +66,6 @@ pre {
   padding: 1rem;
   border-radius: 6px;
   overflow-x: auto;
-  overflow-wrap: break-word;
-  white-space: normal;
 }
 
 pre strong {
@@ -351,6 +349,7 @@ li img {
   align-items:center;
   justify-content:center;
 }
+
 
 
 
