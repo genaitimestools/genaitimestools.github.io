@@ -59,6 +59,8 @@ code {
   padding: 2px 4px;
   border-radius: 4px;
   font-family: monospace;
+  overflow-wrap: break-word;
+  white-space: normal;
 }
 
 pre {
@@ -349,6 +351,7 @@ li img {
   align-items:center;
   justify-content:center;
 }
+
 
 
 
