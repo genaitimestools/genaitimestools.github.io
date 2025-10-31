@@ -15,6 +15,11 @@ window.addEventListener('DOMContentLoaded', () => {
   for(let i = 0; i < twitterWidgets.length; i++) {
     twitterWidgets[i].style.margin = "auto";
   }
+
+  const DropDownBtns = ["sourcesOpenButton"];
+  const DropDownContents = ["sources"];
+
+  singleDropdownify(DropDownBtns, DropDownContents);
 });
 
 function activateTab(allButtons, allGuides, buttonIndex) {
@@ -31,4 +36,19 @@ function activateTab(allButtons, allGuides, buttonIndex) {
   allButtons[buttonIndex].style.borderRadius = "5px 5px 0px 0px";
   allButtons[buttonIndex].style.backgroundColor = "white";
   allGuides[buttonIndex].style.display = "block";
+}
+
+funciton singleDropDownify(DropDownBtns, DropDownContents) {
+  for(let i = 0; i < DropDownBtns.length; i++) {
+    const DropDownBtn = document.getElementById(DropDownBtns[i]);
+    const DropDownContent = document.getElementById(DropDownContents[i]);
+      
+    DropDownBtn.addEventListener("click", () => {
+      if(DropDownContent.style.display === "none") {
+        DropDownContent.style.display = "block";
+      } else {
+        DropDownContent.style.display = "none";
+      }
+    }); 
+  }
 }
