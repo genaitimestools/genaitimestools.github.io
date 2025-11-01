@@ -38,7 +38,7 @@ function activateTab(allButtons, allGuides, buttonIndex) {
   allGuides[buttonIndex].style.display = "block";
 }
 
-funciton singleDropDownify(DropDownBtns, DropDownContents) {
+function singleDropDownify(DropDownBtns, DropDownContents) {
   for(let i = 0; i < DropDownBtns.length; i++) {
     const DropDownBtn = document.getElementById(DropDownBtns[i]);
     const DropDownContent = document.getElementById(DropDownContents[i]);
