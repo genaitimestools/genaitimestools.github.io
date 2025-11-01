@@ -32,7 +32,7 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
   //Code to make the Sources button a single dropdown.
-  singleDropdownify(DropDownBtns, DropDownContents);
+  singleDropDownify(DropDownBtns, DropDownContents);
 });
 
 function activateTab(allButtons, allGuides, buttonIndex) {
