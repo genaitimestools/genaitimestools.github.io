@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+    <meta charset="UTF-8"></meta>
+    <meta content="HTML, CSS, JavaScript" name="keywords"></meta>
+    <meta content="Gen AI × Tools" name="author"></meta>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"></meta>
+    <meta content="ie=edge" http-equiv="X-UA-Compatible"></meta>
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@GenAITimesTool">
+    <meta name="twitter:title" content="How to Filter Unimportant Emails from Your Gmail Inbox">
+    <meta name="twitter:image" content="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjwlri8G9OfRlTZ8W_3Fy9b7KnyKcV7FwYLQe21xMsW_u1PgQ4qOQKUC6DU0q4tYxBxiSLcHeJ2j0PmY8Y7-e8Vw2pwz75V9eXVHpCd53tI-fO424ExYqauHEWQTrTuRj71oewL-1evpt96h_1ZQBNlBqZEJyapaw5PqWsZe6icdRnQro_swgKJAqagAVs/s1600/thumbnail.png">
+    <link rel="stylesheet" href="https://genaitimestools.github.io/My%20blog/article_style(for_pasting_in_the_HTML_editor_on_Blogger).css">
+    <script src="https://genaitimestools.github.io/My%20blog/article_script.js"></script>
+    <style>
+      button.dropbtn {
+        border:2px double black;
+        border-radius:5px 5px 0px 0px;
+        background-color:white;
+      }
+    </style>
+  </head>
+  <body style="width:890px; margin:auto;">
+    <article>
+      <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjwlri8G9OfRlTZ8W_3Fy9b7KnyKcV7FwYLQe21xMsW_u1PgQ4qOQKUC6DU0q4tYxBxiSLcHeJ2j0PmY8Y7-e8Vw2pwz75V9eXVHpCd53tI-fO424ExYqauHEWQTrTuRj71oewL-1evpt96h_1ZQBNlBqZEJyapaw5PqWsZe6icdRnQro_swgKJAqagAVs/s1600/thumbnail.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="736" data-original-width="1408" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjwlri8G9OfRlTZ8W_3Fy9b7KnyKcV7FwYLQe21xMsW_u1PgQ4qOQKUC6DU0q4tYxBxiSLcHeJ2j0PmY8Y7-e8Vw2pwz75V9eXVHpCd53tI-fO424ExYqauHEWQTrTuRj71oewL-1evpt96h_1ZQBNlBqZEJyapaw5PqWsZe6icdRnQro_swgKJAqagAVs/s1600/thumbnail.png"/></a></div>
+      <p style="padding-bottom: 50px;">Every day, you receive tens of emails in your inbox—not only important emails but also unimportant emails such as promotional emails. Have you found it difficult to filter these unimportant emails? In this article, I go through how to filter unimportant emails from your Gmail inbox using Gemini 2.5 Flash and Google Apps Script. Before getting started, you will need a Google account.</p>
+      <h1>Step-by-Step Guide</h1>
+      <h2>Step 1: Search Unimportant Emails from Your Inbox</h2>
+      <p id="run_script">First, you will need to get all unread emails.</p>
+      <ol>
+        <li>Visit <a href="https://script.google.com/d/1salchU48QdqXl6AzrYEG6TAipnAsd7NaCCKskL2bkpX8Ms7120HOCTji/edit?usp=sharing">my Google Apps Script project</a>.</li>
+        <li>Click "<strong>Run</strong>."
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgwScf7O_kPjrM5T4ggayQaacM0FtBgUpC26S-NInZznUdV24r2PF0X3gSxp_l2JnoMXDfmfVPIdPU2p4AWlmwM8mTEFb81USq92grmYmg47-AlpiF3tbFfCaffv8TswXFMz-cL3TZFW-909QF5YWVELsCEMfZwUNfmYXAabjUbrpwPBSIpsT0pLoDwk-4/s1600/Screenshot%202025-10-21%20114547.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="128" data-original-width="1075" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgwScf7O_kPjrM5T4ggayQaacM0FtBgUpC26S-NInZznUdV24r2PF0X3gSxp_l2JnoMXDfmfVPIdPU2p4AWlmwM8mTEFb81USq92grmYmg47-AlpiF3tbFfCaffv8TswXFMz-cL3TZFW-909QF5YWVELsCEMfZwUNfmYXAabjUbrpwPBSIpsT0pLoDwk-4/s1600/Screenshot%202025-10-21%20114547.png"/></a></div>
+          <div class="image-source">Source: https://script.google.com</div>
+        </li>
+        <li>A pop-up will be opened. Click "<strong>Review permissions</strong>."
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhnqzBxdDO3JaHXyiukeXRtjRYqtLaTZXXDHd_-oq1leDWcUIoij0_spGSpePfmQfo7GzNXSbor_BF5zNm_DTwvKZrIDds1Qv2ksos8ErRItSQTroNpZNQHN6mrDOwugbueHbb5j4FiDtto0znKmhIrVVEnNKrvkXHxs8f4rMgT9NsulvfXrH2y69JmBUk/s1600/Screenshot%202025-09-25%20125714.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="250" data-original-width="606" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhnqzBxdDO3JaHXyiukeXRtjRYqtLaTZXXDHd_-oq1leDWcUIoij0_spGSpePfmQfo7GzNXSbor_BF5zNm_DTwvKZrIDds1Qv2ksos8ErRItSQTroNpZNQHN6mrDOwugbueHbb5j4FiDtto0znKmhIrVVEnNKrvkXHxs8f4rMgT9NsulvfXrH2y69JmBUk/s1600/Screenshot%202025-09-25%20125714.png"/></a></div>
+          <div class="image-source">Source: https://script.google.com</div>
+        </li>
+        <li>Sign in to your account.</li>
+        <li>Another pop-up will be opened. Click "<strong>Advanced</strong>."
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiF1n6Q3RL_xKQlrmYbJJTD3u_lPg6fhHeFr2GJxFh48BRlQS4RFoMzAWUoHtkN_RsvLtNRMOSBbXNNyK3C76H3O_WFZ4UbZyZdc6_8Sd6_53CTu0fvr1YrV4KvqqI0f0TlOaqcA4lmqSJBijoJkcovTeuhF_G8KeA5qHXh2dRnFUE2cWyUWdNSFSfh5Ew/s1600/Screenshot%202025-09-25%20125732.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="912" data-original-width="812" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiF1n6Q3RL_xKQlrmYbJJTD3u_lPg6fhHeFr2GJxFh48BRlQS4RFoMzAWUoHtkN_RsvLtNRMOSBbXNNyK3C76H3O_WFZ4UbZyZdc6_8Sd6_53CTu0fvr1YrV4KvqqI0f0TlOaqcA4lmqSJBijoJkcovTeuhF_G8KeA5qHXh2dRnFUE2cWyUWdNSFSfh5Ew/s1600/Screenshot%202025-09-25%20125732.png"/></a></div>
+          <div class="image-source">Source: https://account.google.com</div>
+        </li>
+        <li>Click "<strong>Go to Email Search in Gmail (unsafe)</strong>."
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjMtV8F_NeWqSygI0-ezh09DvP8M_BbdCa_FjIMa8JuQt_i39U9Dr70lxmUvDLLJXb5qlpYQ8Qi3U2I2De6HvoT_ux8TkfoAigFIA-ZbQyM92x-MhsffTqG8FQ6S_Hkj5FTLblMQlJJEITSsm8b5Cyt9QazvSRbVfQrRsAG37Ny6VyMj7W0wUvmi7uBwC4/s1600/Screenshot%202025-10-21%20115044.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="905" data-original-width="813" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjMtV8F_NeWqSygI0-ezh09DvP8M_BbdCa_FjIMa8JuQt_i39U9Dr70lxmUvDLLJXb5qlpYQ8Qi3U2I2De6HvoT_ux8TkfoAigFIA-ZbQyM92x-MhsffTqG8FQ6S_Hkj5FTLblMQlJJEITSsm8b5Cyt9QazvSRbVfQrRsAG37Ny6VyMj7W0wUvmi7uBwC4/s1600/Screenshot%202025-10-21%20115044.png"/></a></div>
+          <div class="image-source">Source: https://account.google.com</div>
+        </li>
+        <li>The final consent page will be opened. Scrolling down the section, you will see the button "<strong>Continue</strong>." Click it.
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhH5hQlG0U7FqSJAL0ji7gupKcWbgnRRS3OU3qNgVb4l59fFtXrjlwTbKAngyyuc7azqv2fYuVaAQS0Cp080j4zM1QD9gphrdGbiwSIu4rwLW7B55aY68UoOtCVVjY9j2ZPeYl_4O89Y9hHAXvc0E6FTJZzmA5a4aAzCzwccatmi7pVxkKvYporyBGt2BQ/s1600/Screenshot%202025-10-21%20115426.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="907" data-original-width="814" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhH5hQlG0U7FqSJAL0ji7gupKcWbgnRRS3OU3qNgVb4l59fFtXrjlwTbKAngyyuc7azqv2fYuVaAQS0Cp080j4zM1QD9gphrdGbiwSIu4rwLW7B55aY68UoOtCVVjY9j2ZPeYl_4O89Y9hHAXvc0E6FTJZzmA5a4aAzCzwccatmi7pVxkKvYporyBGt2BQ/s1600/Screenshot%202025-10-21%20115426.png"/></a></div>
+          <div class="image-source">Source: https://account.google.com</div>
+        </li>
+        <li>The script will be executed.</li>
+        <li>Copy this entire log.
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjpF3oG8DAX0b_mSJaUriFV-tV3PXAMLjGyulg2sN1mcebPEt-WdXMsizj_xiPMLYrVezFFi-GWIq6VwLmMYhVGNUDZ_XZtRv5Aenep6RDgW7AEcvdI3ZaR0s3aQu7LbQuNcyJRw1uVqtJaQwqga0S7NHJKvnAp9SsO32oR1S9mqru9_pUUg7xMDWoE6do/s1600/Screenshot%202025-10-21%20122729.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="405" data-original-width="1532" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjpF3oG8DAX0b_mSJaUriFV-tV3PXAMLjGyulg2sN1mcebPEt-WdXMsizj_xiPMLYrVezFFi-GWIq6VwLmMYhVGNUDZ_XZtRv5Aenep6RDgW7AEcvdI3ZaR0s3aQu7LbQuNcyJRw1uVqtJaQwqga0S7NHJKvnAp9SsO32oR1S9mqru9_pUUg7xMDWoE6do/s1600/Screenshot%202025-10-21%20122729.png"/></a></div>
+          <div class="image-source">Source: https://script.google.com</div>
+        </li>
+      </ol>
+      <h2>Step 2: Identify and Delete Unimportant Emails</h2>
+      <p>After you get all unread emails' subjects and bodies. Let's find out what is unimportant with Gemini 2.5 Flash.</p>
+      <ol>
+        <li>At first, since your emails are personal information, you will need to opt out your chats from the machine learning of Google Gemini. For the guide, follow <strong>Step 2</strong> in <a href="https://genaitimestools.github.io/How%20to%20Create%20a%20Software%20User%20%20Manual%20with%20AI.html#step_2">this article</a> below.
+          <div class="article-card" style="margin-top:20px; margin-bottom:20px;">
+            <div class="also-read-text">
+              <span>Also Read</span>
+            </div>
+            <div class="article-card-content" value='https://genaitimestools.github.io/How%20to%20Create%20a%20Software%20User%20%20Manual%20with%20AI.html#step_2'>
+              <div class="thumbnail">
+                <img alt="thumbnail of the article 'HHow to Create a Software User Manual with AI'" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgg-FYhTzyd_WyLAsHfsnXJyi3X-bmF5XFpnYrJk1Y9Ll4zbGhE9k-2TVq7JxhW68yl7BPs-nWTWJvwpTNd27TBOR2TyDNCyMM5ZzaVoG4maVfhk4N295dEyL_V7xXYuVymxYAgbkJmgW9Yeg8wxmaaVh2plXtZPsKCyK_62LN0_XWozlzzEBgmOjquf6A/s1600/thumbnail.png">
+              </div>
+              <div class="article-title">
+                <strong id="Also_Read_widget">How to Create a Software User Manual with AI</strong>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>Go back to <a href="https://gemini.google.com">https://gemini.google.com</a>.</li>
+        <li>Make sure the model used is <strong>2.5 Flash</strong>. You can check this below the center textbox.
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgrZI-5L8BmLYZjVEVr1C3yb-KOndW1Ciw-skcHwHKrU8MQ5-BSo9H-JwVsVSi_gHPFXyAbHyBSxirWUJJF6CDpUwp-FwK8BJPS60BTaRBoLUTrFxJ6JFVhDaOte7Cziv79HrNnjlRNT7ywUTw_2F9hUrzx3R8a-aGEB3HlUA0q72jS9gbNj1tJiZ1N9iY/s1600/Screenshot%202025-10-21%20132332.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="135" data-original-width="944" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgrZI-5L8BmLYZjVEVr1C3yb-KOndW1Ciw-skcHwHKrU8MQ5-BSo9H-JwVsVSi_gHPFXyAbHyBSxirWUJJF6CDpUwp-FwK8BJPS60BTaRBoLUTrFxJ6JFVhDaOte7Cziv79HrNnjlRNT7ywUTw_2F9hUrzx3R8a-aGEB3HlUA0q72jS9gbNj1tJiZ1N9iY/s1600/Screenshot%202025-10-21%20132332.png"/></a></div>
+          <div class="image-source">Source: https://gemini.google.com</div>
+        </li>
+        <li>Enter this prompt template in the center textbox.
+          <pre>[Task]: Create a search query to filter unimportant emails.
+[Inbox Emails]:
+<strong>(paste the copied email data here)</strong>
+[Constraints]:
+- Output must only be a single copyable code snippet.
+
+```text
+(command here)
+```</pre>
+        </li>
+        <li>Fill bold placeholders enclosed with "<strong>(</strong>" and "<strong>)</strong>" in the prompt.</li>
+        <li>Click <strong>Enter</strong>.</li>
+        <li>Click the button with the 2 layered squares to copy the generated command.
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEilDnc6sGVDfnN7-xHaGgP2Z_a_ub9jc9Hh1nzwIWEmVuGsNHNvRRpXW9Ni9SwIur17_i7XVDmO0E8yKdcJd9XIbjpcQQsmMMzSHu-ZlJuwghuGgzk6a7eePyOJcInYd959EpOlLJD3ac7mHTD_5xZGUJ6QeC4_wXx7U0z-uBm-4zIumiyGMnzOuKkdHKE/s1600/Screenshot%202025-10-21%20132526.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="925" data-original-width="1437" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEilDnc6sGVDfnN7-xHaGgP2Z_a_ub9jc9Hh1nzwIWEmVuGsNHNvRRpXW9Ni9SwIur17_i7XVDmO0E8yKdcJd9XIbjpcQQsmMMzSHu-ZlJuwghuGgzk6a7eePyOJcInYd959EpOlLJD3ac7mHTD_5xZGUJ6QeC4_wXx7U0z-uBm-4zIumiyGMnzOuKkdHKE/s1600/Screenshot%202025-10-21%20132526.png"/></a></div>
+          <div class="image-source">Source: https://gemini.google.com</div>
+        </li>
+        <li>Visit <a href="https://mail.google.com">https://mail.google.com</a>.</li>
+        <li>At the top center of the page, you will see the search box. Paste the copied command.
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiRzaJYxb7WmNgvVBBZgSsIfDTrunX_TTD98nya91ht2wcvE0xQAHTydYNFUtRKPCFxyIT2Tzw8hVdln3JKpclRfj1_2BGqjRtKstzrv9_m4fmZ9E3RyTY66TAxhwodKLKGV6sUcG1o65xy3GHCf4GqYcZJoNCnvVO2CJLas-GwOhxktwK0k_XMYQPoPwU/s1600/Screenshot%202025-10-21%20132943.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="88" data-original-width="1848" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiRzaJYxb7WmNgvVBBZgSsIfDTrunX_TTD98nya91ht2wcvE0xQAHTydYNFUtRKPCFxyIT2Tzw8hVdln3JKpclRfj1_2BGqjRtKstzrv9_m4fmZ9E3RyTY66TAxhwodKLKGV6sUcG1o65xy3GHCf4GqYcZJoNCnvVO2CJLas-GwOhxktwK0k_XMYQPoPwU/s1600/Screenshot%202025-10-21%20132943.png"/></a></div>
+          <div class="image-source">Source: https://mail.google.com</div>
+        </li>
+        <li>Click <strong>Enter</strong>.</li>
+        <li>The search result will be returned. Check if the returned emails are deletable. If ok, delete them.</li>
+      </ol>
+      <hr>
+      <h1>Pros and Cons of the AI Inbox Decluttering</h1>
+      <h2>Pros</h2>
+      <h3>In-Bulk Processing</h3>
+      <p><a href="https://www.reddit.com/r/SaaS/comments/1fan75b/whats_your_biggest_pain_point_when_it_comes_to/">One Redditor</a> said, "In my previous startup, managing my inbox was a constant headache." This is a real voice that represents pain points most people have. The Redditor was also spending more time sorting emails than on their actual business. Sorting emails can be hard as the number of emails being sorted increases. You need to <strong>clean</strong> emails before actually sorting. To help with this, this AI decluttering is here. Do this every day for cleaning, and process the remainings by batches on every weekend.</p>
+      <h3>Time-Saving Approach</h3>
+      <p>The same Redditor said, "Time is one of our valuable assets." If you agree with this statement, I think you should use this AI solution. The reason is that it usually takes less than 5 minutes and thus helps us focus on top priority. As a result, your time on email processing will be reduced.</p>
+      <h3>Reduced Mental Burnout</h3>
+      <p>Staring at an overflowing inbox triggers decision fatigue and mental burnout. This AI email decluttering technique automatically filters out promotional noise and unimportant messages in under 5 minutes daily. By removing email clutter, you recover mental clarity to focus on high-priority work instead of sorting endless emails. As a result, you will be free from inbox-induced overwhelm and burnout.</p>
+      <h2>Cons</h2>
+      <h3>Email Mis-deletion</h3>
+      <p>As you know, AI is not perfect and can accidentally delete important emails. Nevertheless, you still have a workaround for this. You can still restore the deleted within 30 days. So, I think it's worth trying.</p>
+      <h3>Incomplete Search Query</h3>
+      <p>If the number of your emails is many, Gemini may rush to meet your request quickly and return an error-prone search query. If this happens, add this additional prompt below the "<strong>[Task]</strong>" section for Gemini to generate responses with chain-of-thought.</p>
+      <pre>[Workflow]:
+1. Determine all unimportant emails.
+2. Generate a search query to filter them.
+3. Return only the code snippet.</pre>
+      <h3>Potential Personal Data Breach</h3>
+      <p>In most cases, emails contain your or your clients' personal information. It means you may put those data at significant cybersecurity risks. That's something bothering you, isn't it? So, I take robust measures to this risk. My Google Apps Script limits your email data to only unread emails in the inbox, and Google Gemini's opt-out function will delete your chat after 72 hours. This lowers the risk of data breaches to Google as well as the other third parties.</p>
+      <hr>
+      <h1>FAQ</h1>
+      <h2>How Can I Find the Search Result of My Emails?</h2>
+      <p>After you execute the email search script, you can find the search result under "<strong>Execution Log</strong>."</p>
+      <h2>Will Executing This Script Leak My Personal Data?</h2>
+      <p><strong>No</strong>, in the first place, I can't look at your execution result from my account. In fact, your information will be stored in your account.</p>
+      <h2>How Long Will My Data Sent to Google Gemini Keep?</h2>
+      <p>Your data will be kept for 72 hours for Gemini to respond to you safely.</p>
+      <h2>What're the Pros and Cons of This AI Hack?</h2>
+      <p>The Pros include batch processing, big time-saver, and ligthened mental burnout, while the cons are mis-deletion of important emails, an error-prone search query, and personal data leakage risk.</p>
+      <hr>
+      <p style="padding-top:50px;">To conclude, in this article, you learned how to save your inbox from flooding emails using Gemini 2.5 Flash, Google Apps Script, and Gmail. If you want AI to write your emails, <a href="https://genaitimestools.github.io/How%20to%20Write%20and%20Auto-Send%20an%20Email%20with%20ChatGPT.html">this article</a> will help you with this.</p>
+      <div class="article-card">
+        <div class="also-read-text">
+          <span>Also Read</span>
+        </div>
+        <div class="article-card-content" value='https://genaitimestools.github.io/How%20to%20Write%20and%20Auto-Send%20an%20Email%20with%20ChatGPT.html'>
+          <div class="thumbnail">
+            <img alt="thumbnail of the article 'How to Write and Auto-send an Email with ChatGPT'" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjcn6baMkJZaLxKjZVvZKclGYYJ4tAPP5Y3KLc4p23T-CzjxWjGuG6uo7mCKxKtL232zan7QA8m1yzzcAlALu0JKvY4hlVjF7-JVhuGeGY7mX8-3mu5CK3H0t5xOwb3RXazC2udKN0KGWff6XvXTMxtYYQbAoXUf9-EKzqk3fA8mMxEB0bLbmqElacikRY/s1600/Screenshot%202025-10-21%20193452.png">
+          </div>
+          <div class="article-title">
+            <strong>How to Write and Auto-send an Email with ChatGPT</strong>
+          </div>
+        </div>
+      </div>
+      <div class="flex-container">
+        <button class="dropbtn" id="sourcesOpenButton"><strong>Sources</strong></button>
+      </div>
+      <div class="dropdown">
+        <div id="sources" class="dropdown-content">
+          <ul>
+            <li>https://www.reddit.com/r/SaaS/comments/1fan75b/whats_your_biggest_pain_point_when_it_comes_to/</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+  </body>
+</html>
