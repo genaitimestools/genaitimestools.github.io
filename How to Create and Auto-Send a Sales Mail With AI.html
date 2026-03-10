@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+    <meta charset="UTF-8"></meta>
+    <meta content="HTML, CSS, JavaScript" name="keywords"></meta>
+    <meta content="Gen AI × Tools" name="author"></meta>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"></meta>
+    <meta content="ie=edge" http-equiv="X-UA-Compatible"></meta>
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@GenAITimesTool">
+    <meta name="twitter:title" content="How to Create and Auto-Send a Sales Mail with AI">
+    <meta name="twitter:image" content="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgpKFu7OfOA8bondyqNTx8EsqHv_8r_h6bQTqLYEDzDQi8UI1l3JG3hYgTm_M5pLRMpwLxoguc-DWlf3PbuUvgjPHypYLC56lW8GY5r-Quz4u7e3vgPX_UZo_Pn9-nY8YP1ncq3eXfGXEdmmAvf7488NlebXtfNkqvj_tXcPhMeuTGElYqUVTx9Wz5L93E/s1600/Screenshot%202025-10-17%20162315.png">
+    <link rel="stylesheet" href="https://genaitimestools.github.io/My%20blog/article_style(for_pasting_in_the_HTML_editor_on_Blogger).css">
+    <script src="https://genaitimestools.github.io/My%20blog/article_script.js"></script>
+    <style>
+      button.dropbtn {
+        border:2px double black;
+        border-radius:5px 5px 0px 0px;
+        background-color:white;
+      }
+      #post-body-7630509013107689324 > article > ol:nth-child(14) > li:nth-child(6) > div.separator > a > img, #post-body-7630509013107689324 > article > ol:nth-child(14) > li:nth-child(6) > div.separator > a > img {
+        height:90%;
+        width:90%;
+        margin:auto;
+      }
+    </style>
+  </head>
+  <body>
+    <article>
+      <p style="padding-bottom: 50px;">In your everyday sales activity, you often write and send thousands of cold emails to companies. Have you struggled with connecting your solution to your prospects' pain points? In this article, I walk through how to create and auto-send a sales email using ChatGPT-5, Google Apps Script, Google Sheets, and Gmail. Before getting started, you will need a Google and free ChatGPT account.</p>
+      <h1>Step-by-Step Guide</h1>
+      <h2>Step 1: Generate a Sales Mail</h2>
+      <p>First, generate a sales mail using ChatGPT-5.</p>
+      <ol>
+        <li>Visit <a href="https://chatgpt.com">https://chatgpt.com</a>.</li>
+        <li>Type this prompt template in the textbox with the placeholder "Ask anything."
+          <pre>[Role]: A seasonal sales professional.
+[Task]: Write a sales email.
+[Purpose]: <strong>(Describe the purpose to write an email)</strong>
+[Tone]:
+- Polite but friendly.
+- Succinct, readable structure.
+[Target]: <strong>(Describe to who you write the email)</strong>
+[Context]: <strong>(Mention recent news or announcements about the target)</strong>
+[Achievements]: <strong>(Describe your achievements related to the client)</strong>
+[Constraints]:
+- A subject line should be less than 10 words.
+- The subject line should be a message, question, or simply subject.
+- The body length is less than 150 words.
+- Include an opening line that talks about a recent, important moment of the recipient.
+- Avoid talking about yourself.
+- Include a personalized CTA that elicits a reaction more than "yes" or "no."
+- In a CTA part, clearly state what you can provide, e.g., "Would you like a free demo of ~?"
+- In the signature, include this template as is.
+
+---
+${yourCompleteInfo[0]}
+${yourCompleteInfo[1]}
+${yourCompleteInfo[2]}
+${yourCompleteInfo[3]} | ${yourCompleteInfo[4]}
+---</pre>
+        </li>
+        <li>Fill bold placeholders enclosed with "<strong>(</strong>" and "<strong>)</strong>" in the prompt.</li>
+        <li id="step_2">Click <strong>Enter</strong>.</li>
+      </ol>
+      <h2>Step 2: Check and Edit the Email Draft</h2>
+      <p>After ChatGPT-5 generates an email draft. Check if the email is sendable and edit the email with ChatGPT-5 if needed. Please make sure that you don't enter personal information in your prompt.</p>
+      <p id="step_3" style="font-size:0.1px;">d</p>
+      <h2>Step 3: Generate a Google Apps Script for Email Auto-submission</h2>
+      <p>After your email is ready, you will need to generate an email auto-submission Google Apps Script with ChatGPT-5.</p>
+      <ol>
+        <li>Type this prompt template in the same textbox that you entered the previous prompt.
+          <pre>[Task]: Fill the gaps, "(The subject of the email here.)" and "(The body of the email here.)" in the GAS code with the subject and full HTML email. 
+[Number of recipients]: <strong>(Type the number of recipients)</strong>
+[Constraints]:
+  - Your output must be a single code snippet.
+
+```javascript
+(Your code here)
+```
+
+  - When writing the greeting section, display the value of the variable "recipient" in a template literal to call with the recipient's name, e.g.,
+
+    ```
+Dear ${recipient};
+    ```
+
+[Code]:
+```
+function sendEmailsToList() {
+  // Open the active spreadsheet and select the first sheet
+  const spreadsheetId = "(Your spreadsheet id here.)";
+  const email_address_column = "Sheet1!A2:A13"; 
+  const recipient_name_column = "Sheet1!B2:B13";
+  const your_info_column = "Sheet1!E1:E5";
+  const otherVariableNames = ["Your full name", "Your job title", "Your company", "Your or your company's email address", "Your or your company's phone number"];
+
+  try {
+    const data = Sheets.Spreadsheets.Values;
+    const email_address_data = data.get(spreadsheetId, email_address_column).values;
+    const recipient_name_data = data.get(spreadsheetId, recipient_name_column).values;
+    const your_info = data.get(spreadsheetId, your_info_column).values;
+
+    let completeEmailAddressData; // validated `email_address_data`
+    let completeRecipientNameData; // validated `recipient_name_data`
+    let yourCompleteInfo; // validated `your_info`
+
+    const the_last_row_number_of_the_range_for_email_addresses = Number(email_address_column.substring(email_address_column.length - 1, email_address_column.length));
+    const the_last_row_number_of_the_range_for_recipients = Number(email_address_column.substring(recipient_name_column.length - 1, recipient_name_column.length));
+
+    const the_total_cells_for_the_range_of_email_addresses = the_last_row_number_of_the_range_for_email_addresses - 1;
+    const the_total_cells_for_the_range_of_recipients = the_last_row_number_of_the_range_for_recipients - 1;
+
+
+    if(!email_address_data || the_total_cells_for_the_range_of_email_addresses !== email_address_data.length) { // validate if there is a data for the range or is a value at the end cell of the range.
+      throw new Error(`There are missing info between A2 to A${the_last_row_number_of_the_range_for_email_addresses} cells, or you are missing value for the range's end cell.`);
+    } else {
+      completeEmailAddressData = email_address_data.map((email, index) => {
+        if(!email[0]) { // validate if there is a email address in the cell.
+          throw new Error(`A${index + 2} is missing an email.`)
+        } else {
+          return email[0];
+        }
+      });
+    }
+
+    if(!recipient_name_data || the_total_cells_for_the_range_of_recipients !== recipient_name_data.length) { // validate if there is a data for the range or is a value at the end cell of the range.
+      throw new Error(`There are missing info between B2 to B${the_last_row_number_of_the_range_for_recipients} cells, or you are missing value for the range's end cell.`);  
+    } else {
+      completeRecipientNameData = recipient_name_data.map((recipient, index) => {
+        if(!recipient[0]) { // validate if there is a recipient name in the cell.
+          throw new Error(`B${index + 2} is missing a recipient's name.`);
+        } else {
+          return recipient[0];
+        }
+      });
+    }
+
+    if(!your_info || your_info.length !== 5) { // validate if there is a data for the range or is a value at the end cell of the range.
+      throw new Error(`There are missing info between E1 to E5 cells, or your or your company's phone number is missing.`);
+    } else {
+      yourCompleteInfo = your_info.map((info, index) => {
+        if(!info[0]) { // validate if there is a your info in the cell.
+          throw new Error(`${otherVariableNames[index]} is missing.`);
+        } else {
+          return info[0];
+        }
+      });
+    }
+
+    // Loop through the emails and recipient names and send
+    for (let i = 0; i &lt; completeEmailAddressData.length; i++) {
+      const email = completeEmailAddressData[i];
+      const recipient = completeRecipientNameData[i];
+
+      const subject = "(The subject of the email here.)"; 
+      const body = `(The body of the email here.)`;
+
+      if (email && email.toString().includes('@')) { 
+        GmailApp.sendEmail(email, subject, body); 
+      }
+    }
+  } catch (err) {
+    console.error(err.message);
+    return;
+  }
+} 
+```
+
+- Adjust the cell ranges for the 2 columns for emails and recipients according to the numbers, starting from A2 or B2 cell.</pre>
+        </li>
+        <li>Replace <code>(Type the number of recipients)</code> in the prompt with the number of recipients you want to send to.</li>
+        <li>Click <strong>Enter</strong>.</li>
+        <li>After ChatGPT-5 generates GAS code, click "<strong>Copy code</strong>" in the top right corner of the generated code block.
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjVEsKmXzayVFCiDWwwEMmRC__HuaHfyGgbnmPfVuSNA_j66323ZzQFa9Ova42HUFqZUCuK1goGQjoeL__DspQYSy1besXRFuvysJv1ywS4vXbyOfOnau1bVlldKsAGjT1UTUeZRvhZUtJsk6neJM7f6OMmuVfq1RirYnOfsltuWwhyphenhyphenP1CoWQuqbisaZcU/s1600/Screenshot%202025-09-25%20103945.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="767" data-original-width="972" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjVEsKmXzayVFCiDWwwEMmRC__HuaHfyGgbnmPfVuSNA_j66323ZzQFa9Ova42HUFqZUCuK1goGQjoeL__DspQYSy1besXRFuvysJv1ywS4vXbyOfOnau1bVlldKsAGjT1UTUeZRvhZUtJsk6neJM7f6OMmuVfq1RirYnOfsltuWwhyphenhyphenP1CoWQuqbisaZcU/s1600/Screenshot%202025-09-25%20103945.png"/></a></div>
+          <div class="image-source" id="step_4">Source: https://chatgpt.com</div>
+        </li>
+      </ol> 
+      <h2>Step 4: Execute the Google Apps Script</h2>
+      <ol>
+        <li>Go to <a href="https://docs.google.com/spreadsheets/">https://docs.google.com/spreadsheets/</a>.</li>
+        <li>Make sure that the Google Sheets page is your account's.</li>
+        <li>Click "<strong>Blank spreadsheet</strong>."
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiDfRSs8e5SIKXu4EKpuIc96ERacQdJDwYotqp7SsqQIqWp6z3A6H2-_ZAr85qtzzzHQqgs48ALzJpzeQJ33PyjnZ4hqJ9_mibPA8htJpHQMUYkClk6c0vw_UKIFCbEO7dqQkF97UMauHlqa1V5DeIi5ejad5o1JpASprcczwT0k7oUBjMGfOZft8215Vw/s1600/Screenshot%202025-09-25%20105837.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="401" data-original-width="1727" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiDfRSs8e5SIKXu4EKpuIc96ERacQdJDwYotqp7SsqQIqWp6z3A6H2-_ZAr85qtzzzHQqgs48ALzJpzeQJ33PyjnZ4hqJ9_mibPA8htJpHQMUYkClk6c0vw_UKIFCbEO7dqQkF97UMauHlqa1V5DeIi5ejad5o1JpASprcczwT0k7oUBjMGfOZft8215Vw/s1600/Screenshot%202025-09-25%20105837.png"/></a></div>
+          <div class="image-source">Source: https://docs.google.com/spreadsheets</div>
+        </li>
+        <li>Fill the cells as you can see below. For "<b>name@example.com</b>" and "<b>name (number)</b>," replace them with recipients' emails and names, and for "<b>Your name</b>," "<b>sales director</b>," "<b>XYZ company</b>," "<b>Your or your company's email address</b>," and "<b>Yours or your company's phone number</b>," replace them with yours. I recommend going through the rest of the steps with your email address and name first to test if the script works. After the test, go back to this step, and do the same with your recipients' email addresses.<br><br>
+          <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTgfx9o1kByTPQOBEGKakBCWgegIMD7_fJL3_5aE9_PF17WAQM073ih3_KJgC4hw3vW0jWcdkkazovw/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false" style="width:100%;"></iframe>
+        </li>
+        <li>Visit <a href="https://script.google.com">https://script.google.com</a>.</li>
+        <li>Click "<strong>New project</strong>."
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjDBGyVUqWxT4aq5s4MCn-keouF6SiODkEzmZEOEp0Idbjolpu2efpPH417FlWuxOHQcga5HG9cbWOZ4eHzitl4MA5oYrBZyjyC4zqWlTaw9QbmgZmM5vWB0VHoi7kKBYbjCuqJuibY5aZ2ZYbl2UZGVq0VXex3v_Hv8KyFZYW5AUSqu4ysjx8xaAnzBBs/s1600/Screenshot%202025-09-25%20112149.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="925" data-original-width="1851" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjDBGyVUqWxT4aq5s4MCn-keouF6SiODkEzmZEOEp0Idbjolpu2efpPH417FlWuxOHQcga5HG9cbWOZ4eHzitl4MA5oYrBZyjyC4zqWlTaw9QbmgZmM5vWB0VHoi7kKBYbjCuqJuibY5aZ2ZYbl2UZGVq0VXex3v_Hv8KyFZYW5AUSqu4ysjx8xaAnzBBs/s1600/Screenshot%202025-09-25%20112149.png"/></a></div>
+          <div class="image-source">Source: https://script.google.com</div>
+        </li>
+        <li>A new project will be created. Replace the existing code with the copied code.
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiQYYNP4zORskf67kz5ak3e128Nc4C8fheS8yIYOlGRbWV-NsjSNTVAvWI0qZBdJRUH8tcJ4lWN9mtijn9F2nB2aBcrz6hv24IQuL7w-GoZl_3ClViXisre2f64BE1I7Gz-KQKEzrCP5bifCf7WbzjLYsY7iTNSJ4dQyIJNbBDiDccV6R6B4X1GzmYP0Zg/s1600/Screenshot%202025-09-25%20132457.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="923" data-original-width="1837" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiQYYNP4zORskf67kz5ak3e128Nc4C8fheS8yIYOlGRbWV-NsjSNTVAvWI0qZBdJRUH8tcJ4lWN9mtijn9F2nB2aBcrz6hv24IQuL7w-GoZl_3ClViXisre2f64BE1I7Gz-KQKEzrCP5bifCf7WbzjLYsY7iTNSJ4dQyIJNbBDiDccV6R6B4X1GzmYP0Zg/s1600/Screenshot%202025-09-25%20132457.png"/></a></div>
+          <div class="image-source">Source: https://script.google.com</div>
+        </li>
+        <li>Replace "(Your spreadsheet id here.)" in the code with the id of the spreadsheet. You can find the spreadsheet ID between the "d/" and "/edit" in the URL.
+          <pre>https://docs.google.com/spreadsheets/d/<strong style="font-size:17px;">${id}</strong>/edit</pre>
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgzKQA3N9xEDZloD4TxcXAlWe7xs3bCd3PpUSCUUlJqCHrrAQAVqUTj_9KlVgNe3GLmQJPLDcqKbjNLkukQFMkkw2Yz9NANflSWemREYKCJkAucW0qw59WV5vQPSiugNu9aClrT9tK1LGhH0aHbnZyuCUX9Y77qLun5mrJd5_7VFVJ6DoVX2FCXfiMtFz4/s1600/GxttiidbMAAusgq.jpg" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="271" data-original-width="1056" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgzKQA3N9xEDZloD4TxcXAlWe7xs3bCd3PpUSCUUlJqCHrrAQAVqUTj_9KlVgNe3GLmQJPLDcqKbjNLkukQFMkkw2Yz9NANflSWemREYKCJkAucW0qw59WV5vQPSiugNu9aClrT9tK1LGhH0aHbnZyuCUX9Y77qLun5mrJd5_7VFVJ6DoVX2FCXfiMtFz4/s1600/GxttiidbMAAusgq.jpg"/></a></div>
+          <div class="image-source">Source: https://script.google.com</div>
+        </li>
+        <li>Click "<strong>Ctrl</strong> + <strong>S</strong>" if your operating system is Windows or "<strong>Command (⌘)</strong> + <strong>S</strong>" if your operating system is Mac to save the code.</li>
+        <li>Click "<strong>Service</strong>."
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgK5qTUs0an8he9EVUEst77Qonn7xlw3_ZQ7WQimEfJuZzVUdZAVvp_YZRH_y4FtIO6BOAQPH5Kn4RLAtBA_vsV90CcCwX5UeLxdpN8rM0bjOEbBnQWzdtK8yevN75PF4t-YfQY1fKp7CiZOuuOL49T86fZqfoVLFBCUZofghvcfMl2n7_BRMPfyQlpffo/s1600/Screenshot%202025-09-25%20130701.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="290" data-original-width="365" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgK5qTUs0an8he9EVUEst77Qonn7xlw3_ZQ7WQimEfJuZzVUdZAVvp_YZRH_y4FtIO6BOAQPH5Kn4RLAtBA_vsV90CcCwX5UeLxdpN8rM0bjOEbBnQWzdtK8yevN75PF4t-YfQY1fKp7CiZOuuOL49T86fZqfoVLFBCUZofghvcfMl2n7_BRMPfyQlpffo/s1600/Screenshot%202025-09-25%20130701.png"/></a></div>
+          <div class="image-source">Source: https://script.google.com</div>
+        </li>
+        <li>A pop-up will be opened. Scroll down the list of the APIs until you can see "<strong>Google Sheets API</strong>."
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhckn6sCmFxxuUeQhcX0LZqNY5HQllRhNrBVggeSq8yzlbWxWTGXQQXaWSfnLhI9kE7D2GDWDikWIBrvnx-V1nr480G6rM-bKn0U_pqj4AhfZrhQNPHLiw51hyphenhyphenIo2CkQC00mtSne2Lc74OvISpTm_QPxf8z3-TyrGenboPV56bY8OZV6O_DxS8Ihdno7WM/s1600/Screenshot%202025-09-25%20130212.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="811" data-original-width="641" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhckn6sCmFxxuUeQhcX0LZqNY5HQllRhNrBVggeSq8yzlbWxWTGXQQXaWSfnLhI9kE7D2GDWDikWIBrvnx-V1nr480G6rM-bKn0U_pqj4AhfZrhQNPHLiw51hyphenhyphenIo2CkQC00mtSne2Lc74OvISpTm_QPxf8z3-TyrGenboPV56bY8OZV6O_DxS8Ihdno7WM/s1600/Screenshot%202025-09-25%20130212.png"/></a></div>
+          <div class="image-source">Source: https://script.google.com</div>
+        </li>
+        <li>Click "<strong>Google Sheets API</strong>."
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg-k72inoXCczHl7USaJ9kiTOE9ktXeTSbSUJvEfWBXl7DPNPgE7kQWOnvMW4DQrlXdil5rMvZ9TA4w2xCOihGQZ_lZondSuvse93R51cK0rQcRV8d_ARkSXfeUynashpr001lllkst5h68_0cCABugfe_FImjPENJv_ytcjWhIPG8ed_nGZqzuyHGKdZ0/s1600/Screenshot%202025-09-25%20140438.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="811" data-original-width="640" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg-k72inoXCczHl7USaJ9kiTOE9ktXeTSbSUJvEfWBXl7DPNPgE7kQWOnvMW4DQrlXdil5rMvZ9TA4w2xCOihGQZ_lZondSuvse93R51cK0rQcRV8d_ARkSXfeUynashpr001lllkst5h68_0cCABugfe_FImjPENJv_ytcjWhIPG8ed_nGZqzuyHGKdZ0/s1600/Screenshot%202025-09-25%20140438.png"/></a></div>
+          <div class="image-source">Source: https://script.google.com</div>
+        </li>
+        <li>Click "<strong>Add</strong>."
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiIPYmZpQj1xDzCSUCmRItcj6dcufZNNBvvwiXDevzC8HMC8oqNSml81H-qBg0XyRv58nxIzydGJLREdZRWz-DXLdZHBs_KlzDImQjX6dHcgY1Lhg1TNgnt9VCpx4texm3K_Q_-HgbZa7Z_ldbSF7m3mkCaL5xQ5hWV9yqicjs9deSlStlVYegYgnDeFKM/s1600/Screenshot%202025-09-25%20140939.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="812" data-original-width="641" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiIPYmZpQj1xDzCSUCmRItcj6dcufZNNBvvwiXDevzC8HMC8oqNSml81H-qBg0XyRv58nxIzydGJLREdZRWz-DXLdZHBs_KlzDImQjX6dHcgY1Lhg1TNgnt9VCpx4texm3K_Q_-HgbZa7Z_ldbSF7m3mkCaL5xQ5hWV9yqicjs9deSlStlVYegYgnDeFKM/s1600/Screenshot%202025-09-25%20140939.png"/></a></div>
+          <div class="image-source">Source: https://script.google.com</div>
+        </li>
+        <li>Click "<strong>Run</strong>."
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhvZ43QkL1TXFtg_4Mh09D_L2emFJUaKC9SQetI-_gD0U4nF30vgmguiOI5QWymNrswvI8hYpP0JedYI0C6YGe6ass2ZVq_LF4ewICdTW5VST15jRXY-kz84xKWuNwihMVLovrDQVm_osntnG8nJZOuUM9VfRP92QeUbEArdTGqu7jGz3DCk6eaVZ_Pw48/s1600/Screenshot%202025-09-25%20123715.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="131" data-original-width="1041" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhvZ43QkL1TXFtg_4Mh09D_L2emFJUaKC9SQetI-_gD0U4nF30vgmguiOI5QWymNrswvI8hYpP0JedYI0C6YGe6ass2ZVq_LF4ewICdTW5VST15jRXY-kz84xKWuNwihMVLovrDQVm_osntnG8nJZOuUM9VfRP92QeUbEArdTGqu7jGz3DCk6eaVZ_Pw48/s1600/Screenshot%202025-09-25%20123715.png"/></a></div>
+          <div class="image-source">Source: https://script.google.com</div>
+        </li>
+        <li>A pop-up will be opened. Click "<strong>Review permissions</strong>."
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhnqzBxdDO3JaHXyiukeXRtjRYqtLaTZXXDHd_-oq1leDWcUIoij0_spGSpePfmQfo7GzNXSbor_BF5zNm_DTwvKZrIDds1Qv2ksos8ErRItSQTroNpZNQHN6mrDOwugbueHbb5j4FiDtto0znKmhIrVVEnNKrvkXHxs8f4rMgT9NsulvfXrH2y69JmBUk/s1600/Screenshot%202025-09-25%20125714.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="250" data-original-width="606" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhnqzBxdDO3JaHXyiukeXRtjRYqtLaTZXXDHd_-oq1leDWcUIoij0_spGSpePfmQfo7GzNXSbor_BF5zNm_DTwvKZrIDds1Qv2ksos8ErRItSQTroNpZNQHN6mrDOwugbueHbb5j4FiDtto0znKmhIrVVEnNKrvkXHxs8f4rMgT9NsulvfXrH2y69JmBUk/s1600/Screenshot%202025-09-25%20125714.png"/></a></div>
+          <div class="image-source">Source: https://script.google.com</div>
+        </li>
+        <li>Sign in to your account.</li>
+        <li>Another pop-up will be opened. Click "<strong>Advanced</strong>."
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiF1n6Q3RL_xKQlrmYbJJTD3u_lPg6fhHeFr2GJxFh48BRlQS4RFoMzAWUoHtkN_RsvLtNRMOSBbXNNyK3C76H3O_WFZ4UbZyZdc6_8Sd6_53CTu0fvr1YrV4KvqqI0f0TlOaqcA4lmqSJBijoJkcovTeuhF_G8KeA5qHXh2dRnFUE2cWyUWdNSFSfh5Ew/s1600/Screenshot%202025-09-25%20125732.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="912" data-original-width="812" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiF1n6Q3RL_xKQlrmYbJJTD3u_lPg6fhHeFr2GJxFh48BRlQS4RFoMzAWUoHtkN_RsvLtNRMOSBbXNNyK3C76H3O_WFZ4UbZyZdc6_8Sd6_53CTu0fvr1YrV4KvqqI0f0TlOaqcA4lmqSJBijoJkcovTeuhF_G8KeA5qHXh2dRnFUE2cWyUWdNSFSfh5Ew/s1600/Screenshot%202025-09-25%20125732.png"/></a></div>
+          <div class="image-source">Source: https://account.google.com</div>
+        </li>
+        <li>Click "<strong>Go to Untitled project (unsafe)</strong>."
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg4knRvQ1HHYvrYZcpEgypsGLiX3ZEeDJaaNP5oOz_vjVyjdZ9lreu0ERgIfuyr4hgQjCLCvyq_wG-u6nHn2mnygyrBqpgSGA6HulXjPU3Lcqy1Sb2ihoyNdHPv3Cibm_LcPL8VLkEO759xXc0XTEXuGJ_Q0WBLJZwEL4Oyis6DuO4ob7MkDCsX70kObu4/s1600/Screenshot%202025-09-25%20125741.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="911" data-original-width="811" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg4knRvQ1HHYvrYZcpEgypsGLiX3ZEeDJaaNP5oOz_vjVyjdZ9lreu0ERgIfuyr4hgQjCLCvyq_wG-u6nHn2mnygyrBqpgSGA6HulXjPU3Lcqy1Sb2ihoyNdHPv3Cibm_LcPL8VLkEO759xXc0XTEXuGJ_Q0WBLJZwEL4Oyis6DuO4ob7MkDCsX70kObu4/s1600/Screenshot%202025-09-25%20125741.png"/></a></div>
+          <div class="image-source">Source: https://account.google.com</div>
+        </li>
+        <li>Put a tick in the checkbox to give permission to access Google services for your project.
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhaPKfz9HT17mhSdCgggIo5e8IO2g5vOpedkaFbqSDCEQSYcFMTeMXybV7IJ8v0LwkqqeR-8v1k0GBnHrQvpdJMgONC-sALh86b0HJqewhOPk-kY6d-nmkIBib6oZVThNeDXhxHLF5ntQF4I6Sy0JhjqkOWv2TRs1SGgangtRrEoUV7V1aSu9G2YxAC37Y/s1600/Screenshot%202025-09-25%20141719.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="912" data-original-width="792" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhaPKfz9HT17mhSdCgggIo5e8IO2g5vOpedkaFbqSDCEQSYcFMTeMXybV7IJ8v0LwkqqeR-8v1k0GBnHrQvpdJMgONC-sALh86b0HJqewhOPk-kY6d-nmkIBib6oZVThNeDXhxHLF5ntQF4I6Sy0JhjqkOWv2TRs1SGgangtRrEoUV7V1aSu9G2YxAC37Y/s1600/Screenshot%202025-09-25%20141719.png"/></a></div>
+          <div class="image-source">Source: https://account.google.com</div>
+        </li>
+        <li>Click "<strong>Continue</strong>."
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh3YdbtBCOEqpOMpuVpDIaeoIj5DtKeGkqMXIO4uNJkjYlCdgJdUJ54gAlMxvxkw1mzpobI-Sb-YKEW7ccJJ3RTgIpYDdd0m7OzHlRgM4tbaxkmVj1hmStMtFe8QGpuSA3pVHOiivvPoPJtxBQ-kLAP4pi68r_Qe8zDu-Xl3pBP82r8ZNB4TQQEd65-80w/s1600/Screenshot%202025-09-25%20141731.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="906" data-original-width="791" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh3YdbtBCOEqpOMpuVpDIaeoIj5DtKeGkqMXIO4uNJkjYlCdgJdUJ54gAlMxvxkw1mzpobI-Sb-YKEW7ccJJ3RTgIpYDdd0m7OzHlRgM4tbaxkmVj1hmStMtFe8QGpuSA3pVHOiivvPoPJtxBQ-kLAP4pi68r_Qe8zDu-Xl3pBP82r8ZNB4TQQEd65-80w/s1600/Screenshot%202025-09-25%20141731.png"/></a></div>
+          <div class="image-source">Source: https://account.google.com</div>
+        </li>
+        <li>The script will be executed.</li>
+      </ol>
+        <p>Here's the example of an email sent.</p>
+        <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgpKFu7OfOA8bondyqNTx8EsqHv_8r_h6bQTqLYEDzDQi8UI1l3JG3hYgTm_M5pLRMpwLxoguc-DWlf3PbuUvgjPHypYLC56lW8GY5r-Quz4u7e3vgPX_UZo_Pn9-nY8YP1ncq3eXfGXEdmmAvf7488NlebXtfNkqvj_tXcPhMeuTGElYqUVTx9Wz5L93E/s1600/Screenshot%202025-10-17%20162315.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="492" data-original-width="1461" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgpKFu7OfOA8bondyqNTx8EsqHv_8r_h6bQTqLYEDzDQi8UI1l3JG3hYgTm_M5pLRMpwLxoguc-DWlf3PbuUvgjPHypYLC56lW8GY5r-Quz4u7e3vgPX_UZo_Pn9-nY8YP1ncq3eXfGXEdmmAvf7488NlebXtfNkqvj_tXcPhMeuTGElYqUVTx9Wz5L93E/s1600/Screenshot%202025-10-17%20162315.png"/></a></div>
+        <div class="image-source" id="use_cases">Source: https://mail.google.com</div>
+      <h2>Advanced Option: Schedule Email Submission</h2>
+      <p>When you send an email, you want to send it at an optimal time. To schedule email submission, you can use Google Apps Script's time trigger. Here's how to do this.</p>
+      <ol>
+        <li>Go back to your Google Apps Script project.</li>
+        <li>Click the button with a timer in the sidebar.
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjksLtZiz6okOwpQgJDJr_H8g4B3STENCP69cb64rZTUs0dz8sPDuaCvGq4-Op1s_GSktEJKC6P-f0lgG5XV24uLJjYvBS8PV0759OwuXbuJbIsOaHG4BV2nM321Mfftkly4cdN3FrH9LbREbkB6edyflIpaB4ZuXRoCnVecHvsC6QndJZUHC6KeGYq3dg/s1600/Screenshot%202025-10-18%20074725.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="318" data-original-width="364" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjksLtZiz6okOwpQgJDJr_H8g4B3STENCP69cb64rZTUs0dz8sPDuaCvGq4-Op1s_GSktEJKC6P-f0lgG5XV24uLJjYvBS8PV0759OwuXbuJbIsOaHG4BV2nM321Mfftkly4cdN3FrH9LbREbkB6edyflIpaB4ZuXRoCnVecHvsC6QndJZUHC6KeGYq3dg/s1600/Screenshot%202025-10-18%20074725.png"/></a></div>
+          <div class="image-source">Source: https://script.google.com</div>
+        </li>
+        <li>Click "<strong>Add Trigger</strong>" in the bottom right corner of the screen.
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiTaxcL4k2vuXxJOVkA-GEzFTbZJZOSK7A6l4-DAHZ9nJF4IP3gi8zlzQ9-TDktfm9LvgnZPzoSLaZq-aSXiitfEu_OmldbOiwz8JBCqz-hRWCUoReLYz-n73sES3LzFk8Vk6buQXLRy8ytx6gLKpnHVFFIxdsiqx1x1jIumZniwgmJBJAq5F0VptYrONQ/s1600/Screenshot%202025-10-18%20074816.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="847" data-original-width="1842" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiTaxcL4k2vuXxJOVkA-GEzFTbZJZOSK7A6l4-DAHZ9nJF4IP3gi8zlzQ9-TDktfm9LvgnZPzoSLaZq-aSXiitfEu_OmldbOiwz8JBCqz-hRWCUoReLYz-n73sES3LzFk8Vk6buQXLRy8ytx6gLKpnHVFFIxdsiqx1x1jIumZniwgmJBJAq5F0VptYrONQ/s1600/Screenshot%202025-10-18%20074816.png"/></a></div>
+          <div class="image-source">Source: https://script.google.com</div>
+        </li>
+        <li>Click "<strong>Hour timer</strong>."
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj8VpSH8jReTC40gBoVQZhEzFcVfbtALYhuw9apyI-4jHb9wf33fjv21UBoFyutb9-VIASIm7rAEZXMQiV1_UT7tSKjyMSlTxLNQSFZnU81xOQMmKSAEsHG9r8Qec0WJCBf_FTVDzj3Z8UnC9f-a0jjToOAYOckCh0L89LKmNEWWDkB3u1NUhcsHtCbslU/s1600/Screenshot%202025-10-18%20075000.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="838" data-original-width="906" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj8VpSH8jReTC40gBoVQZhEzFcVfbtALYhuw9apyI-4jHb9wf33fjv21UBoFyutb9-VIASIm7rAEZXMQiV1_UT7tSKjyMSlTxLNQSFZnU81xOQMmKSAEsHG9r8Qec0WJCBf_FTVDzj3Z8UnC9f-a0jjToOAYOckCh0L89LKmNEWWDkB3u1NUhcsHtCbslU/s1600/Screenshot%202025-10-18%20075000.png"/></a></div>
+          <div class="image-source">Source: https://script.google.com</div>
+        </li>
+        <li>Choose "<strong>specific date and time</strong>."
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEidOS8GP_ovw5vxH75nskMA2hHZoiM6N7ICn5ebLXMBkUWzEAiz2rSJ1tlAvbGgaTTRyCGhWuiC1gfu5mVhbXfWX8JBO4DGkPApvLx_RUAksgNllMs_5WcZX36MvmG6sUb8_IE4jeXI8BNnhEWdYaPeGsr8bLkvRm10ujhnP2JMc34t933gUNcEMaLlnnc/s1600/Screenshot%202025-10-18%20075038.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="324" data-original-width="323" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEidOS8GP_ovw5vxH75nskMA2hHZoiM6N7ICn5ebLXMBkUWzEAiz2rSJ1tlAvbGgaTTRyCGhWuiC1gfu5mVhbXfWX8JBO4DGkPApvLx_RUAksgNllMs_5WcZX36MvmG6sUb8_IE4jeXI8BNnhEWdYaPeGsr8bLkvRm10ujhnP2JMc34t933gUNcEMaLlnnc/s1600/Screenshot%202025-10-18%20075038.png"/></a></div>
+          <div class="image-source">Source: https://script.google.com</div>
+        </li>
+        <li>Enter when your email will be sent in this format: <code>(year)-(month)-(day) (hour):(minute)</code>. For <code>hour</code>, if it's less than 10, append 0 before the hour, e.g., <code>08</code>.
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhFjEf4AMRJ4WrzEjVUP1n-4S2ly6bMJYQsZfu3dNblf59TjHzs8ri-FF0Gd_0q2j4lKO44w4lFsxLv12gvJDtpFFnLqA98yE5jqQ2Unys_z9r5KOiGMFJJc1bS5vlPsi0A_B-gVY3Idbps4dBllnxeUBFHKrLODII0gNZLfum3PdSkJ58AJ-nwES8l2Vw/s1600/Screenshot%202025-10-18%20075140.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="247" data-original-width="336" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhFjEf4AMRJ4WrzEjVUP1n-4S2ly6bMJYQsZfu3dNblf59TjHzs8ri-FF0Gd_0q2j4lKO44w4lFsxLv12gvJDtpFFnLqA98yE5jqQ2Unys_z9r5KOiGMFJJc1bS5vlPsi0A_B-gVY3Idbps4dBllnxeUBFHKrLODII0gNZLfum3PdSkJ58AJ-nwES8l2Vw/s1600/Screenshot%202025-10-18%20075140.png"/></a></div>
+          <div class="image-source">Source: https://script.google.com</div>
+        </li>
+        <li>Click "<strong>Save</strong>."
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi0aPzOKzmrt91Zb0rj3SwlWZ12bweTv58F5Cg03vwVwV6iauJhPxo7tgk0YdZNMBvipdVaWAcy9HvG6V2LqjdfL6ru5WWj7SzKPl8RYEPRpqvHCoy2RzkBpSkox1_XSzuSE1lx1EnuOUiWTeZjZAIzObx7U0OKjghMHsaVlfsIq5EHQJQyJv8tcFXsDpM/s1600/Screenshot%202025-10-18%20075625.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="842" data-original-width="910" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi0aPzOKzmrt91Zb0rj3SwlWZ12bweTv58F5Cg03vwVwV6iauJhPxo7tgk0YdZNMBvipdVaWAcy9HvG6V2LqjdfL6ru5WWj7SzKPl8RYEPRpqvHCoy2RzkBpSkox1_XSzuSE1lx1EnuOUiWTeZjZAIzObx7U0OKjghMHsaVlfsIq5EHQJQyJv8tcFXsDpM/s1600/Screenshot%202025-10-18%20075625.png"/></a></div>
+          <div class="image-source">Source: https://script.google.com</div>
+        </li>
+        <li>Email submission will be scheduled.
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiqvx7zihUcQICgrPBs5Nh-i_sfmEhDLGyDlZTeEvts_VzksaDQknD3XqYq-6Wez6QpELh8srtrSqquoER70tZb1Dtf0phXMu2jEjKmyweQdHTqTGJ9aCs8AmJVGg62Dm_OR5XA7vRlbbTtQ9gz1AQWmnEXGSJ2F9mKaIcxIbq94vD-yMiFDb0jJgjY3as/s1600/Screenshot%202025-10-18%20075820.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="847" data-original-width="1841" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiqvx7zihUcQICgrPBs5Nh-i_sfmEhDLGyDlZTeEvts_VzksaDQknD3XqYq-6Wez6QpELh8srtrSqquoER70tZb1Dtf0phXMu2jEjKmyweQdHTqTGJ9aCs8AmJVGg62Dm_OR5XA7vRlbbTtQ9gz1AQWmnEXGSJ2F9mKaIcxIbq94vD-yMiFDb0jJgjY3as/s1600/Screenshot%202025-10-18%20075820.png"/></a></div>
+          <div class="image-source">Source: https://script.google.com</div>
+        </li>
+      </ol>
+      <hr>
+      <h1>Use Cases</h1>
+      <h2>Cold Outreach</h2>
+      <p><a href="https://www.reddit.com/r/sales/comments/1498mpn/i_just_suck_at_emailing/">One Redditor</a> struggled with turning clients' problems into a compelling copy. To the pain point, <a href="https://www.reddit.com/r/sales/comments/1498mpn/comment/jo445s9/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button">one answerer</a> gave a ready-to-use outline below.</p>
+      <ol>
+        <li>Thank</li>
+        <li>Outline problem</li>
+        <li>Ask</li>
+        <li>Connect problem to solution</li>
+        <li>You can add an optional line reiterating the value prop, but I think that's gilding the lily.</li>
+        <li>Also don't forget your contact deets</li>
+      </ol>
+      <p>If you have a working outline such as this when doing cold outreach, you can add an <strong>[Outline]</strong> section to write a sales email based on it. Here're the prompt parameter example and the result.</p>
+      <p>Parameter Example</p>
+      <pre>[Role]: A seasonal sales professional.
+[Task]: Write a sales email.
+[Purpose]: To schedule a demo of a new HR automation platform.
+[Tone]:
+- Polite but friendly.
+- Succinct, readable structure.
+[Target]: HR manager at a mid-sized tech firm.
+[Context]: The company announced plans to expand its workforce by 30%.
+[Achievements]: Helped clients reduce onboarding time by 60%.
+<strong>[Outline]:
+1. Outline problem 
+2. Ask 
+3. Connect problem to solution 
+4. You can add an optional line reiterating the value prop, but I think that's gilding the lily. 
+5. Also don't forget your contact deets</strong>
+[Constraints]:
+- A subject line should be less than 10 words.
+- The subject line should be a message, question, or simply subject.
+- The body length is less than 150 words.
+- Include an opening line that talks about a recent, important moment of the recipient.
+- Avoid talking about yourself.
+- Include a personalized CTA that elicits a reaction more than "yes" or "no."
+- In a CTA part, clearly state what you can provide, e.g., "Would you like a free demo of ~?"
+- In the signature, include this template as is.
+
+---
+${yourCompleteInfo[0]}
+${yourCompleteInfo[1]}
+${yourCompleteInfo[2]}
+${yourCompleteInfo[3]} | ${yourCompleteInfo[4]}
+---</pre>
+      <p>Result</p>
+      <pre><strong>Subject:</strong> Ready to simplify your hiring expansion?
+
+<strong>Body:</strong>
+Hi ${recipient},
+
+I saw your company’s announcement about expanding your workforce by 30%—congratulations on this exciting growth phase! Managing that scale of hiring can be challenging, especially when onboarding and admin tasks pile up.
+
+Would streamlining your HR process help your team focus more on hiring the right talent? Our automation platform has helped companies cut onboarding time by 60%, freeing HR teams to prioritize people over paperwork.
+
+Would you like a free demo to see how it could fit your current system and growth goals?
+
+Best regards,
+
+${yourCompleteInfo[0]}
+${yourCompleteInfo[1]}
+${yourCompleteInfo[2]}
+${yourCompleteInfo[3]} | ${yourCompleteInfo[4]}
+-----------------------------------------------
+</pre>
+      <h2>Follow-Up Email</h2>
+      <p>Once you send the email, you will often send follow-up emails. If you use this prompt template and the Google Apps Script's time triggers, you can streamline both follow-up email generation and submission. This way, you can delegate them to AI and Google Apps Script. Here're the prompt template, the parameter example, and the result.</p> 
+      <p>Prompt Template</p>
+      <pre>[Role]: A seasonal sales professional.
+[Task]: Write a follow-up sales email.
+[Purpose]: <strong>(Describe the purpose to write an email)</strong>
+[Tone]:
+- Polite but friendly.
+- Succinct, readable structure.
+[Target]: <strong>(Describe to who you write the email)</strong>
+[Context]: <strong>(Mention recent news or announcements about the target)</strong>
+[Achievements]: <strong>(Describe your achievements related to the client)</strong>
+[Constraints]:
+- A subject line should be less than 10 words.
+- The subject line should be a message, question, or simply subject.
+- The body length is less than 150 words.
+- Include an opening line that talks about a recent, important moment of the recipient.
+- Avoid talking about yourself.
+- Include a personalized CTA that elicits a reaction more than "yes" or "no."
+- In a CTA part, clearly state what you can provide, e.g., “Would you like a free demo of ~?”
+- In the signature, include this template as is.
+
+---
+${yourCompleteInfo[0]}
+${yourCompleteInfo[1]}
+${yourCompleteInfo[2]}
+${yourCompleteInfo[3]} | ${yourCompleteInfo[4]}
+---</pre>
+      <p>Parameter Example</p>
+      <pre>[Role]: A seasonal sales professional.
+[Task]: Write a follow-up sales email.
+[Purpose]: To reconnect after sending an initial email about a product demo and encourage the recipient to schedule a session.
+[Tone]:
+- Polite but friendly.
+- Succinct, readable structure.
+[Target]: Marketing manager at an e-commerce brand who showed initial interest but hasn’t responded.
+[Context]: The brand recently hit a milestone of 1 million online customers.
+[Achievements]: Helped similar e-commerce brands boost conversion rates by 30% through product optimization tools.
+[Constraints]:
+- A subject line should be less than 10 words.
+- The subject line should be a message, question, or simply subject.
+- The body length is less than 150 words.
+- Include an opening line that talks about a recent, important moment of the recipient.
+- Avoid talking about yourself.
+- Include a personalized CTA that elicits a reaction more than "yes" or "no."
+- In a CTA part, clearly state what you can provide, e.g., “Would you like a free demo of ~?”
+- In the signature, include this template as is.
+
+---
+
+[Your full name]
+[Your job title]
+[Your company name]
+[email@example.com](mailto:email@example.com) | +0 (000) 000-0000
+
+---</pre>
+      <p>Result</p>
+      <pre><strong>Subject:</strong> Still curious about engaging your 1M customers?
+
+<strong>Body:</strong>
+Hi [Recipient’s Name],
+
+Congratulations on reaching one million online customers — that’s an incredible milestone! 🎉
+
+I wanted to quickly follow up on my previous email about our product optimization tools. Many e-commerce teams like yours have used them to turn higher site traffic into measurable conversion growth.
+
+Would you like a short, tailored demo to see how your team could increase conversions during the holiday rush? I can adjust it to focus on your current sales campaign goals.
+
+Looking forward to hearing what timing works best for you.
+
+Best regards,
+${yourCompleteInfo[0]}
+${yourCompleteInfo[1]}
+${yourCompleteInfo[2]}
+${yourCompleteInfo[3]} | ${yourCompleteInfo[4]}</pre>
+      <h2>Upselling or Cross-Selling</h2>
+      <p>If you upsell or cross-sell another product to your clients, you often write emails for the upselling or cross-selling based on their behaviors. If you use our prompt template, you can write those emails by including the past behaviors in the [Context] section. Here're the prompt parameter example and the result.</p>
+      <p>Parameter Example</p>
+      <pre>[Role]: A seasonal sales professional.
+[Task]: Write a sales email.
+[Purpose]: To upsell an existing client with a premium version of the analytics dashboard.
+[Tone]:
+- Polite but friendly.
+- Succinct, readable structure.
+[Target]: Head of marketing analytics at a SaaS company.
+[Context]: The client has been actively using the standard analytics dashboard for six months and recently requested deeper insights on campaign ROI.
+[Achievements]: Helped similar clients upgrade to the premium dashboard, improving reporting accuracy by 40%.
+[Constraints]:
+- Subject line under 10 words.
+- Subject line should be a message, question, or simple subject.
+- Body length under 150 words.
+- Include an opening line about a recent, important moment for the recipient.
+- Avoid talking about yourself.
+- Include a personalized CTA that elicits a reaction more than “yes” or “no.”
+- CTA must clearly state what you can provide (e.g., “Would you like a free demo of ~?”).
+- Include this signature template as is.</pre>
+      <p>Result</p>
+      <pre>Hi [Recipient’s Name],
+
+I noticed your team has been actively tracking campaign ROI over the past few months — great to see the consistent growth in engagement metrics!
+
+Since you’ve been using the standard analytics dashboard for six months, you might find our premium version helpful. It offers granular ROI breakdowns, advanced segmentation, and customizable reports designed for marketing teams scaling fast.
+
+Would you like a quick demo to explore how the premium dashboard could uncover deeper insights for your next campaign? I can tailor it around your current data goals.
+
+Best regards,
+${yourCompleteInfo[0]}
+${yourCompleteInfo[1]}
+${yourCompleteInfo[2]}
+${yourCompleteInfo[3]} | ${yourCompleteInfo[4]}</pre>
+      <hr>
+      <p style="padding-top:50px;">In summary, this article went through how to generate and auto-send a sales email using ChatGPT-5, Google Apps Script, Google Sheets, and Gmail. If you want to generate emails for general purposes beyond sales, <a href="https://aitimestools.blogspot.com/2025/09/how-to-write-and-auto-send-email-with.html">this article</a> help you with this.</p>
+      <div class="article-card">
+        <div class="also-read-text">
+          <span>Also Read</span>
+        </div>
+        <div class="article-card-content" value='https://aitimestools.blogspot.com/2025/09/how-to-write-and-auto-send-email-with.html'>
+          <div class="thumbnail">
+            <img alt="thumbnail of the article 'How to Write and Auto-send an Email with ChatGPT'" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjcn6baMkJZaLxKjZVvZKclGYYJ4tAPP5Y3KLc4p23T-CzjxWjGuG6uo7mCKxKtL232zan7QA8m1yzzcAlALu0JKvY4hlVjF7-JVhuGeGY7mX8-3mu5CK3H0t5xOwb3RXazC2udKN0KGWff6XvXTMxtYYQbAoXUf9-EKzqk3fA8mMxEB0bLbmqElacikRY/s1600/Screenshot%202025-10-21%20193452.png">
+          </div>
+          <div class="article-title">
+            <strong>How to Write and Auto-send an Email with ChatGPT</strong>
+          </div>
+        </div>
+      </div>
+      <div class="flex-container">
+        <button class="dropbtn" id="sourcesOpenButton"><strong>Sources</strong></button>
+      </div>
+      <div class="dropdown">
+        <div id="sources" class="dropdown-content">
+          <ul>
+            <li>https://www.reddit.com/r/sales/comments/1498mpn/i_just_suck_at_emailing/</li>
+            <li>https://www.reddit.com/r/sales/comments/1498mpn/comment/jo445s9/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+  </body>
+</html>
