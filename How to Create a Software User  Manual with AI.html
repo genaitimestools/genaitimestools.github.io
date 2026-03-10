@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+    <meta charset="UTF-8"></meta>
+    <meta content="HTML, CSS, JavaScript" name="keywords"></meta>
+    <meta content="Gen AI × Tools" name="author"></meta>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"></meta>
+    <meta content="ie=edge" http-equiv="X-UA-Compatible"></meta>
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@GenAITimesTool">
+    <meta name="twitter:title" content="How to Create a Software User Manual with AI">
+    <meta name="twitter:image" content="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgg-FYhTzyd_WyLAsHfsnXJyi3X-bmF5XFpnYrJk1Y9Ll4zbGhE9k-2TVq7JxhW68yl7BPs-nWTWJvwpTNd27TBOR2TyDNCyMM5ZzaVoG4maVfhk4N295dEyL_V7xXYuVymxYAgbkJmgW9Yeg8wxmaaVh2plXtZPsKCyK_62LN0_XWozlzzEBgmOjquf6A/s1600/thumbnail.png">
+    <title>How to Create a Math Quiz with AI for Free (No LaTeX Knowledge Needed!) </title>
+    <link rel="stylesheet" href="https://genaitimestools.github.io/My%20blog/article_style(for_pasting_in_the_HTML_editor_on_Blogger).css">
+    <script src="https://genaitimestools.github.io/My%20blog/article_script.js"></script>
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        const WindowsFFmpegInstallButton = document.getElementById("WindowsFFmpegInstallButton");
+        const MacFFmpegInstallButton = document.getElementById("MacFFmpegInstallButton");
+        const LinuxFFmpegInstallButton = document.getElementById("LinuxFFmpegInstallButton");
+        const WindowsFFmpegInstallGuide = document.getElementById("WindowsFFmpegInstallGuide");
+        const MacFFmpegInstallGuide = document.getElementById("MacFFmpegInstallGuide");
+        const LinuxFFmpegInstallGuide = document.getElementById("LinuxFFmpegInstallGuide");
+
+        const WindowsScreenRecordingGuideOpenButton = document.getElementById("WindowsScreenRecordingGuideOpenButton");
+        const MacScreenRecordingGuideOpenButton = document.getElementById("MacScreenRecordingGuideOpenButton");
+        const LinuxScreenRecordingGuideOpenButton = document.getElementById("LinuxScreenRecordingGuideOpenButton");
+        const WindowsScreenRecordingGuideOpenGuide = document.getElementById("WindowsScreenRecordingGuide");
+        const MacScreenRecordingGuideOpenGuide = document.getElementById("MacScreenRecordingGuide");
+        const LinuxScreenRecordingGuideOpenGuide = document.getElementById("LinuxScreenRecordingGuide");
+
+        const WindowsMoveFileOpenButton = document.getElementById("WindowsMoveFileOpenButton");
+        const MacMoveFileOpenButton = document.getElementById("MacMoveFileOpenButton");
+        const WindowsMoveFileGuide = document.getElementById("WindowsMoveFileGuide");
+        const MacMoveFileGuide = document.getElementById("MacMoveFileGuide");
+
+        const allButtons1 = [WindowsFFmpegInstallButton, MacFFmpegInstallButton, LinuxFFmpegInstallButton];
+        const allGuides1 = [WindowsFFmpegInstallGuide, MacFFmpegInstallGuide, LinuxFFmpegInstallGuide]; 
+        const allButtons2 = [WindowsScreenRecordingGuideOpenButton, MacScreenRecordingGuideOpenButton, LinuxScreenRecordingGuideOpenButton];
+        const allGuides2 = [WindowsScreenRecordingGuideOpenGuide, MacScreenRecordingGuideOpenGuide, LinuxScreenRecordingGuideOpenGuide];
+        const allButtons3 = [WindowsMoveFileOpenButton, MacMoveFileOpenButton];
+        const allGuides3 = [WindowsMoveFileGuide, MacMoveFileGuide];
+        
+        WindowsFFmpegInstallButton.addEventListener("click", () => activateTab(allButtons1, allGuides1, 0));
+        MacFFmpegInstallButton.addEventListener("click", () => activateTab(allButtons1, allGuides1, 1));
+        LinuxFFmpegInstallButton.addEventListener("click", () => activateTab(allButtons1, allGuides1, 2));
+        
+        WindowsScreenRecordingGuideOpenButton.addEventListener("click", () => activateTab(allButtons2, allGuides2, 0));
+        MacScreenRecordingGuideOpenButton.addEventListener("click", () => activateTab(allButtons2, allGuides2, 1));
+        LinuxScreenRecordingGuideOpenButton.addEventListener("click", () => activateTab(allButtons2, allGuides2, 2));
+
+        WindowsMoveFileOpenButton.addEventListener("click", () => activateTab(allButtons3, allGuides3, 0));
+        MacMoveFileOpenButton.addEventListener("click", () => activateTab(allButtons3, allGuides3, 1));
+  
+        activateTab(allButtons1, allGuides1, 0);
+        activateTab(allButtons2, allGuides2, 0);
+        activateTab(allButtons3, allGuides3, 0);
+      });
+    </script>
+    <style>
+      button.dropbtn {
+        border:2px double black;
+        border-radius:5px 5px 0px 0px;
+        background-color:white;
+      }
+      #post-body-1421457608523735972 > article > ol:nth-child(12) > li:nth-child(6) > div.separator > a > img, #post-body-1421457608523735972 > article > ol:nth-child(12) > li:nth-child(7) > div.separator > a > img {
+        width:90%;
+        height:90%;
+        margin:auto;
+      }
+      
+      #post-body-1421457608523735972 > article > ol:nth-child(12) > li:nth-child(2) > div.separator > a > img, #post-body-1421457608523735972 > article > ol:nth-child(12) > li:nth-child(3) > div.separator > a > img {
+        width:80%;
+        height:80%;
+        margin:auto;
+      }
+    </style>
+  </head>
+  <body style="width:890px; margin:auto;">
+    <article>
+      <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgg-FYhTzyd_WyLAsHfsnXJyi3X-bmF5XFpnYrJk1Y9Ll4zbGhE9k-2TVq7JxhW68yl7BPs-nWTWJvwpTNd27TBOR2TyDNCyMM5ZzaVoG4maVfhk4N295dEyL_V7xXYuVymxYAgbkJmgW9Yeg8wxmaaVh2plXtZPsKCyK_62LN0_XWozlzzEBgmOjquf6A/s1600/thumbnail.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="928" data-original-width="1152" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgg-FYhTzyd_WyLAsHfsnXJyi3X-bmF5XFpnYrJk1Y9Ll4zbGhE9k-2TVq7JxhW68yl7BPs-nWTWJvwpTNd27TBOR2TyDNCyMM5ZzaVoG4maVfhk4N295dEyL_V7xXYuVymxYAgbkJmgW9Yeg8wxmaaVh2plXtZPsKCyK_62LN0_XWozlzzEBgmOjquf6A/s1600/thumbnail.png"/></a></div>
+      <p style="padding-bottom: 50px;">When implementing new software in your company, you often create user manuals on how to use it. Have you felt tedious manually taking screenshots for the steps and adding them to your manuals? In this article, you will lighten this heavy burden by delegating most of this work to AI. Before proceeding, you will need a Google account, and I assume you already created a folder to store a video on your computer.</p>
+      <h1>Step-by-Step Guide</h1>
+      <h2>Preparation 1: Install FFmpeg on Your Computer</h2>
+      <p>First, you need to install FFmpeg. Choose your operating system (OS) to get started.</p>
+      <div class="flex-container">
+        <button class="dropbtn" id="WindowsFFmpegInstallButton">Windows</button>
+        <button class="dropbtn" id="MacFFmpegInstallButton">Mac</button>
+        <button class="dropbtn" id="LinuxFFmpegInstallButton">Linux</button>
+      </div>
+      <div class="dropdown">
+        <div id="WindowsFFmpegInstallGuide" class="dropdown-content">
+          <ol style="margin-left:12px;">
+            <li>Press <strong>Windows</strong> key.</li>
+            <li>In the search bar, enter "<strong>powershell</strong>."</li>
+            <li>Right-click the Windows PowerShell icon.</li>
+            <li>Choose "<strong>Run as an administrator</strong>."</li>
+            <li>You will be asked for permission to make changes to your computer with the app. Click "<strong>Yes</strong>."</li>
+            <li>Enter this command.
+              <pre>winget install --id=Gyan.FFmpeg -e</pre>
+            </li>
+            <li>Click <strong>Enter</strong>.</li>
+            <li>FFmpeg will be installed.</li>
+            <li>Press <strong>Windows</strong> + <strong>i</strong>.</li>
+            <li>In the sidebar, click "<strong>System</strong>."</li>
+            <li>Scrolling down the settings, you will see the section "<strong>About</strong>." Click it.</li>
+            <li>After that, you will see the section "<strong>Device specifications</strong>." Scrolling the section, you will see a set of links labeled "<strong>Related links</strong>." Click "<strong>Advanced system settings</strong>."</li>
+            <li>The System Properties pop-up will be opened. Under the section "<strong>Startup and Recovery</strong>," click "<strong>Environment Variables</strong>."</li>
+            <li>Under "<strong>System Variables</strong>," you will see the variable "<strong>Path</strong>" in the table. Click it.</li>
+            <li>You will see the list of the variables. Click one empty line.</li>
+            <li>Enter this path in the textarea. For <code>user</code>, please replace it with your username on your computer.
+              <pre>C:\Users\<strong>${user}</strong>\AppData\Local\Microsoft\WinGet\Packages\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe</pre>
+            </li>
+            <li>Click "<strong>OK</strong>" beside the "<strong>Cancel</strong>" button.</li>
+            <li>Click "<strong>×</strong>" in the top right corner of the Environment Variables popup.</li>
+            <li>Click "<strong>×</strong>" in the top right corner of the System Properties popup.</li>
+            <li>Go back to the PowerShell.</li>
+            <li>Enter this command.
+              <pre>ffmpeg -version</pre>
+            </li>
+            <li>Click <strong>Enter</strong>.</li>
+            <li>If this works correctly, you will see a response such as this, unless check <code>user</code> you filled in the environment variable is the same as your username. 
+              <pre>ffmpeg version 8.0-full_build-www.gyan.dev Copyright (c) 2000-2025 the FFmpeg developers
+built with gcc 15.2.0 (Rev8, Built by MSYS2 project)
+configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-lcms2 --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-libsnappy --enable-zlib --enable-librist --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-libbluray --enable-libcaca --enable-libdvdnav --enable-libdvdread --enable-sdl2 --enable-libaribb24 --enable-libaribcaption --enable-libdav1d --enable-libdavs2 --enable-libopenjpeg --enable-libquirc --enable-libuavs3d --enable-libxevd --enable-libzvbi --enable-liboapv --enable-libqrencode --enable-librav1e --enable-libsvtav1 --enable-libvvenc --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxavs2 --enable-libxeve --enable-libxvid --enable-libaom --enable-libjxl --enable-libvpx --enable-mediafoundation --enable-libass --enable-frei0r --enable-libfreetype --enable-libfribidi --enable-libharfbuzz --enable-liblensfun --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-dxva2 --enable-d3d11va --enable-d3d12va --enable-ffnvcodec --enable-libvpl --enable-nvdec --enable-nvenc --enable-vaapi --enable-libshaderc --enable-vulkan --enable-libplacebo --enable-opencl --enable-libcdio --enable-openal --enable-libgme --enable-libmodplug --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libshine --enable-libtheora --enable-libtwolame --enable-libvo-amrwbenc --enable-libcodec2 --enable-libilbc --enable-libgsm --enable-liblc3 --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-ladspa --enable-libbs2b --enable-libflite --enable-libmysofa --enable-librubberband --enable-libsoxr --enable-chromaprint --enable-whisper
+libavutil      60.  8.100 / 60.  8.100
+libavcodec     62. 11.100 / 62. 11.100
+libavformat    62.  3.100 / 62.  3.100
+libavdevice    62.  1.100 / 62.  1.100
+libavfilter    11.  4.100 / 11.  4.100
+libswscale      9.  1.100 /  9.  1.100
+libswresample   6.  1.100 /  6.  1.100
+
+Exiting with exit code 0</pre>
+            </li>
+          </ol>
+        </div>
+        <div id="MacFFmpegInstallGuide" class="dropdown-content">
+          <p>For the guide, please read <a href="https://phoenixnap.com/kb/ffmpeg-mac">this article</a>.</p>
+        </div>
+        <div id="LinuxFFmpegInstallGuide" class="dropdown-content">
+          <p>For the guide, please read <a href="https://linuxconfig.org/ffmpeg-audio-format-conversions">this article</a>.</p>
+        </div>
+      </div>
+      <h2>Step 1: Record Steps in Your Manual in a Video</h2>
+      <p>After you installed FFmpeg, record the steps you want to explain in the manual in a video.</p>
+      <ol>
+        <li>Record the video using the default screen recording tool on your computer. Choose your OS, and follow the steps.<br><br>
+          <div class="flex-container">
+            <button class="dropbtn" id="WindowsScreenRecordingGuideOpenButton">Windows</button>
+            <button class="dropbtn" id="MacScreenRecordingGuideOpenButton">Mac</button>
+            <button class="dropbtn" id="LinuxScreenRecordingGuideOpenButton">Linux</button>
+          </div>
+          <div class="dropdown">
+            <div id="WindowsScreenRecordingGuide" class="dropdown-content">
+              <ol>
+                <li>Set up the screen you want to record.</li>
+                <li>Press <strong>Shift</strong> + <strong>S</strong> + <strong>Windows</strong>.</li>
+                <li>Click the video button that looks like this, beside the button with a camera.
+                  <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj7UO5qrnIdGZQpG9u25yKCRrNXfMKHisT0DAXmggsTRJsuFLyGfrbaQ2_UKTqP4Z2a-xXT_M4ZQjQbVPpd1gNZ8A4ItuKUXQqWQ1_mT2hx90BDZpUiN2j4rABx7vGjmllos4b0q0gqq_94gPDwNq0xTKOKEMbRcUnI9MIBFTshyfGCgC2azBfMSdoPKNI/s1600/Trapezoid%20shape.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="1000" data-original-width="1000" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj7UO5qrnIdGZQpG9u25yKCRrNXfMKHisT0DAXmggsTRJsuFLyGfrbaQ2_UKTqP4Z2a-xXT_M4ZQjQbVPpd1gNZ8A4ItuKUXQqWQ1_mT2hx90BDZpUiN2j4rABx7vGjmllos4b0q0gqq_94gPDwNq0xTKOKEMbRcUnI9MIBFTshyfGCgC2azBfMSdoPKNI/s1600/Trapezoid%20shape.png" style="width:50%; height:50%; margin:auto;"/></a></div>
+                </li>
+                <li>Choose the screen area you want to include.</li>
+                <li>Click "<strong>Start</strong>."</li>
+                <li>After 3 seconds, recording will start.</li>
+                <li>After recording, click the button with a red square.</li>
+              </ol>
+            </div>
+            <div id="MacScreenRecordingGuide" class="dropdown-content">
+              <p>For the guide, please read "<strong>Using Built-in Screen Capture Tool (Command + Shift + 5) — Easiest Way</strong>" in <a href="https://www.geeksforgeeks.org/techtips/how-to-record-screen-on-mac-ultimate-guide/">this article</a>.</p>
+            </div>
+            <div id="LinuxScreenRecordingGuide" class="dropdown-content">
+              <p>For the guide, please read <a href="https://linuxconfig.org/ffmpeg-audio-format-conversions">this article</a>.</p>
+            </div>
+          </div>
+        </li>
+        <li>Move the video file to the folder you want to store the video in. If you don't know how to do this, here're ways for your OSs.          
+          <div class="flex-container">
+            <button class="dropbtn" id="WindowsMoveFileOpenButton">Windows</button>
+            <button class="dropbtn" id="MacMoveFileOpenButton">Mac</button>
+          </div>
+          <div class="dropdown">
+            <div id="WindowsMoveFileGuide" class="dropdown-content">
+              <ol>
+                <li>Open <strong>Explorer</strong> (where you store files).</li>
+                <li>Click the folder "<strong>Videos</strong>" in the sidebar.</li>
+                <li>Click the folder "<strong>Screen Recordings</strong>."</li>
+                <li>Select the video you want to move.</li>
+                <li>Press <strong>Ctrl</strong> + <strong>X</strong> to cut the file.</li>
+                <li>Move to the folder you want to store the video in.</li>
+                <li>Press <strong>Ctrl</strong> + <strong>V</strong> to paste it in the folder<span id="step_2">.</span></li>
+              </ol>
+            </div>
+            <div id="MacMoveFileGuide" class="dropdown-content">
+              <p>For the guide, please read <a href="https://www.howtogeek.com/735756/how-to-cut-and-paste-files-on-mac/">this article</a>.</p>
+            </div>
+          </div>
+        </li>
+      </ol>
+      <h2>Step 2: Opt Out Your Chats from Machine Learning</h2>
+      <p>Since your video contains sensitive information, opt out your chats from the machine learning of Gemini AI.</p>
+      <ol>
+        <li>Visit <a href="https://gemini.google.com">https://gemini.google.com</a>.</li>
+        <li>In the sidebar, click "<strong>Settings & help</strong>."
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjhlJteL9Zsqhru-jN7W8qrETCgbmNHfqypCnPUebmv7rYAYeNu2ZfeSuEd2Mo5qi3EKDr123MyDFJSGc454eXe7UDydrfTllmg4Sa2nUTz32HLl5XJ9nYul_tMhww9pP7uqWJE5kXaP-mPZLsghoMMHs8sBJUtsPLbT_8Il2lWkAQQphZYsWYebQuW9gU/s1600/Screenshot%202025-10-15%20155013.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="923" data-original-width="390" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjhlJteL9Zsqhru-jN7W8qrETCgbmNHfqypCnPUebmv7rYAYeNu2ZfeSuEd2Mo5qi3EKDr123MyDFJSGc454eXe7UDydrfTllmg4Sa2nUTz32HLl5XJ9nYul_tMhww9pP7uqWJE5kXaP-mPZLsghoMMHs8sBJUtsPLbT_8Il2lWkAQQphZYsWYebQuW9gU/s1600/Screenshot%202025-10-15%20155013.png"/></a></div>
+          <div class="image-source">Source: https://gemini.google.com</div>
+        </li>
+        <li>Click "<strong>Activity</strong>."
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgf2SKhzJlnFJqqCFiC_npk1Jn6E2F6jXMDmUuot17QmmXAGdHG5TLQtfbv5WnVCJeqOh84eCNWb51R03zRoEpqTbNLzNcbE9nMhmgfR-0Y4D3XobmPxdGPLg_-hK4f2DrjFohWnhwU5pKhYlMfGB3yQx8Snhr2FhyphenhyphenTZyQMX3X_NDeLPVcT1cbnFS1rbyA/s1600/Screenshot%202025-10-15%20160317.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="576" data-original-width="382" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgf2SKhzJlnFJqqCFiC_npk1Jn6E2F6jXMDmUuot17QmmXAGdHG5TLQtfbv5WnVCJeqOh84eCNWb51R03zRoEpqTbNLzNcbE9nMhmgfR-0Y4D3XobmPxdGPLg_-hK4f2DrjFohWnhwU5pKhYlMfGB3yQx8Snhr2FhyphenhyphenTZyQMX3X_NDeLPVcT1cbnFS1rbyA/s1600/Screenshot%202025-10-15%20160317.png"/></a></div>
+          <div class="image-source">Source: https://gemini.google.com</div>
+        </li>
+        <li>Click "<strong>On</strong>."
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjgJR1Uyb1af_lpHWrdM_j8M733iVfdU4WrTiymH_H9wnJYUUL6MdRxFHbvAeJww4n1lxmMBb6xwqbFth1CctcNrDQSR-wSsOspe8RShrDxdhFz1nYs35TiTJPwX9aiuHfYZ4Ut5QAPlcZMcCCgLUA1TLugjRYWxAbnAg-_ThJhbbVKyI-xwvDsT7hSeZs/s1600/Screenshot%202025-10-15%20160025.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="922" data-original-width="1671" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjgJR1Uyb1af_lpHWrdM_j8M733iVfdU4WrTiymH_H9wnJYUUL6MdRxFHbvAeJww4n1lxmMBb6xwqbFth1CctcNrDQSR-wSsOspe8RShrDxdhFz1nYs35TiTJPwX9aiuHfYZ4Ut5QAPlcZMcCCgLUA1TLugjRYWxAbnAg-_ThJhbbVKyI-xwvDsT7hSeZs/s1600/Screenshot%202025-10-15%20160025.png"/></a></div>
+          <div class="image-source">Source: https://myactivity.google.com</div>
+        </li>
+        <li>Click "<strong>Turn off</strong>."</li>
+        <li>Read the text if you want, and click "<strong>Got it</strong>."
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiEevyTqBi5acVqHxRtoO3IijJ2MJS4-8YTuu-2xReZ3cJBAjC8vMRKvEXtpz8U5hw6Mv6xQTU8iQJF6ndBeKu9ZkiBeE2Q9-Jy5Zkq8Ovv0r7LZ-K9okkR8kAvrIJHQ57wYvDt-Tw5wU4HyygkAT46vyoCtLOGCGxKIJig3i1BKRftPa2iwk1vJ1sNNvc/s1600/Screenshot%202025-10-15%20161140.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="666" data-original-width="676" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiEevyTqBi5acVqHxRtoO3IijJ2MJS4-8YTuu-2xReZ3cJBAjC8vMRKvEXtpz8U5hw6Mv6xQTU8iQJF6ndBeKu9ZkiBeE2Q9-Jy5Zkq8Ovv0r7LZ-K9okkR8kAvrIJHQ57wYvDt-Tw5wU4HyygkAT46vyoCtLOGCGxKIJig3i1BKRftPa2iwk1vJ1sNNvc/s1600/Screenshot%202025-10-15%20161140.png"/></a></div>
+          <div class="image-source">Source: https://myactivity.google.com</div>
+        </li>
+        <li>Click "<strong>Got it</strong>."
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg8tga7ZjFqj7oZcgwGyx0fHSwrJzCShb3seUOw8UY6iCrTjka51DXmsrJpWMCxmXkM_9J3hadyGw7hHLsPXZX156cXGxplu0nyfqBNq9bh0z6-oeyaFkzYD7wtpMECEPp8KE05pJoJMNoT1kN6vLin4A606NmoH0Gd1zY3VNSMTE3vfHxYIgk-xPKO2xM/s1600/Screenshot%202025-10-15%20161208.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="397" data-original-width="672" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg8tga7ZjFqj7oZcgwGyx0fHSwrJzCShb3seUOw8UY6iCrTjka51DXmsrJpWMCxmXkM_9J3hadyGw7hHLsPXZX156cXGxplu0nyfqBNq9bh0z6-oeyaFkzYD7wtpMECEPp8KE05pJoJMNoT1kN6vLin4A606NmoH0Gd1zY3VNSMTE3vfHxYIgk-xPKO2xM/s1600/Screenshot%202025-10-15%20161208.png"/></a></div>
+          <div class="image-source">Source: https://myactivity.google.com</div>
+        </li>
+        <li>Your chats are opted out.
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjvl0rBbelvuOAlZJDfaXHdZggq1WQMOMj1xJfKHNH4ehNZ6zPW4PlVrABpabbo8SIkbN1daNw-7ruLA8kGYz6cVAmVbeXzm2a7uLff6RLHsnEejwORhwW8Mb6ofNSPA0XLXhwjfqJ_BicubSZw5wxG0xLfVPRtqYMzwykkLtDMPGyVfhsioflL1nBxSgk/s1600/Screenshot%202025-10-15%20161605.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="931" data-original-width="1672" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjvl0rBbelvuOAlZJDfaXHdZggq1WQMOMj1xJfKHNH4ehNZ6zPW4PlVrABpabbo8SIkbN1daNw-7ruLA8kGYz6cVAmVbeXzm2a7uLff6RLHsnEejwORhwW8Mb6ofNSPA0XLXhwjfqJ_BicubSZw5wxG0xLfVPRtqYMzwykkLtDMPGyVfhsioflL1nBxSgk/s1600/Screenshot%202025-10-15%20161605.png"/></a></div>
+          <div class="image-source">Source: https://myactivity.google.com</div>
+        </li>
+      </ol>
+      <h2>Step 3: Extract Frames from the Video</h2>
+      <p>After you record the video, extract frames for the steps using FFmpeg.</p>
+      <ol>
+        <li>Visit <a href="https://gemini.google.com">https://gemini.google.com</a>.</li>
+        <li>Enter this prompt template in the textbox in the center of the page.
+          <pre>[Task]: Generate FFmpeg commands that extract key frames from this video, which match before and after each process in the list below. 
+[Operating System]: <strong>(Specify your OS)</strong>
+[List]:
+<strong>(Describe the steps in numbered lists)</strong>
+[Constraints]:
+- Output must only be a copyable code snippet.
+- The frames' file type must be PNG format.
+- Concatenate all commands with `;` if [Operating System] is "Windows" or "Linux" or `&&` if [Operating System] is "Mac."
+
+```text
+(an FFmpeg command here) ; (another FFmpeg command here)
+```
+
+- When specifying a video file in an FFmpeg command, specify it in every command.</pre>
+        </li>
+        <li>Complete the bold placeholders enclosed with "<strong>(</strong>" and "<strong>)</strong>."</li>
+        <li>Click "<strong>+</strong>" beside the button "<strong>Tools</strong>."</li>
+        <li>Click "<strong>Upload files</strong>."</li>
+        <li>Upload the video.</li>
+        <li>Click "<strong>2.5 Flash</strong>."
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjHRe32l-6dVxhqLjbKFY_2wX6jmT3kzySzItYFwhdzQN8GNuoju7jVivuM8Vk9h1M8surau56MiqhjrvD3luRhUmLn4630nNnyJYOVMMVppEgrqCnGsHisAH0JR4zyQDYzNNdkCVgJpvvVORPEUwukKXORpfVL2YXVPTBWPIohVtsUE0pMetZdxdtTc2w/s1600/Screenshot%202025-10-15%20133940.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="917" data-original-width="1740" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjHRe32l-6dVxhqLjbKFY_2wX6jmT3kzySzItYFwhdzQN8GNuoju7jVivuM8Vk9h1M8surau56MiqhjrvD3luRhUmLn4630nNnyJYOVMMVppEgrqCnGsHisAH0JR4zyQDYzNNdkCVgJpvvVORPEUwukKXORpfVL2YXVPTBWPIohVtsUE0pMetZdxdtTc2w/s1600/Screenshot%202025-10-15%20133940.png"/></a></div>
+          <div class="image-source">Source: https://gemini.google.com</div>
+        </li>
+        <li>Choose "<strong>2.5 Pro</strong>."</li>
+        <li>Click <strong>Enter</strong>.</li>
+        <li>FFmpeg commands will be generated.</li>
+        <li>Click the copy button with 2 layered squares.
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhOspeygezOg-uS9c2KIhrhNhuSKp08_OzVcp9Rsj3XcFB_mn70nvLBsUrorKbAeKFbtNK9GhfxQtnckDMNDKn9t0Dl7IzeuZGQJiG7M2EQmoRNYxptvMWlNyVNKIFqtCYQmVyWVmFzfhlbYMc97HeSSp592lb_rnBqxCqyylzfbLN72oPIEbsOwGIl9es/s1600/Screenshot%202025-10-15%20130334.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="912" data-original-width="1737" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhOspeygezOg-uS9c2KIhrhNhuSKp08_OzVcp9Rsj3XcFB_mn70nvLBsUrorKbAeKFbtNK9GhfxQtnckDMNDKn9t0Dl7IzeuZGQJiG7M2EQmoRNYxptvMWlNyVNKIFqtCYQmVyWVmFzfhlbYMc97HeSSp592lb_rnBqxCqyylzfbLN72oPIEbsOwGIl9es/s1600/Screenshot%202025-10-15%20130334.png"/></a></div>
+          <div class="image-source">Source: https://gemini.google.com</div>
+        </li>
+        <li>Go back to the PowerShell screen if Windows, the Xcode Command Line Tools screen if Mac, and the Bash screen if Linux.</li>
+        <li>Enter this command. For <code>path</code>, replace it with the path of the folder where you stored the video.
+          <pre>cd <strong>(path)</strong></pre>
+        </li>
+        <li>Press <strong>Enter</strong>.</li>
+        <li>Paste the copied command in the console (text-enterable area).</li>
+        <li>Click <strong>Enter</strong>.</li>
+        <li>Frames will be extracted from the video.</li>
+      </ol>
+      <h2>Step 4: Generate a Manual</h2>
+      <ol>
+        <li>Visit <a href="https://gemini.google.com/">https://gemini.google.com</a>.</li>
+        <li>Click "<strong>+</strong>."</li>
+        <li>Click "<strong>Upload files</strong>."</li>
+        <li>Upload the first 10 extracted frames.</li>
+        <li>Click "<strong>Tools</strong>."</li>
+        <li>Click "<strong>Canvas</strong>."</li>
+        <li>Enter this prompt template in the textbox.
+          <pre>[Task]: Create a step-by-step HTML user manual.
+[Purpose]: <strong>(Explain the purpose)</strong>
+[Process To Explain]:
+<strong>(Copy and paste the same numbered lists as you wrote in the last prompt)</strong>
+[Target]: <strong>(Specify the target audience)</strong>
+[Constraints]:
+
+- Use clear yet simple language.
+- Avoid jargon unless necessary.
+- Use provided images to clearly illustrate processes.
+- When adding the uploaded images in the manual, every image file path must be only the file name plus `.png`, even when the file formats of these images are JPG.
+- If one numbered list contains more than one step, break them into single processes.
+- Use consistent, user-friendly design.</pre>
+        </li>
+        <li>Complete the bold placeholders enclosed with "<strong>(</strong>" and "<strong>)</strong>."</li>
+        <li>Press <strong>Enter</strong>.</li>
+        <li>A Manual will be generated. Please note that the frames may not be displayed correctly to match the file paths in the manual to the frames' paths, but it's not a problem.
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiV_lKTHk9Eha6C3igq_ILVW31mPM8ddU2RlRNvYXk6xHcGNYTm62rNUH2eyIqqTXG96TOBLd9wEMD9xiUX9MjrkbYE6tpzp-Z6KuNnGqNzI21bZd4X8HKQGKFDjyAzz1Le2fZ5vqkaHy-I3ifFWzMaxmMpW8lxxIFxbXd_ZgRF3skWb9oLzv2s_GUdUSs/s1600/Screenshot%202025-10-15%20134808.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="772" data-original-width="1159" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiV_lKTHk9Eha6C3igq_ILVW31mPM8ddU2RlRNvYXk6xHcGNYTm62rNUH2eyIqqTXG96TOBLd9wEMD9xiUX9MjrkbYE6tpzp-Z6KuNnGqNzI21bZd4X8HKQGKFDjyAzz1Le2fZ5vqkaHy-I3ifFWzMaxmMpW8lxxIFxbXd_ZgRF3skWb9oLzv2s_GUdUSs/s1600/Screenshot%202025-10-15%20134808.png"/></a></div>
+          <div class="image-source">Source: https://gemini.google.com</div>
+        </li>
+        <li>In the same textbox, enter this prompt.
+          <pre>Here are the rest of images I forgot to upload. Using these images as well as the existing ones, recreate the manual.</pre>
+        </li>
+        <li>Click "<strong>+</strong>"</li>
+        <li>Click "<strong>Upload files</strong>."</li>
+        <li>Upload the rest of the frames.</li>
+        <li>Press <strong>Enter</strong>.</li>
+        <li>Repeat the 11th to 15th steps until you can upload all frames in the chat.</li>
+        <li>Click "<strong>Code</strong>" beside the <strong>"Preview"</strong> button.
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiM8IAUAzirRbegTziEtY0DmZSHLNA2ze-xkMEcH6PVEZjOcJXtF4sGUuLrRRH-cEhu-PB3oQ8tPYJZJR7DHMoCq0UqeiT7t3CfehZLvf5acXk4M07-7PviOaq5hXzTLuqNeevv4Kew7oo0KS1VMf7kf9b-Kd0UJC__agpNDK9fmhumGgpA8nGmFoDfB54/s1600/Screenshot%202025-10-15%20145826.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="768" data-original-width="1155" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiM8IAUAzirRbegTziEtY0DmZSHLNA2ze-xkMEcH6PVEZjOcJXtF4sGUuLrRRH-cEhu-PB3oQ8tPYJZJR7DHMoCq0UqeiT7t3CfehZLvf5acXk4M07-7PviOaq5hXzTLuqNeevv4Kew7oo0KS1VMf7kf9b-Kd0UJC__agpNDK9fmhumGgpA8nGmFoDfB54/s1600/Screenshot%202025-10-15%20145826.png"/></a></div>
+          <div class="image-source">Source: https://gemini.google.com</div>
+        </li>
+        <li>Select the entire code by pressing <strong>Ctrl</strong> + <strong>A</strong> if using Windows or Linux-first personal computers, or <strong>⌘</strong> + <strong>A</strong> if using Mac.
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhrilGaqzAk60G68mjoboz_RxQiiPrXL2XLJgD0MH6v4YNF9Pg8_xatJ-SolHnf0wo0WwxfOeGI3iEr5lo3M8ZsYgw7pef7bnrQGcqTzsHModxEecjpXuc_4tghK11AoVN1dgBZ-drEjG_dWuRP0McYDr5L1vHmnMYLVPfB0ksxjDK-RpXUucdGR7JyHOE/s1600/Screenshot%202025-10-15%20150201.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="692" data-original-width="1153" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhrilGaqzAk60G68mjoboz_RxQiiPrXL2XLJgD0MH6v4YNF9Pg8_xatJ-SolHnf0wo0WwxfOeGI3iEr5lo3M8ZsYgw7pef7bnrQGcqTzsHModxEecjpXuc_4tghK11AoVN1dgBZ-drEjG_dWuRP0McYDr5L1vHmnMYLVPfB0ksxjDK-RpXUucdGR7JyHOE/s1600/Screenshot%202025-10-15%20150201.png"/></a></div>
+          <div class="image-source">Source: https://gemini.google.com</div>
+        </li>
+        <li>Visit <a href="https://g.co/gemini/share/88743135b5ec">this HTML code downloader</a>.
+          <p>⚠️Please note that this app is created by me, and I don't collect any personal information from you.</p>
+        </li>
+        <li>Paste the copied code in the textbox.
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEho8hfzy3M_-OyV_G_hp48u2xCpK7JAurpm2arYSC6Hs4-14wyCjRf1Fc__vI5EF2Ajkil4L8ha111YOI5BDQps_165r1VmaWFNY-lENTiHp367vU5zI_8Rj5S5rSh4LMaHxPPjWgoZNe-GIIrr__QQyXqZqn2cTIMtnbbAL00UJMNq4MWkjwEQyVgkcfc/s1600/Screenshot%202025-10-15%20144235.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="722" data-original-width="1115" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEho8hfzy3M_-OyV_G_hp48u2xCpK7JAurpm2arYSC6Hs4-14wyCjRf1Fc__vI5EF2Ajkil4L8ha111YOI5BDQps_165r1VmaWFNY-lENTiHp367vU5zI_8Rj5S5rSh4LMaHxPPjWgoZNe-GIIrr__QQyXqZqn2cTIMtnbbAL00UJMNq4MWkjwEQyVgkcfc/s1600/Screenshot%202025-10-15%20144235.png"/></a></div>
+        </li>
+        <li>Click "<strong>Download HTML File</strong>."
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiI_8sUaWITEuUEt1NTK51Lb4R2TumH8WXLclTf9Bl_4L5zATLZp0VnLUL6q4XNwrdH6Huna2ae4chN2jT7zs1eSdu2No6aPRbW0AeeQiWj4tg82-p7I69fHrrWvASbvkxfRr9t2q4rKQ3LmBS2m5IebWfaM-GqXrLtUxbweGwHuaS3Ob2RfsjqgbEsxBY/s1600/Screenshot%202025-10-15%20152240.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="772" data-original-width="1870" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiI_8sUaWITEuUEt1NTK51Lb4R2TumH8WXLclTf9Bl_4L5zATLZp0VnLUL6q4XNwrdH6Huna2ae4chN2jT7zs1eSdu2No6aPRbW0AeeQiWj4tg82-p7I69fHrrWvASbvkxfRr9t2q4rKQ3LmBS2m5IebWfaM-GqXrLtUxbweGwHuaS3Ob2RfsjqgbEsxBY/s1600/Screenshot%202025-10-15%20152240.png"/></a></div>
+        </li>
+        <li>The HTML file will be downloaded.</li>
+      </ol>
+      <h2>Step 5: Check and Edit the Manual</h2>
+      <p>Once your manual is created, check if there are missing steps and if the used screenshots are consistent with the texts. If needed, ask Gemini for correcting them.</p>
+      <p>Here's the example of a manual.</p>
+      <div style="display:flex;">
+        <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhDXUuwdis96Md8EDhmCmFJJI_Y6we35db_EU1CN65SoNIwKiCP-Nirgioqo8IAy6VqQ4hecCI_nN8sMHLfysjh44MrfSFizNTxzSvgLEsp66GrxWwaOGMMmv8DOU214dcXd_HgiybXATgid4zOsdRkIKe88Fe7UWUq6TrlP8Kc-inop1mvdedIABigqOk/s1600/Screenshot%202025-10-15%20193452.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="926" data-original-width="1888" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhDXUuwdis96Md8EDhmCmFJJI_Y6we35db_EU1CN65SoNIwKiCP-Nirgioqo8IAy6VqQ4hecCI_nN8sMHLfysjh44MrfSFizNTxzSvgLEsp66GrxWwaOGMMmv8DOU214dcXd_HgiybXATgid4zOsdRkIKe88Fe7UWUq6TrlP8Kc-inop1mvdedIABigqOk/s1600/Screenshot%202025-10-15%20193452.png"/></a></div>
+      </div>
+      <hr>
+      <h1>Benefits of Using AI-Generated Manuals</h1>
+      <h2>It's Fast.</h2>
+      <p>Creating a manual with screenshots often takes hours. But if you bring in this heavy lifting to Gemini, you can make your idea a manual faster than manual creation fully by humans, and you will only need to check and edit the manual. Thus, you can focus on more valuable tasks like the development of busineess improvment apps.</p>
+      <h2>It's User-friendly.</h2>
+      <p>First of all, your manual is targeting your audience, not you. <a href="https://www.reddit.com/r/learnprogramming/comments/1b864zu/am_i_dumb_why_is_documentation_so_hard_for_me_to/">One redditor</a> complained that the user had a difficult time understanding technical language. But sometimes, the terminologies are useful because they are easier than explaining with long text. But don't worry. Gemini can rephrase your words in simpler terms. On top of that, it can break what you think is one process down into single, actionable steps. As a result, you will be able to reduce queries because of confusion about your manual.</p>
+      <h2>It's Updated Faster.</h2>
+      <p><a href="https://www.reddit.com/r/linuxadmin/comments/e5cqx8/anyone_using_foreman/">Another redditor</a> failed Proof of Concept, which verifies the feasibility of new ideas and concepts. One reason is that the documentation of the software "Foreman" didn't seem to keep up with the releases, leaving old screenshots. I felt that this product team could have updated their documentation with this AI hack then. By the addition of new screenshots, they could also have made their software accessible to their users. To avoid these, Gemini also helps you streamline your manual generation task.</p>
+      <hr>
+      <h1>Troubleshooting</h1>
+      <div class="troubleshooting-section">
+        <h2>Screenshots aren't displayed correctly.</h2>
+        <p>If your screenshots aren't displayed correctly, ask Gemini with this prompt.</p>
+        <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEilm5AHWeeHQxymigSe7IpdFJZXi_ume7rLOaDiiBJine6-P0xJM4LD_5rMSOY22pV_uw_oaJfoF4j5OO-lMF1sq7amjTNBHQikqGjQjAPndF3GwK6KS0NUEMZ7r8pzrxBWbtNQ5ALgJVm3014LzwVXtbwvX8XJCx8KXTSBNQOxDrUu3rz1e74-PV6XFjY/s1600/Screenshot%202025-10-15%20192831.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="140" data-original-width="1639" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEilm5AHWeeHQxymigSe7IpdFJZXi_ume7rLOaDiiBJine6-P0xJM4LD_5rMSOY22pV_uw_oaJfoF4j5OO-lMF1sq7amjTNBHQikqGjQjAPndF3GwK6KS0NUEMZ7r8pzrxBWbtNQ5ALgJVm3014LzwVXtbwvX8XJCx8KXTSBNQOxDrUu3rz1e74-PV6XFjY/s1600/Screenshot%202025-10-15%20192831.png"/></a></div>
+        <pre class="code-block-in-troubleshooting">It seems some images aren't displayed correctly. Make sure the file names are the same as the uploaded images, and the file formats are `.png`.</pre>
+      </div>
+      <p style="padding-top:50px;">In summary, this article tackled the problem with traditional manual creation by delegating this work to 2 Gemini AI models: Gemini 2.5 Flash and 2.5 Pro. If this information is helpful, I'm glad if you share your thoughts on social media. You can share this article by click the button with 3 connected dots below.<p>
+      <div class="flex-container">
+        <button class="dropbtn" id="sourcesOpenButton"><strong>Sources</strong></button>
+      </div>
+      <div class="dropdown">
+        <div id="sources" class="dropdown-content">
+          <ul>
+            <li>https://www.reddit.com/r/linuxadmin/comments/e5cqx8/anyone_using_foreman/</li>
+            <li>https://reddit.com/r/learnprogramming/comments/1b864zu/am_i_dumb_why_is_documentation_so_hard_for_me_to</li>
+            <li>https://ai-economy-analysis.hatenablog.com/entry/2025/09/28/130851</li>
+            <li>https://www.techsmith.com/blog/user-documentation/</li>
+            <li>https://www.ntt.com/bizon/glossary/e-p/poc.html</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+  </body>
+</html>
