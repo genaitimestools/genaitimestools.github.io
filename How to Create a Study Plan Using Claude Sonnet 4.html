@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"></meta>
+    <meta content="HTML, CSS, JavaScript" name="keywords"></meta>
+    <meta content="Gen AI × Tools" name="author"></meta>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"></meta>
+    <meta content="ie=edge" http-equiv="X-UA-Compatible"></meta>
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@GenAITimesTool">
+    <meta name="twitter:title" content="How to Create a Study Plan Using Claude Sonnet 4">
+    <meta name="twitter:image" content="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgNVRs1_3C-K9Oep84jTxCER-HV1sccwmBdepUGnkWCyyeBzCwzPL7cHQWd9S07e9NHF3jhKQ_ofdhxDR6sh5AeGWsQk4WMuzcTkA0n6YX-58sxTJwbeYe2XPR2SysPUtkuuYjrB2FYtI5vOHdEx4XShc6RNI_I8XNjz5f2HjOfUrt4CzXJzmohqrupXY8/s1600/thumbnail.png">
+    <link href="https://genaitimestools.github.io/My%20blog/article_style(for_pasting_in_the_HTML_editor_on_Blogger).css" rel="stylesheet">
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        const dropDownButtonIds = ["dropDownButton", "dropDownButton2", "dropDownButton3", "sourcesOpenButton"];
+        const dropDownContentIds = ["droppedDownContent", "droppedDownContent2", "droppedDownContent3", "sources"];
+        
+        for(let i = 0; i < dropDownButtonIds.length; i++) {
+          const dropDownButton = document.getElementById(dropDownButtonIds[i]);
+          const droppedDownContent = document.getElementById(dropDownContentIds[i]);
+      
+          dropDownButton.addEventListener("click", () => {
+            if(droppedDownContent.style.display === "none") {
+              droppedDownContent.style.display = "block";
+            } else {
+              droppedDownContent.style.display = "none";
+            }
+          }); 
+        }
+      });
+    </script>
+    <style>
+        #post-body-1109784543873695117 > article > ol:nth-child(14) > iframe {
+        width:90%;
+        height:500px;
+        margin-left:auto;
+        margin-right:auto;
+        display: block;
+        border:1px double gray;
+        border-radius:2px;
+      }
+      
+      .dropbtn {
+        border:2px double black;
+        border-radius:5px 5px 0px 0px;
+        background-color:white;
+      }
+      
+      .dropdown-content h2 {
+        padding-left:12px;
+      }
+      
+      table {
+        width: 90%;
+      }
+      
+      #post-body-1109784543873695117 > article > ol:nth-child(11) > li:nth-child(11) > div.separator, #post-body-1109784543873695117 > article > ol:nth-child(14) > li:nth-child(1) > div.separator, #post-body-1109784543873695117 > article > ol:nth-child(14) > li:nth-child(3) > div.separator, #post-body-1109784543873695117 > article > ol:nth-child(14) > li:nth-child(4) > div.separator, #post-body-1109784543873695117 > article > ol:nth-child(14) > li:nth-child(5) > div.separator {
+        width:70%;
+        height:70%;
+      }
+      
+      #post-body-1109784543873695117 > article > ol:nth-child(14) > li:nth-child(2) > div.separator {
+        width:50%;
+        height:50%;
+      }
+    </style>
+  </head>
+  <body style="width:890px; margin:auto;">
+    <article>
+      <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgNVRs1_3C-K9Oep84jTxCER-HV1sccwmBdepUGnkWCyyeBzCwzPL7cHQWd9S07e9NHF3jhKQ_ofdhxDR6sh5AeGWsQk4WMuzcTkA0n6YX-58sxTJwbeYe2XPR2SysPUtkuuYjrB2FYtI5vOHdEx4XShc6RNI_I8XNjz5f2HjOfUrt4CzXJzmohqrupXY8/s1600/thumbnail.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="768" data-original-width="1376" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgNVRs1_3C-K9Oep84jTxCER-HV1sccwmBdepUGnkWCyyeBzCwzPL7cHQWd9S07e9NHF3jhKQ_ofdhxDR6sh5AeGWsQk4WMuzcTkA0n6YX-58sxTJwbeYe2XPR2SysPUtkuuYjrB2FYtI5vOHdEx4XShc6RNI_I8XNjz5f2HjOfUrt4CzXJzmohqrupXY8/s1600/thumbnail.png"/></a></div>
+      <p style="padding-bottom: 50px;">For freelancers or career changers, upskilling is the first hurdle they should clear. However, you may need to learn skills in a short time. To effectively address this problem, personalized learning is crucial. In this article, I go through how to create a tailored study plan for any skills using Claude Sonnet 4 and Notion.</p>
+      <h1>Step-by-Step Guide</h1>
+      <h2>Preparation: Create Claude and Notion accounts</h2>
+      <p id="claude_ai_sign_up_process">Before getting started, you need free Claude and Notion accounts for editability. If you have one, please skip to the next section.</p>
+      <h3 style="padding-top:30px;">How to sign up for Claude AI</h3>
+      <ol>
+        <li>Visit <a href="https://claude.ai/login">https://claude.ai/login</a>.</li>
+        <li>Enter your email address in the textbox.
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjVGuHQiQ_YseV539ln1YvqCliZzB3wbuLzJZwyW2NCduzIUhyRxfxAHzqTFRRIIpXKNpTMYH21ueK73HwF4ooxBB-97rT_NiFDS3Vlz6kVrOrIlQQzQjuyYaTQbEhyphenhyphen-qPrThKFsIVdtkLL_TVI71bOZgJFmQ2ZA94M0fw-yocHVbrK-b0rhnhdMjpaILo/s1600/Screenshot%202025-09-15%20205922.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="922" data-original-width="1890" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjVGuHQiQ_YseV539ln1YvqCliZzB3wbuLzJZwyW2NCduzIUhyRxfxAHzqTFRRIIpXKNpTMYH21ueK73HwF4ooxBB-97rT_NiFDS3Vlz6kVrOrIlQQzQjuyYaTQbEhyphenhyphen-qPrThKFsIVdtkLL_TVI71bOZgJFmQ2ZA94M0fw-yocHVbrK-b0rhnhdMjpaILo/s1600/Screenshot%202025-09-15%20205922.png"/></a></div>
+          <div class="image-source">Source: https://claude.ai/login</div>
+        </li>
+        <li>Click "<strong>Continue with email</strong>."</li>
+        <li>A verification link will be sent to your email's inbox. Please check your inbox.
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg0v-rze3qFiK3EP4i6i8CKXPXXcmwJvBZcbeeT3_m_UIHtlyPdzh8Uf3tMvqI2yZqwvT3x2z4hT2iSd46JopBYsSpOyQiSqFJ85xjxDLmXflgRP16yY80aQHJdaY0R1DW3QpQX1NejUXBOu21bCggr4-gR1wz5xesT2U4_C6kE6uXzJbC6pta0TmK_Tns/s1600/Screenshot%202025-09-15%20211237.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="557" data-original-width="1224" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg0v-rze3qFiK3EP4i6i8CKXPXXcmwJvBZcbeeT3_m_UIHtlyPdzh8Uf3tMvqI2yZqwvT3x2z4hT2iSd46JopBYsSpOyQiSqFJ85xjxDLmXflgRP16yY80aQHJdaY0R1DW3QpQX1NejUXBOu21bCggr4-gR1wz5xesT2U4_C6kE6uXzJbC6pta0TmK_Tns/s1600/Screenshot%202025-09-15%20211237.png"/></a></div>
+          <div class="image-source">Source: Claude AI</div>
+        </li>
+        <li>Click "<strong>Sign in to Claude.ai</strong>."</li>
+        <li>The verification link will be opened. Agree to the Consumer Terms and Acceptable Policy, and put a tick in the first button.
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjsqmNAayrGMaTrvS30nN58MhezlLnSVfR_GKhnBS8_1TDUONQgp1rQAwEFRlA77UIE-3v_br-fLOyxPtsQWY54BiWKDFpaW6neWj7cRTMjYFbjtzTRdiNCR9cic6rTdQBq9znAoooFUY2Qv_ruXJYBK2p5AujCpSx4BaDSomqvmrP6l9Hq-iWIJVc1WCs/s1600/Screenshot%202025-09-15%20211618.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="927" data-original-width="1891" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjsqmNAayrGMaTrvS30nN58MhezlLnSVfR_GKhnBS8_1TDUONQgp1rQAwEFRlA77UIE-3v_br-fLOyxPtsQWY54BiWKDFpaW6neWj7cRTMjYFbjtzTRdiNCR9cic6rTdQBq9znAoooFUY2Qv_ruXJYBK2p5AujCpSx4BaDSomqvmrP6l9Hq-iWIJVc1WCs/s1600/Screenshot%202025-09-15%20211618.png"/></a></div>
+          <div class="image-source">Source: https://claude.ai/onboarding</div>
+        </li>
+        <li>Click "<strong>Continue</strong>."</li>
+        <li>After that, the phone number verification page will be opened. Make sure that the country code is your country.
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhRM2I8YK0wnHzxC2_jr7A92owFEj2SrwQ_0xPztyJhd9thZR9QdGWrlPi92r_UL2xulNL2Ud9Q4tYH-QooF6V5Taybxn2vuMaaQUnV1LXAcChrb0HNhw_F9s_mFviFT3pJ22OHZarWSoJTuHzbvoCJ4hUH-pk1WeNEJDSXHz_82e8ZzEiKBPjOHasn-Ug/s1600/Screenshot%202025-09-15%20214010.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="920" data-original-width="1887" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhRM2I8YK0wnHzxC2_jr7A92owFEj2SrwQ_0xPztyJhd9thZR9QdGWrlPi92r_UL2xulNL2Ud9Q4tYH-QooF6V5Taybxn2vuMaaQUnV1LXAcChrb0HNhw_F9s_mFviFT3pJ22OHZarWSoJTuHzbvoCJ4hUH-pk1WeNEJDSXHz_82e8ZzEiKBPjOHasn-Ug/s1600/Screenshot%202025-09-15%20214010.png"/></a></div>
+          <div class="image-source">Source: https://claude.ai/onboarding</div>
+        </li>
+        <li>Type your phone number.
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgJ8uNbLkqNQhE_opCignlxHSYGTGCifH99kiMPM6XeOYBMCUK-OgnUjnxipcM1xKmkStDOFkG-_B_Bx3yvY1_z9ry8Tm1DnU405InJZVhIXXf__qYw5uZ0KQoLztann5HoknjkAteLWpRpdnoEtbLLhdiS-czulgJVKYgW_LvudadOxvxJOQD_eqIR_IU/s1600/Screenshot%202025-09-16%20082753.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="777" data-original-width="1600" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgJ8uNbLkqNQhE_opCignlxHSYGTGCifH99kiMPM6XeOYBMCUK-OgnUjnxipcM1xKmkStDOFkG-_B_Bx3yvY1_z9ry8Tm1DnU405InJZVhIXXf__qYw5uZ0KQoLztann5HoknjkAteLWpRpdnoEtbLLhdiS-czulgJVKYgW_LvudadOxvxJOQD_eqIR_IU/s1600/Screenshot%202025-09-16%20082753.png"/></a></div>
+          <div class="image-source">Source: https://claude.ai/onboarding</div>
+        </li>
+        <li>Click "<strong>Send verification code</strong>."</li>
+        <li>The phone number verification page will be opened. Type your phone number in the textbox.
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjTM87sz-cMNrAzdjklWrzoIKwKb0I7Yvw1V3pPjpdNHKPR6HBHhb3yfhObHW_ZzxjW8zBh1TAaybqeXub6yVhAiRfUE5PtcqKfBjw2sabwHOXctPGgPCahEfGdQmLUQU12l6Ml4rutytP15YwdDb47YaBPhkyquTm79As7aGr_1OVQTCwrxncdxENDhcU/s1600/Screenshot%202025-09-16%20084614.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="916" data-original-width="1918" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjTM87sz-cMNrAzdjklWrzoIKwKb0I7Yvw1V3pPjpdNHKPR6HBHhb3yfhObHW_ZzxjW8zBh1TAaybqeXub6yVhAiRfUE5PtcqKfBjw2sabwHOXctPGgPCahEfGdQmLUQU12l6Ml4rutytP15YwdDb47YaBPhkyquTm79As7aGr_1OVQTCwrxncdxENDhcU/s1600/Screenshot%202025-09-16%20084614.png"/></a></div>
+          <div class="image-source">Source: https://claude.ai/onboarding</div>
+        </li>
+        <li>Click "<strong>Verify code</strong>."</li>
+        <li>The plan page will be opened. Click "<strong>Use Claude for free</strong>."
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiY7Bg_9eB1fnd5J6MIphBvINx_Zk_TeHYWAnx7N-xF0_tIRCsnWJBB6DTzClyuPmb0X3y81WSx9H2GF97UGBV7TnpMmbKSB7yatWU123vHsPMnhUJ2SRnRvLMxprih76SR4-e7p1sVmG-x15bFbGuhcVvPcweItIbgFcvob558C4pZnYGwfIf_aDMcLOM/s1600/Screenshot%202025-09-16%20084806.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="926" data-original-width="1891" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiY7Bg_9eB1fnd5J6MIphBvINx_Zk_TeHYWAnx7N-xF0_tIRCsnWJBB6DTzClyuPmb0X3y81WSx9H2GF97UGBV7TnpMmbKSB7yatWU123vHsPMnhUJ2SRnRvLMxprih76SR4-e7p1sVmG-x15bFbGuhcVvPcweItIbgFcvob558C4pZnYGwfIf_aDMcLOM/s1600/Screenshot%202025-09-16%20084806.png"/></a></div>
+          <div class="image-source">Source: https://claude.ai/onboarding</div>
+        </li>
+        <li>You will be asked your name. Enter your name.
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgSZihQmSFHBESPkAIdSrUOpPho0c4-IOkmAtnFMWcs2IZML2qUUQ8oXDjNZh0LBeAGoHkzujNEA4lrJCl4hObc0Cl2n3PN3cEQxz95RNiMHYRVBU87zrfgdX6mmBEbuD-X7SZQ9vFeXbhaItUgxxChIQQ6iG-waCq5KU-fgAghaWaheho8l7yucmvnMqU/s1600/Screenshot%202025-09-16%20085025.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="932" data-original-width="1919" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgSZihQmSFHBESPkAIdSrUOpPho0c4-IOkmAtnFMWcs2IZML2qUUQ8oXDjNZh0LBeAGoHkzujNEA4lrJCl4hObc0Cl2n3PN3cEQxz95RNiMHYRVBU87zrfgdX6mmBEbuD-X7SZQ9vFeXbhaItUgxxChIQQ6iG-waCq5KU-fgAghaWaheho8l7yucmvnMqU/s1600/Screenshot%202025-09-16%20085025.png"/></a></div>
+          <div class="image-source">Source: https://claude.ai/onboarding</div>
+        </li>
+        <li>Click "<strong>↑</strong>."</li>
+        <li>You will be asked your interests. Choose at least <strong>3 interests</strong>.
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgwOQ5vil6_vouesTu2eU5Aghd4HKPWxeNDKfEWnAgNRF_mYOa8Q99lzUtJd-Cgl65feG_mGAzBTJOIhnOWy7rrtdk7be9F8MT02l2E7kYWcXdjmUwmt24SfrJ6TQZs0fdHz7GjBJ0H5R513OMudKJj9DyovsSncBTZgoLmv4MidqqzG8QWGBVAclZhzSk/s1600/Screenshot%202025-09-16%20085052.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="925" data-original-width="1919" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgwOQ5vil6_vouesTu2eU5Aghd4HKPWxeNDKfEWnAgNRF_mYOa8Q99lzUtJd-Cgl65feG_mGAzBTJOIhnOWy7rrtdk7be9F8MT02l2E7kYWcXdjmUwmt24SfrJ6TQZs0fdHz7GjBJ0H5R513OMudKJj9DyovsSncBTZgoLmv4MidqqzG8QWGBVAclZhzSk/s1600/Screenshot%202025-09-16%20085052.png"/></a></div>
+          <div class="image-source">Source: https://claude.ai/onboarding</div>
+        </li>
+      <li>Click "<strong>Let's go</strong>."</li>
+        <li>You will be asked your starter idea based on your interests. Click "<strong>I have my own topic</strong>."
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhLWcReh7lWetWGSmIsCqhMAJMpnxyp9XIiskRJcd01wFVDd0riSYn7VB6BfRMTB1bPKRR6DWPXNzkdhXNlbN34HLj1VdtmO_yBcB72KBMN2edZDdmzO-HpyqKgUznNfO6XASGdhWkfyTNrgPtsQ_fWQ357_DkUAqm9AFqB4wsEyz4zf58duN8hXKazWR8/s1600/Screenshot%202025-09-16%20085136.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="930" data-original-width="1918" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhLWcReh7lWetWGSmIsCqhMAJMpnxyp9XIiskRJcd01wFVDd0riSYn7VB6BfRMTB1bPKRR6DWPXNzkdhXNlbN34HLj1VdtmO_yBcB72KBMN2edZDdmzO-HpyqKgUznNfO6XASGdhWkfyTNrgPtsQ_fWQ357_DkUAqm9AFqB4wsEyz4zf58duN8hXKazWR8/s1600/Screenshot%202025-09-16%20085136.png"/></a></div>
+          <div class="image-source">Source: https://claude.ai/onboarding</div>
+        </li>
+        <li>Sign-up to Claude is completed.
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhposrUSTX1n8CkJ3XEiRKfultiHAWkq_3XLlViKjOqlHn5vEu6R7CtkaV__XBut000eU_PGPqlcBn64jfq8zLIlLm6ciq1vf-uzsQ_Lv7SZ6SUg77lze9uHVFzvVSAggveaYjlhAQT9z8s5oBGsB5mbYD0OhG1DJr9Q6cVfg3namxdTaQ0IbbCFK8Yu_A/s1600/Screenshot%202025-09-16%20085222.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="928" data-original-width="1919" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhposrUSTX1n8CkJ3XEiRKfultiHAWkq_3XLlViKjOqlHn5vEu6R7CtkaV__XBut000eU_PGPqlcBn64jfq8zLIlLm6ciq1vf-uzsQ_Lv7SZ6SUg77lze9uHVFzvVSAggveaYjlhAQT9z8s5oBGsB5mbYD0OhG1DJr9Q6cVfg3namxdTaQ0IbbCFK8Yu_A/s1600/Screenshot%202025-09-16%20085222.png"/></a></div>
+          <div class="image-source">Source: https://claude.ai/</div>
+        </li>
+      </ol>
+      <h3>How to sign up for Notion</h3>
+      <ol>
+        <li>Visit <a href="https://www.notion.com">https://www.notion.com</a></li>
+        <li>Click "<strong>Get Notion free</strong>."
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgMPjZrX_JkXt8UuGW6t4qZVeodWar1SIUZgpSBuMS6GKC9O385iMDDLZEUfj8v4isC1VH6c4Ygx59bxIWucqpJCnEgFw5Z5MpMFN0AvdsOzHRaWfKq8YYwoJyHK3qADXyfH3qCTkmJ27SdFPfrDDEhihheJdFFeNfpOjKP7yrI7gYbRaRGYBJRJiVaq14/s1600/Screenshot%202025-09-21%20193001.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="837" data-original-width="1890" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgMPjZrX_JkXt8UuGW6t4qZVeodWar1SIUZgpSBuMS6GKC9O385iMDDLZEUfj8v4isC1VH6c4Ygx59bxIWucqpJCnEgFw5Z5MpMFN0AvdsOzHRaWfKq8YYwoJyHK3qADXyfH3qCTkmJ27SdFPfrDDEhihheJdFFeNfpOjKP7yrI7gYbRaRGYBJRJiVaq14/s1600/Screenshot%202025-09-21%20193001.png"/></a></div>
+          <div class="image-source">Source: https://notion.com</div>
+        </li>
+        <li>You will see multiple sign-in options. In this case, let's sign in with your email. Enter your email address into the textbox.
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh-TQgJ5hwNfei6KHx8coW10hk_8iIYJj-UuGO5s2fBF2jRcRlN2bSK_pGewsLobyZYJX5dOtuhzADhz_Q5mgia9oWPnsAwsQUjNApNLSdNoAG87_XrG4I9-y3du491dm1S8Yi16nJKUJEdl0DYlJNYRUCT-YkrY49It6o4xcuGUTafKd6fzmZeKXvrDEs/s1600/Screenshot%202025-09-21%20202438.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="311" data-original-width="410" width="50%" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh-TQgJ5hwNfei6KHx8coW10hk_8iIYJj-UuGO5s2fBF2jRcRlN2bSK_pGewsLobyZYJX5dOtuhzADhz_Q5mgia9oWPnsAwsQUjNApNLSdNoAG87_XrG4I9-y3du491dm1S8Yi16nJKUJEdl0DYlJNYRUCT-YkrY49It6o4xcuGUTafKd6fzmZeKXvrDEs/s1600/Screenshot%202025-09-21%20202438.png"/></a></div>
+          <div class="image-source">Source: https://www.notion.so/login</div>
+        </li>
+        <li>Click "<strong>Continue</strong>."</li>
+        <li>Go to the inbox of the email. You will see your email address verification email in your inbox as shown in this image. Click "<strong>Sign in with Magic Link</strong>."
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjmp3Hpf0pXzlHuAn_oC-dthvjoEszaNYay9MLhz9STpqZw2Gg8vInkISebv1z-Jo6eyg1zX5wgUUSVg9F4F0A-WacM33REjcJv34RnEdUY9BTwGbqwzdXjEM_D-dGdUcWnDDZSn_DTc2stcStteU-PvHleRNbqH8rRBEFmjiIwStz5UaMzE52PU8Ewkd4/s1600/Screenshot%202025-09-21%20203655.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="525" data-original-width="855" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjmp3Hpf0pXzlHuAn_oC-dthvjoEszaNYay9MLhz9STpqZw2Gg8vInkISebv1z-Jo6eyg1zX5wgUUSVg9F4F0A-WacM33REjcJv34RnEdUY9BTwGbqwzdXjEM_D-dGdUcWnDDZSn_DTc2stcStteU-PvHleRNbqH8rRBEFmjiIwStz5UaMzE52PU8Ewkd4/s1600/Screenshot%202025-09-21%20203655.png"/></a></div>
+          <div class="image-source">Source: Notion</div>
+        </li>
+        <li>Your account initial setting page will be opened. Enter your name into the textbox.
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiqEbfeOmkJSl6CxWv_eABX7xzeyJ8XcOQdvLYufQlE0nka8zhjzhhv9lPp0HQyzzTwc4SVoc2tCrxpMgJLDPGLVbKUw6qyd3d9qV7bMQwF5bWhWdQbEaXxM3ecwNg0uugzgfWvKheaH-xjW-C4hSEedfR_OVzWbqhePW2vqbuMySrtL8VD7rL5WShdGVU/s1600/Screenshot%202025-09-21%20203934.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="921" data-original-width="1895" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiqEbfeOmkJSl6CxWv_eABX7xzeyJ8XcOQdvLYufQlE0nka8zhjzhhv9lPp0HQyzzTwc4SVoc2tCrxpMgJLDPGLVbKUw6qyd3d9qV7bMQwF5bWhWdQbEaXxM3ecwNg0uugzgfWvKheaH-xjW-C4hSEedfR_OVzWbqhePW2vqbuMySrtL8VD7rL5WShdGVU/s1600/Screenshot%202025-09-21%20203934.png"/></a></div>
+          <div class="image-source">Source: https://www.notion.so/onboarding</div>
+        </li>
+        <li>You will need to choose your purpose for using Notion. Choose "<strong>For personal life</strong>."
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhhVUd9BFynpEmr9oXhE7Pi9hIFmWSMwzpUBRZ1V__fnNmXZMVWeVAPTl9Vk8Us6ODh7LSm2IWVubvwnlAjCDjjKk4AjJfQ1jhQF8Zi8nKM4g6gr9TpX5JDqyX7OFJOjoXzYOMxElapa4XLL4Rj71jo-2IpIu-pzzEeZZHARVSVDPrf-5xr3_Hw1tJJ8Jk/s1600/Screenshot%202025-09-21%20203950.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="915" data-original-width="1888" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhhVUd9BFynpEmr9oXhE7Pi9hIFmWSMwzpUBRZ1V__fnNmXZMVWeVAPTl9Vk8Us6ODh7LSm2IWVubvwnlAjCDjjKk4AjJfQ1jhQF8Zi8nKM4g6gr9TpX5JDqyX7OFJOjoXzYOMxElapa4XLL4Rj71jo-2IpIu-pzzEeZZHARVSVDPrf-5xr3_Hw1tJJ8Jk/s1600/Screenshot%202025-09-21%20203950.png"/></a></div>
+          <div class="image-source">Source: https://www.notion.so/onboarding</div>
+        </li>
+        <li>You will be asked about your interest. Click "<strong>Skip for now</strong>."
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgetkajnweOijUJ4CqTLuhvhhEyWod466it0XXzH_Cxyy9uMJyv82btwRgbO1XeBMpZNMIkcRwdanoeAlTkSwQZobzeVtvYsQzHN-4BYrOTf-p8A1SXgREyzCi9H44Siys-T5ABXuNnTAf9XjmFGchQY6RlkoMS9JTOSDgYMuULgBpM6ACFf_aBXkVzIKs/s1600/Screenshot%202025-09-21%20204007.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="912" data-original-width="1908" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgetkajnweOijUJ4CqTLuhvhhEyWod466it0XXzH_Cxyy9uMJyv82btwRgbO1XeBMpZNMIkcRwdanoeAlTkSwQZobzeVtvYsQzHN-4BYrOTf-p8A1SXgREyzCi9H44Siys-T5ABXuNnTAf9XjmFGchQY6RlkoMS9JTOSDgYMuULgBpM6ACFf_aBXkVzIKs/s1600/Screenshot%202025-09-21%20204007.png"/></a></div>
+          <div class="image-source">Source: https://www.notion.so/onboarding</div>
+        </li>
+        <li>You will be asked if you want to install Notion on your computer. Click "<strong>Skip</strong>."
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjzgWYKTaICAeC9xWTZa-xwGYrOcsazYPmYnXkiEPfKZmahMxbY9ZK241Q1OpymMm5X0uTfK0fWmsAxPRuQ_FSrQdIHKZXPSLuH_wLM-UYmAIe21JCF11C6suIUh0zusLgEGBU-vB9tANHs-hOn-75wM48q3-0HAR1fnCUwgdcauOY1lVT9deoDk3nstU4/s1600/Screenshot%202025-09-21%20204022.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="910" data-original-width="1891" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjzgWYKTaICAeC9xWTZa-xwGYrOcsazYPmYnXkiEPfKZmahMxbY9ZK241Q1OpymMm5X0uTfK0fWmsAxPRuQ_FSrQdIHKZXPSLuH_wLM-UYmAIe21JCF11C6suIUh0zusLgEGBU-vB9tANHs-hOn-75wM48q3-0HAR1fnCUwgdcauOY1lVT9deoDk3nstU4/s1600/Screenshot%202025-09-21%20204022.png"/></a></div>
+          <div class="image-source">Source: https://www.notion.so/onboarding</div>
+        </li>
+        <li>Sign-up to Notion is completed.
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjix32ZziFrgUeMZWkSKDioOT75EdnZrAGWR6u-LaoSawEVEtzspoKgUv7MoluZiyZwlMiNL_pp2dYsiAf-IWLFHnz8kA8DsHs2hXmRKXBIcfNW-xTjCl7P67aqUeOEIHTIt7iaBRKvyN1v_rB-6r2ppDvqTX_n7KbNnQ0x0E_KlKK4fwcLtwRPZPn16NY/s1600/Screenshot%202025-09-21%20204101.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="920" data-original-width="1890" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjix32ZziFrgUeMZWkSKDioOT75EdnZrAGWR6u-LaoSawEVEtzspoKgUv7MoluZiyZwlMiNL_pp2dYsiAf-IWLFHnz8kA8DsHs2hXmRKXBIcfNW-xTjCl7P67aqUeOEIHTIt7iaBRKvyN1v_rB-6r2ppDvqTX_n7KbNnQ0x0E_KlKK4fwcLtwRPZPn16NY/s1600/Screenshot%202025-09-21%20204101.png"/></a></div>
+          <div class="image-source">Source: https://www.notion.so/</div>
+        </li>
+      </ol>
+      <h2>Generate a Study Plan</h2>
+      <p>Once the signup is done, let's generate a study plan in markdown format.</p>
+      <ol>
+        <li>Go to <a href="https://claude.ai">https://claude.ai</a>. If you did the signup in the previous step, skip to the next step.</li>
+        <li>Type this prompt template in the textbox.</li>
+        <pre>[Task]: Create a study plan to master <strong style='font-size:17px;'>(describe your target skill)</strong>.
+[Workflow]:
+  1. Create a study roadmap tailored to me.
+  2. Suggest the best free online learning resources for this purpose.
+  3. Choose one resource.
+  4. Generate a markdown study plan table in these constraints.
+    - For each lesson (row), include the lesson URL, exact deadline, and goal (column).
+    - Include the markdown code in a copyable code block.
+    - Ensure that each lesson URL provided is accessible.
+    - Choose one lesson URL from the chosen resource per lesson.
+[Start Date]: <strong style='font-size:17px;'>(describe when your study starts)</strong>
+[Duration]: <strong style='font-size:17px;'>(describe the study period)</strong>
+[Level]: <strong style='font-size:17px;'>(describe your level. If you haven't, type "Complete beginner.")</strong>
+[Available Time]: <strong style='font-size:17px;'>(describe spare time)</strong></pre>
+        <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgx-LNIQM5930VsVJ7dS6Ehv6YVvKvNwFjHp1tyBIw6x6o_ITlReeY1HZPbCNbF6Vx6HQv1zoh7D4HVFBY9R5ex1Fuqp6-EjjDz9WF4KAlWG_ztgHFm9Oha92kUZEl3AHUTy3s7z9zTq2N_q7Ulzr9MVkIjDi2XdFDUUogoc_eZ2FGo9nEBcS0TC3WHBcM/s1600/Screenshot%202025-09-21%20160803.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="927" data-original-width="1853" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgx-LNIQM5930VsVJ7dS6Ehv6YVvKvNwFjHp1tyBIw6x6o_ITlReeY1HZPbCNbF6Vx6HQv1zoh7D4HVFBY9R5ex1Fuqp6-EjjDz9WF4KAlWG_ztgHFm9Oha92kUZEl3AHUTy3s7z9zTq2N_q7Ulzr9MVkIjDi2XdFDUUogoc_eZ2FGo9nEBcS0TC3WHBcM/s1600/Screenshot%202025-09-21%20160803.png"/></a></div>
+        <div class="image-source">Source: https://claude.ai</div>
+        <li>Complete the bold placeholders, which are eenclosed with "(" and ")."</li>
+        <li>Click "<strong>↑</strong>."
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg1F1Ua4v2QjbNQLErXwu_BRI-LXaC92KroCECgy0Jw1_S8ryTGSFncORT_caISTy8qsZ6eOO_jxFocWJh-aftIDjkTpKSFaXGAFAL82nK1pt1OhKoEUC8-3Xv5CaW20-hx06cKv8g095TlZBEpVvqNEJ3i8hdDSkDZE-vWSZd30_j8x3zxavHFYPG4SJM/s1600/Screenshot%202025-09-21%20161735.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="925" data-original-width="1852" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg1F1Ua4v2QjbNQLErXwu_BRI-LXaC92KroCECgy0Jw1_S8ryTGSFncORT_caISTy8qsZ6eOO_jxFocWJh-aftIDjkTpKSFaXGAFAL82nK1pt1OhKoEUC8-3Xv5CaW20-hx06cKv8g095TlZBEpVvqNEJ3i8hdDSkDZE-vWSZd30_j8x3zxavHFYPG4SJM/s1600/Screenshot%202025-09-21%20161735.png"/></a></div>
+          <div class="image-source">Source: https://claude.ai</div>
+        </li>
+        <li>Study plan generation will start.</li>
+        <li>After your study plan is generated, click the copy button.
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhYGPN762HHaG6Hbck_5qEmkCKvOpVHRwH_N4lEeQY4N9EEggrqQTfHDbZRU0_9BYW_gSOfPUi3jprDNoA3P66W5_QHVybVEdZlE8G3Ycy67p7OOPChC-_WGXSOeEJSuFdc9OnKW1ZnTcHA__V1fOsyC44zlhec1bB8jC4OD7Inr5ZN6tfX3xe9ixocS5U/s1600/Screenshot%202025-09-23%20085758.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="923" data-original-width="1855" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhYGPN762HHaG6Hbck_5qEmkCKvOpVHRwH_N4lEeQY4N9EEggrqQTfHDbZRU0_9BYW_gSOfPUi3jprDNoA3P66W5_QHVybVEdZlE8G3Ycy67p7OOPChC-_WGXSOeEJSuFdc9OnKW1ZnTcHA__V1fOsyC44zlhec1bB8jC4OD7Inr5ZN6tfX3xe9ixocS5U/s1600/Screenshot%202025-09-23%20085758.png"/></a></div>
+          <div class="image-source">Source: https://claude.ai</div>
+        </li>
+        <li>Visit <a href="https://notion.so">https://notion.so</a>.</li>
+        <li>Click the "<strong>+</strong>" button in the side menu to create a new Notion page.
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj5v3xRktOiDznPo23NcwHTn_siWPeyB6-Kaulzbv_mnXiCsQunYkxeYYZRYNCpCx3TFqLPHsh8ajHAAx08ttES_ATK4fKoLAlXUqT5F_cgFIpY04cVH6ZEQNXyPwjuZqUbqMGcrFUIERh3odffxPUbr7qYbLhl9_JgNdG2GfwSRT8ikyhVX07tT-n2hA4/s1600/Screenshot%202025-09-23%20090252.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="391" data-original-width="301" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj5v3xRktOiDznPo23NcwHTn_siWPeyB6-Kaulzbv_mnXiCsQunYkxeYYZRYNCpCx3TFqLPHsh8ajHAAx08ttES_ATK4fKoLAlXUqT5F_cgFIpY04cVH6ZEQNXyPwjuZqUbqMGcrFUIERh3odffxPUbr7qYbLhl9_JgNdG2GfwSRT8ikyhVX07tT-n2hA4/s1600/Screenshot%202025-09-23%20090252.png" style="width:100%;"/></a></div>
+          <div class="image-source">Source: https://notion.so</div>
+        </li>
+        <li>Click "<strong>New Page</strong>" to name the created page if necessary.</li>
+        <li>Paste the copied code.
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh4ZSfmk7-03a5-7OSJLp0drpP6m8ubiJmrGf5LIv09iAJDGjbedOVxQXpTJXCQi_KmoEOnpF44E0EfMM-YD3HBw2sd12X1RZuwOliE9i84ZqmWkjGGgoO1r5LD7wvtVwmXfK__WWcbWlFIX7W9RYpyLEHLGpsb6Mx6q3O8oIFcWyC2OH0ThTUjt5DzwtU/s1600/Screenshot%202025-09-23%20090948.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="922" data-original-width="1612" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh4ZSfmk7-03a5-7OSJLp0drpP6m8ubiJmrGf5LIv09iAJDGjbedOVxQXpTJXCQi_KmoEOnpF44E0EfMM-YD3HBw2sd12X1RZuwOliE9i84ZqmWkjGGgoO1r5LD7wvtVwmXfK__WWcbWlFIX7W9RYpyLEHLGpsb6Mx6q3O8oIFcWyC2OH0ThTUjt5DzwtU/s1600/Screenshot%202025-09-23%20090948.png"/></a></div>
+          <div class="image-source">Source: https://notion.so</div>
+        </li>
+        <li>The study plan is created!
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEib2hQ1j80t4BRPLtmTZqw129JQfWEK3YN_Ha24X0U-EK2dkpFOPbtu1_6KtHTtuUXKHfxgiFe9C4sheuQqzLP7Kn_dO1PJCuI6WwZ9TWQqyik-uWsMNnTGUPZCiWwQZ0zcRpdtEElQIdf4nhO5aPRuagyeVtQdx5dIPA5HEF4pHbo17LC7okfk4ah-Q9o/s1600/Screenshot%202025-09-23%20091138.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="927" data-original-width="1598" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEib2hQ1j80t4BRPLtmTZqw129JQfWEK3YN_Ha24X0U-EK2dkpFOPbtu1_6KtHTtuUXKHfxgiFe9C4sheuQqzLP7Kn_dO1PJCuI6WwZ9TWQqyik-uWsMNnTGUPZCiWwQZ0zcRpdtEElQIdf4nhO5aPRuagyeVtQdx5dIPA5HEF4pHbo17LC7okfk4ah-Q9o/s1600/Screenshot%202025-09-23%20091138.png"/></a></div>
+          <div class="image-source">Source: https://notion.so</div>
+        </li>
+      </ol>
+      <h2>Advanced Option: Export the study plan as a PDF</h2>
+      <p>If you want to export it as a PDF, you can use a built-in export function.</p>
+      <ol>
+        <li>Click "<strong>...</strong>" in the top right corner.
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgh8h863RSoaTgxxQwzge10J_9CoA2N_1Nq9E9AyM2krJQd3JKcUklTV2jeilt4HmYCgjNOhGCpQbxvxBPkoATPcMn2HCPqY0GQRaU5cVIy2gnxkQ211vCScjkOhRf50x8pgrEt9bMudLvFh4dWyA5r2flBvvqYP70zLPLDHJ25cMuM5IMeDz08ELlsBbg/s1600/Screenshot%202025-09-23%20091600.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="58" data-original-width="291" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgh8h863RSoaTgxxQwzge10J_9CoA2N_1Nq9E9AyM2krJQd3JKcUklTV2jeilt4HmYCgjNOhGCpQbxvxBPkoATPcMn2HCPqY0GQRaU5cVIy2gnxkQ211vCScjkOhRf50x8pgrEt9bMudLvFh4dWyA5r2flBvvqYP70zLPLDHJ25cMuM5IMeDz08ELlsBbg/s1600/Screenshot%202025-09-23%20091600.png"/></a></div>
+          <div class="image-source">Source: https://notion.so</div>
+        </li>
+        <li>Click "<strong>Export</strong>."
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgbWro6IvqxR1EOZtLJicCrCJw3XYX8YDZpqKNN2hhFTtsxBajKGbwCqoanaItaQaCAiQTuOxT9A3BEjLF1OnrDHN8D6LQFfoa6Uzrb3n2Hm7yzn-6WB-fio3jSGUYTTUIJXr57OxuYkmBlXZLliTTKqkYqIynKoLZlq0ZTTVDylezQY9fpmbQAn7wT6D4/s1600/Screenshot%202025-09-23%20091741.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="750" data-original-width="333" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgbWro6IvqxR1EOZtLJicCrCJw3XYX8YDZpqKNN2hhFTtsxBajKGbwCqoanaItaQaCAiQTuOxT9A3BEjLF1OnrDHN8D6LQFfoa6Uzrb3n2Hm7yzn-6WB-fio3jSGUYTTUIJXr57OxuYkmBlXZLliTTKqkYqIynKoLZlq0ZTTVDylezQY9fpmbQAn7wT6D4/s1600/Screenshot%202025-09-23%20091741.png" style="width:100%;"/></a></div>
+          <div class="image-source">Source: https://notion.so</div>
+        </li>
+        <li>The pop-up will be opened. Click "<strong>Markdown & CSV</strong>."
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiGSh5hrd4VRAAfO5aUlYFsN-dDvZi5cT-bHdi0fgPVKgaBL8JhMBQfB1YFxqNBqMTzRB5A43Nuew220BRCGEiI_jPq8_pwUiRVIq7j8NgsQ4Ub8KeGxawirrf2LGdNSj5MQk3IDwk9kKrIrEmz_hk-uCPB_xH8GM_gcgUpar78zQMcxaX7tJaa-W_Cx3c/s1600/Screenshot%202025-09-23%20092117.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="311" data-original-width="398" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiGSh5hrd4VRAAfO5aUlYFsN-dDvZi5cT-bHdi0fgPVKgaBL8JhMBQfB1YFxqNBqMTzRB5A43Nuew220BRCGEiI_jPq8_pwUiRVIq7j8NgsQ4Ub8KeGxawirrf2LGdNSj5MQk3IDwk9kKrIrEmz_hk-uCPB_xH8GM_gcgUpar78zQMcxaX7tJaa-W_Cx3c/s1600/Screenshot%202025-09-23%20092117.png"/></a></div>
+          <div class="image-source">Source: https://notion.so</div>
+        </li>
+        <li>Click "<strong>PDF</strong>."
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjWzUziTSEqoVQ5-T2SX5aQJsSY-5IKxIduXZ7ZuioloLgGiGIns9W93tp0yzonlkELM_xKiTG0t0feRBpGEQyfD8YAsv8ttX-VKd9BtjH1lB_oh7NkeEJUU64k2f-vSUNjmLnsGbCp8s7obHathrCPb8qpk2BIALDM_nWvNwlHeVMBE91jfgMVMa6J0zY/s1600/Screenshot%202025-09-23%20111151.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="313" data-original-width="401" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjWzUziTSEqoVQ5-T2SX5aQJsSY-5IKxIduXZ7ZuioloLgGiGIns9W93tp0yzonlkELM_xKiTG0t0feRBpGEQyfD8YAsv8ttX-VKd9BtjH1lB_oh7NkeEJUU64k2f-vSUNjmLnsGbCp8s7obHathrCPb8qpk2BIALDM_nWvNwlHeVMBE91jfgMVMa6J0zY/s1600/Screenshot%202025-09-23%20111151.png"/></a></div>
+          <div class="image-source">Source: https://notion.so</div>
+        </li>
+        <li>Click "<strong>Export</strong>."
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgboEHV_WY4O8A258wsIsx3TCbxEQBOOctPbDn2zYlc_u6QbgAcTtz8dKbx9LI1AliDav96Ynw5SnqwoYW7fMThcAUpBl_iPxF4FeqREQSVLpe9UHPCjA2-C960yDuzNIaTm3eS0J-2qsvHG2KuP7ckE_CT9mTg0_NrzBo1oW31xv7hdKRJHopPItOhmZw/s1600/Screenshot%202025-09-23%20092509.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="392" data-original-width="403" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgboEHV_WY4O8A258wsIsx3TCbxEQBOOctPbDn2zYlc_u6QbgAcTtz8dKbx9LI1AliDav96Ynw5SnqwoYW7fMThcAUpBl_iPxF4FeqREQSVLpe9UHPCjA2-C960yDuzNIaTm3eS0J-2qsvHG2KuP7ckE_CT9mTg0_NrzBo1oW31xv7hdKRJHopPItOhmZw/s1600/Screenshot%202025-09-23%20092509.png"/></a></div>
+          <div class="image-source">Source: https://notion.so</div>
+        </li>
+        <p>Here's the example.</p>
+        <iframe src="https://genaitimestools.github.io/My%20blog/How%20to%20create%20a%20study%20plan%20using%20Claude%20Sonnet%204/Web%20Design%20Study%20Plan.pdf"></iframe>
+      </ol>
+      <hr>
+      <h1>Use Cases</h1>
+      <h2>For Software Engineers: New Framework or Programming Language Study Plan</h2>
+      <p>In this digital era, technology is evolving faster than one software engineer can adapt, increasing learning cost per person. This poses software engineers challenges in that they can't learn the latest technologies at a lower cost. Furthermore, traditional learning style isn't always personalized to individuals. To address these 2 problems, you can use this AI use case. Claude Sonnet 4 does everything from structuring a tailored learning roadmap, finding personalized courses, choosing the best course from the list, and creating a study plan meeting your requirements. Here's the prompt example.</p>
+      <p>Example</p>
+      <pre>[Task]: Create a study plan to master JavaScript programming for web development.
+[Workflow]:
+  1. Create a study roadmap tailored to me.
+  2. Suggest the best free online learning resources for this purpose.
+  3. Choose one resource.
+  4. Generate a markdown study plan table in these constraints.
+    - For each lesson (row), include the lesson URL, exact deadline, and goal (column).
+    - Include the markdown code in a copyable code block.
+    - Ensure that each lesson URL provided is accessible.
+    - Choose one lesson URL from the chosen resource per lesson.
+[Start Date]: October 1, 2025
+[Duration]: 3 months
+[Level]: Complete beginner with basic HTML/CSS knowledge
+[Available Time]: 2 hours per day, 5 days a week</pre>
+      <p>Here's the result when I executed the prompt.</p>
+      <div class="flex-container">
+        <button class="dropbtn" id="dropDownButton"><strong>JavaScript Programming Study Plan</strong></button>
+      </div>
+      <div class="dropdown">
+        <div id="droppedDownContent" class="dropdown-content">
+          <h2>Month 1: JavaScript Fundamentals (October 2025)</h2>
+          <table>
+            <tr>
+                <td>Week</td>
+                <td>Lesson Topic</td>
+                <td>Lesson URL</td>
+                <td>Deadline</td>
+                <td>Goal</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Basic JavaScript - Variables &amp; Data Types</td>
+                <td>https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-javascript/comment-your-javascript-code</td>
+                <td>Oct 7, 2025</td>
+                <td>Master variables, strings, numbers, and comments</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Basic JavaScript - Operations &amp; Functions</td>
+                <td>https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-javascript/understanding-boolean-values</td>
+                <td>Oct 7, 2025</td>
+                <td>Understand arithmetic, comparison, and basic functions</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Basic JavaScript - Arrays &amp; Conditionals</td>
+                <td>https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-javascript/store-multiple-values-in-one-variable-using-javascript-arrays</td>
+                <td>Oct 14, 2025</td>
+                <td>Work with arrays and if/else statements</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Basic JavaScript - Loops</td>
+                <td>https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-javascript/iterate-with-javascript-while-loops</td>
+                <td>Oct 14, 2025</td>
+                <td>Master while, for, and do-while loops</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Basic JavaScript - Objects &amp; Advanced Functions</td>
+                <td>https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-javascript/build-javascript-objects</td>
+                <td>Oct 21, 2025</td>
+                <td>Create and manipulate objects, nested structures</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Basic JavaScript - Scope &amp; Recursion</td>
+                <td>https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-javascript/global-vs--local-scope-in-functions</td>
+                <td>Oct 21, 2025</td>
+                <td>Understand variable scope and recursive functions</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Basic JavaScript Practice &amp; Review</td>
+                <td>https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-javascript/profile-lookup</td>
+                <td>Oct 28, 2025</td>
+                <td>Complete all basic JavaScript challenges</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>ES6 Introduction</td>
+                <td>https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/es6/explore-differences-between-the-var-and-let-keywords</td>
+                <td>Oct 28, 2025</td>
+                <td>Learn let, const, and arrow functions</td>
+            </tr>
+          </table>
+          <h2>Month 2: ES6 & DOM Manipulation (November 2025)</h2>
+          <table>
+            <tr>
+                <td>Week</td>
+                <td>Lesson Topic</td>
+                <td>Lesson URL</td>
+                <td>Deadline</td>
+                <td>Goal</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>ES6 - Advanced Features</td>
+                <td>https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/es6/destructure-variables-from-arrays</td>
+                <td>Nov 4, 2025</td>
+                <td>Master destructuring, template literals, classes</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>ES6 - Modules &amp; Promises</td>
+                <td>https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/es6/use-export-to-share-a-code-block</td>
+                <td>Nov 4, 2025</td>
+                <td>Understand modules, imports/exports, promises</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Regular Expressions</td>
+                <td>https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/regular-expressions/using-the-test-method</td>
+                <td>Nov 11, 2025</td>
+                <td>Learn pattern matching and text validation</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Debugging Techniques</td>
+                <td>https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/debugging/use-the-javascript-console-to-check-the-value-of-a-variable</td>
+                <td>Nov 11, 2025</td>
+                <td>Master debugging tools and error handling</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>Basic Data Structures - Arrays</td>
+                <td>https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-data-structures/use-an-array-to-store-a-collection-of-data</td>
+                <td>Nov 18, 2025</td>
+                <td>Advanced array methods and manipulation</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>Basic Data Structures - Objects</td>
+                <td>https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-data-structures/add-key-value-pairs-to-javascript-objects</td>
+                <td>Nov 18, 2025</td>
+                <td>Complex object operations and data handling</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>Basic Algorithm Scripting</td>
+                <td>https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-algorithm-scripting/convert-celsius-to-fahrenheit</td>
+                <td>Nov 25, 2025</td>
+                <td>Solve 16 algorithm challenges</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>Algorithm Practice &amp; Review</td>
+                <td>https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-algorithm-scripting/factorialize-a-number</td>
+                <td>Nov 25, 2025</td>
+                <td>Complete remaining basic algorithms</td>
+            </tr>
+          </table>
+          <h2>Month 3: Advanced Concepts & Projects (December 2025)</h2>
+          <table>
+            <tr>
+                <td>Week</td>
+                <td>Lesson Topic</td>
+                <td>Lesson URL</td>
+                <td>Deadline</td>
+                <td>Goal</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>Object Oriented Programming</td>
+                <td>https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/object-oriented-programming/create-a-basic-javascript-object</td>
+                <td>Dec 2, 2025</td>
+                <td>Learn OOP principles: inheritance, encapsulation</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>OOP - Advanced Concepts</td>
+                <td>https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/object-oriented-programming/understand-the-constructor-property</td>
+                <td>Dec 2, 2025</td>
+                <td>Master constructors, prototypes, and mixins</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>Functional Programming</td>
+                <td>https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/functional-programming/learn-about-functional-programming</td>
+                <td>Dec 9, 2025</td>
+                <td>Understand pure functions, immutability, higher-order functions</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>Functional Programming - Methods</td>
+                <td>https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/functional-programming/use-the-map-method-to-extract-data-from-an-array</td>
+                <td>Dec 9, 2025</td>
+                <td>Master map, filter, reduce, and functional techniques</td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>Intermediate Algorithm Scripting</td>
+                <td>https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/intermediate-algorithm-scripting/sum-all-numbers-in-a-range</td>
+                <td>Dec 16, 2025</td>
+                <td>Solve 21 intermediate algorithm challenges</td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>Advanced Algorithms</td>
+                <td>https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/intermediate-algorithm-scripting/diff-two-arrays</td>
+                <td>Dec 16, 2025</td>
+                <td>Complete complex problem-solving challenges</td>
+            </tr>
+            <tr>
+                <td>12</td>
+                <td>JavaScript Calculator Project</td>
+                <td>https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/javascript-algorithms-and-data-structures-projects/palindrome-checker</td>
+                <td>Dec 23, 2025</td>
+                <td>Build first certification project</td>
+            </tr>
+            <tr>
+                <td>12</td>
+                <td>Final Projects &amp; Certification</td>
+                <td>https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/javascript-algorithms-and-data-structures-projects/roman-numeral-converter</td>
+                <td>Dec 30, 2025</td>
+                <td>Complete all 5 projects for certification</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <h2>For Career Changers: New Skill Learning Plan</h2>
+      <p>According to some Reddit forums, some career changers had financial and time constraints in skill acquisition. For example, <a href="https://www.reddit.com/r/careerguidance/comments/1h48ira/comment/lzwpdp3/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button">one person</a> claimed that retraining was expensive, time-consuming, and stressful, but there was no pay for it. <a href="https://www.reddit.com/r/careerguidance/comments/1nk75il/how_do_you_stay_motivated_to_upskill_after_long/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button">Another person</a> said that they had no energy to learn skills after a long workday. In fact, their problems can be solved simultaneously by learning skills with free courses in a shorter learning time because you may be able to complete one lesson if it's short, and Claude can find short YouTube video courses. Here's the example prompt if a target skill is graphic design and learning time is 30 minutes, which is short.</p>
+      <pre>[Task]: Create a study plan to master graphic design.
+[Workflow]:
+  1. Create a study roadmap tailored to me.
+  2. Suggest the best free online learning resources for this purpose.
+  3. Choose one resource.
+  4. Generate a markdown study plan table in these constraints.
+    - For each lesson (row), include the lesson URL, exact deadline, and goal (column).
+    - Include the markdown code in a copyable code block.
+    - Ensure that each lesson URL provided is accessible.
+    - Choose one lesson URL from the chosen resource per lesson.
+[Start Date]: December 1, 2025
+[Duration]: 9 months
+[Level]: Complete beginner.
+[Available Time]: 30 minutes on Sunday and Saturday</pre>
+      <p>Here's the result when I executed the prompt.</p>
+      <div class="flex-container">
+        <button class="dropbtn" id="dropDownButton2"><strong>Graphic Design Study Plan</strong></button>
+      </div>
+      <div class="dropdown">
+        <div id="droppedDownContent2" class="dropdown-content">
+          <table>
+            <tr>
+                <td>Week</td>
+                <td>Lesson</td>
+                <td>URL</td>
+                <td>Deadline</td>
+                <td>Goal</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Introduction to Graphic Design</td>
+                <td>https://www.canva.com/designschool/courses/intro-to-graphic-design/</td>
+                <td>Dec 8, 2025</td>
+                <td>Understand basic design principles and terminology</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Elements of Design</td>
+                <td>https://www.canva.com/designschool/tutorials/design-elements-principles/</td>
+                <td>Dec 15, 2025</td>
+                <td>Learn about line, shape, color, texture, and space</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Design Principles Overview</td>
+                <td>https://www.canva.com/designschool/tutorials/design-principles/</td>
+                <td>Dec 22, 2025</td>
+                <td>Master balance, contrast, emphasis, and unity</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Color Theory Basics</td>
+                <td>https://www.canva.com/designschool/tutorials/color-theory/</td>
+                <td>Dec 29, 2025</td>
+                <td>Understand color wheel and color relationships</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Typography Fundamentals</td>
+                <td>https://www.canva.com/designschool/tutorials/typography/</td>
+                <td>Jan 5, 2026</td>
+                <td>Learn font families, hierarchy, and readability</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Choosing the Right Fonts</td>
+                <td>https://www.canva.com/designschool/tutorials/how-to-choose-fonts/</td>
+                <td>Jan 12, 2026</td>
+                <td>Practice font pairing and selection criteria</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>Logo Design Principles</td>
+                <td>https://www.canva.com/designschool/tutorials/logo-design-tips/</td>
+                <td>Jan 19, 2026</td>
+                <td>Create your first simple logo concepts</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>Brand Identity Basics</td>
+                <td>https://www.canva.com/designschool/tutorials/brand-identity/</td>
+                <td>Jan 26, 2026</td>
+                <td>Understand branding elements and consistency</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>Layout and Composition</td>
+                <td>https://www.canva.com/designschool/tutorials/composition-and-layout/</td>
+                <td>Feb 2, 2026</td>
+                <td>Master grid systems and visual hierarchy</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>White Space and Balance</td>
+                <td>https://www.canva.com/designschool/tutorials/white-space/</td>
+                <td>Feb 9, 2026</td>
+                <td>Use negative space effectively in designs</td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>Color Psychology</td>
+                <td>https://www.canva.com/designschool/tutorials/color-psychology/</td>
+                <td>Feb 16, 2026</td>
+                <td>Apply emotional impact of colors in design</td>
+            </tr>
+            <tr>
+                <td>12</td>
+                <td>Creating Color Palettes</td>
+                <td>https://www.canva.com/designschool/tutorials/color-combinations/</td>
+                <td>Feb 23, 2026</td>
+                <td>Develop harmonious color schemes</td>
+            </tr>
+            <tr>
+                <td>13</td>
+                <td>Advanced Typography</td>
+                <td>https://www.canva.com/designschool/tutorials/typography-design/</td>
+                <td>Mar 2, 2026</td>
+                <td>Explore creative typography applications</td>
+            </tr>
+            <tr>
+                <td>14</td>
+                <td>Text and Image Integration</td>
+                <td>https://www.canva.com/designschool/tutorials/text-over-images/</td>
+                <td>Mar 9, 2026</td>
+                <td>Combine text and visuals effectively</td>
+            </tr>
+            <tr>
+                <td>15</td>
+                <td>Print Design Basics</td>
+                <td>https://www.canva.com/designschool/tutorials/print-design/</td>
+                <td>Mar 16, 2026</td>
+                <td>Understand print specifications and requirements</td>
+            </tr>
+            <tr>
+                <td>16</td>
+                <td>Business Card Design</td>
+                <td>https://www.canva.com/designschool/tutorials/business-card-design/</td>
+                <td>Mar 23, 2026</td>
+                <td>Create professional business card layouts</td>
+            </tr>
+            <tr>
+                <td>17</td>
+                <td>Poster Design Principles</td>
+                <td>https://www.canva.com/designschool/tutorials/poster-design/</td>
+                <td>Mar 30, 2026</td>
+                <td>Design eye-catching promotional materials</td>
+            </tr>
+            <tr>
+                <td>18</td>
+                <td>Flyer and Brochure Design</td>
+                <td>https://www.canva.com/designschool/tutorials/brochure-design/</td>
+                <td>Apr 6, 2026</td>
+                <td>Create informational marketing materials</td>
+            </tr>
+            <tr>
+                <td>19</td>
+                <td>Social Media Graphics</td>
+                <td>https://www.canva.com/designschool/tutorials/social-media-design/</td>
+                <td>Apr 13, 2026</td>
+                <td>Design for various social platforms</td>
+            </tr>
+            <tr>
+                <td>20</td>
+                <td>Instagram Design Tips</td>
+                <td>https://www.canva.com/designschool/tutorials/instagram-design/</td>
+                <td>Apr 20, 2026</td>
+                <td>Master Instagram-specific design requirements</td>
+            </tr>
+            <tr>
+                <td>21</td>
+                <td>Web Design Basics</td>
+                <td>https://www.canva.com/designschool/tutorials/web-design/</td>
+                <td>Apr 27, 2026</td>
+                <td>Understand digital design principles</td>
+            </tr>
+            <tr>
+                <td>22</td>
+                <td>User Interface Elements</td>
+                <td>https://www.canva.com/designschool/tutorials/ui-design/</td>
+                <td>May 4, 2026</td>
+                <td>Learn button, icon, and interface design</td>
+            </tr>
+            <tr>
+                <td>23</td>
+                <td>Photo Editing Basics</td>
+                <td>https://www.canva.com/designschool/tutorials/photo-editing/</td>
+                <td>May 11, 2026</td>
+                <td>Basic photo manipulation and enhancement</td>
+            </tr>
+            <tr>
+                <td>24</td>
+                <td>Image Composition</td>
+                <td>https://www.canva.com/designschool/tutorials/photo-composition/</td>
+                <td>May 18, 2026</td>
+                <td>Apply design principles to photography</td>
+            </tr>
+            <tr>
+                <td>25</td>
+                <td>Infographic Design</td>
+                <td>https://www.canva.com/designschool/tutorials/infographic-design/</td>
+                <td>May 25, 2026</td>
+                <td>Create data visualizations and infographics</td>
+            </tr>
+            <tr>
+                <td>26</td>
+                <td>Presentation Design</td>
+                <td>https://www.canva.com/designschool/tutorials/presentation-design/</td>
+                <td>Jun 1, 2026</td>
+                <td>Design professional slide presentations</td>
+            </tr>
+            <tr>
+                <td>27</td>
+                <td>Design Tools Overview</td>
+                <td>https://www.canva.com/designschool/tutorials/design-tools/</td>
+                <td>Jun 8, 2026</td>
+                <td>Explore professional design software options</td>
+            </tr>
+            <tr>
+                <td>28</td>
+                <td>Digital Workflow</td>
+                <td>https://www.canva.com/designschool/tutorials/design-workflow/</td>
+                <td>Jun 15, 2026</td>
+                <td>Establish efficient design processes</td>
+            </tr>
+            <tr>
+                <td>29</td>
+                <td>Design Trends and Style</td>
+                <td>https://www.canva.com/designschool/tutorials/design-trends/</td>
+                <td>Jun 22, 2026</td>
+                <td>Stay current with design aesthetics</td>
+            </tr>
+            <tr>
+                <td>30</td>
+                <td>Client Communication</td>
+                <td>https://www.canva.com/designschool/tutorials/client-feedback/</td>
+                <td>Jun 29, 2026</td>
+                <td>Handle design feedback and revisions</td>
+            </tr>
+            <tr>
+                <td>31</td>
+                <td>Portfolio Planning</td>
+                <td>https://www.canva.com/designschool/tutorials/design-portfolio/</td>
+                <td>Jul 6, 2026</td>
+                <td>Plan and structure your portfolio</td>
+            </tr>
+            <tr>
+                <td>32</td>
+                <td>Portfolio Creation</td>
+                <td>https://www.canva.com/designschool/tutorials/portfolio-design/</td>
+                <td>Jul 13, 2026</td>
+                <td>Design your portfolio layout and presentation</td>
+            </tr>
+            <tr>
+                <td>33</td>
+                <td>Portfolio Review Part 1</td>
+                <td>https://www.canva.com/designschool/tutorials/portfolio-tips/</td>
+                <td>Jul 20, 2026</td>
+                <td>Curate and refine your best work</td>
+            </tr>
+            <tr>
+                <td>34</td>
+                <td>Portfolio Review Part 2</td>
+                <td>https://www.canva.com/designschool/tutorials/portfolio-feedback/</td>
+                <td>Jul 27, 2026</td>
+                <td>Get feedback and make final improvements</td>
+            </tr>
+            <tr>
+                <td>35</td>
+                <td>Design Career Paths</td>
+                <td>https://www.canva.com/designschool/tutorials/design-careers/</td>
+                <td>Aug 3, 2026</td>
+                <td>Explore graphic design career options</td>
+            </tr>
+            <tr>
+                <td>36</td>
+                <td>Freelancing Basics</td>
+                <td>https://www.canva.com/designschool/tutorials/freelance-design/</td>
+                <td>Aug 10, 2026</td>
+                <td>Learn about independent design work</td>
+            </tr>
+            <tr>
+                <td>37</td>
+                <td>Design Ethics and Copyright</td>
+                <td>https://www.canva.com/designschool/tutorials/design-copyright/</td>
+                <td>Aug 17, 2026</td>
+                <td>Understand legal aspects of design work</td>
+            </tr>
+            <tr>
+                <td>38</td>
+                <td>Final Project Planning</td>
+                <td>https://www.canva.com/designschool/tutorials/design-projects/</td>
+                <td>Aug 24, 2026</td>
+                <td>Plan a comprehensive design project</td>
+            </tr>
+            <tr>
+                <td>39</td>
+                <td>Final Project Execution</td>
+                <td>https://www.canva.com/designschool/tutorials/design-process/</td>
+                <td>Aug 31, 2026</td>
+                <td>Complete your capstone design project</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <h2>For Side Hustle: Side Hustle Skill Learning Plan</h2>
+      <p>If you're looking for a way to change your job by starting your business, you don't want to spend your money and time on skill acquisition and want to pour more of them into the execution. <a href="https://www.reddit.com/r/Entrepreneur/comments/11ncsxy/whats_the_best_high_income_skill_to_start_learning/">Many redditors</a> said that most of businesses require more than one skill. For example, if you want to start selling digital products, you not only need creative skills but also marketing. In such a case, starting small elevates your proficiency while making money. Here's the example prompt to learn social media marketing if you want to become a solo SaaS founder.</p>
+      <pre>[Task]: Create a study plan to master social media marketing.
+[Workflow]:
+  1. Create a study roadmap tailored to me.
+  2. Suggest the best free online learning resources for this purpose.
+  3. Choose one resource.
+  4. Generate a markdown study plan table in these constraints.
+    - For each lesson (row), include the lesson URL, exact deadline, and goal (column).
+    - Include the markdown code in a copyable code block.
+    - Ensure that each lesson URL provided is accessible.
+    - Choose one lesson URL from the chosen resource per lesson.
+[Start Date]: October 15, 2025
+[Duration]: 6 months
+[Level]: Complete beginner.
+[Available Time]: 1 hour during lunch break, 2 hours in the evening.</pre>
+      <p>Here's the result when I executed the prompt.</p>
+      <div class="flex-container">
+        <button class="dropbtn" id="dropDownButton3"><strong>Social Media Marketing Study Plan</strong></button>
+      </div>
+      <div class="dropdown">
+        <div id="droppedDownContent3" class="dropdown-content">
+          <table>
+            <tr>
+                <td>Week</td>
+                <td>Lesson Topic</td>
+                <td>Lesson URL</td>
+                <td>Deadline</td>
+                <td>Study Goal</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Introduction to Social Media Marketing</td>
+                <td>https://academy.hubspot.com/lessons/introduction-to-social-media-marketing</td>
+                <td>Oct 22, 2025</td>
+                <td>Understand social media landscape, key platforms, and business impact. Complete platform overview exercises.</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Creating a Social Media Strategy</td>
+                <td>https://academy.hubspot.com/lessons/developing-a-social-media-strategy</td>
+                <td>Oct 29, 2025</td>
+                <td>Learn SMART goal setting, audience identification, and competitive analysis. Create your first strategy draft.</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Understanding Your Audience</td>
+                <td>https://academy.hubspot.com/lessons/understanding-your-social-media-audience</td>
+                <td>Nov 5, 2025</td>
+                <td>Master persona development, demographic research, and audience insights tools. Build 3 detailed buyer personas.</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Content Planning Fundamentals</td>
+                <td>https://academy.hubspot.com/lessons/building-a-content-strategy-for-social-media</td>
+                <td>Nov 12, 2025</td>
+                <td>Learn content pillars, editorial calendars, and content mix strategies. Create a 30-day content plan template.</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Facebook Marketing Basics</td>
+                <td>https://academy.hubspot.com/lessons/facebook-marketing-fundamentals</td>
+                <td>Nov 19, 2025</td>
+                <td>Understand Facebook algorithm, page optimization, and organic reach strategies. Set up a practice business page.</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Instagram Marketing Strategy</td>
+                <td>https://academy.hubspot.com/lessons/instagram-marketing-strategy</td>
+                <td>Nov 26, 2025</td>
+                <td>Master Instagram content types, Stories, Reels, and hashtag strategies. Create 10 engaging post concepts.</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>LinkedIn for Business</td>
+                <td>https://academy.hubspot.com/lessons/linkedin-marketing-strategy</td>
+                <td>Dec 3, 2025</td>
+                <td>Learn B2B networking, LinkedIn publishing, and professional content creation. Optimize a LinkedIn business profile.</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>Twitter Marketing Tactics</td>
+                <td>https://academy.hubspot.com/lessons/twitter-marketing-best-practices</td>
+                <td>Dec 10, 2025</td>
+                <td>Understand Twitter engagement, trending topics, and real-time marketing. Practice live-tweeting strategies.</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>Visual Content Creation</td>
+                <td>https://academy.hubspot.com/lessons/creating-visual-content-for-social-media</td>
+                <td>Dec 17, 2025</td>
+                <td>Learn design principles, tool usage (Canva), and brand consistency. Create 20 branded visual assets.</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>Video Marketing Essentials</td>
+                <td>https://academy.hubspot.com/lessons/video-marketing-for-social-media</td>
+                <td>Dec 24, 2025</td>
+                <td>Master video formats, storytelling, and platform-specific optimization. Plan and storyboard 5 video concepts.</td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>Community Management</td>
+                <td>https://academy.hubspot.com/lessons/social-media-community-management</td>
+                <td>Dec 31, 2025</td>
+                <td>Learn engagement strategies, crisis management, and building online communities. Develop response templates.</td>
+            </tr>
+            <tr>
+                <td>12</td>
+                <td>Social Media Analytics &amp; Metrics</td>
+                <td>https://academy.hubspot.com/lessons/measuring-social-media-roi</td>
+                <td>Jan 7, 2026</td>
+                <td>Understand KPIs, native analytics tools, and reporting frameworks. Set up tracking for 10 key metrics.</td>
+            </tr>
+            <tr>
+                <td>13</td>
+                <td>Paid Social Media Advertising</td>
+                <td>https://academy.hubspot.com/lessons/social-media-advertising-fundamentals</td>
+                <td>Jan 14, 2026</td>
+                <td>Learn ad types, targeting options, and budget management across platforms. Create 3 ad campaign mockups.</td>
+            </tr>
+            <tr>
+                <td>14</td>
+                <td>Facebook Ads Deep Dive</td>
+                <td>https://academy.hubspot.com/lessons/facebook-advertising-strategy</td>
+                <td>Jan 21, 2026</td>
+                <td>Master Facebook Ads Manager, audience targeting, and ad optimization. Complete Facebook Blueprint basics.</td>
+            </tr>
+            <tr>
+                <td>15</td>
+                <td>Instagram Advertising</td>
+                <td>https://academy.hubspot.com/lessons/instagram-advertising-best-practices</td>
+                <td>Jan 28, 2026</td>
+                <td>Learn Instagram-specific ad formats, Stories ads, and shopping features. Design 5 Instagram ad variations.</td>
+            </tr>
+            <tr>
+                <td>16</td>
+                <td>LinkedIn Advertising for B2B</td>
+                <td>https://academy.hubspot.com/lessons/linkedin-advertising-strategy</td>
+                <td>Feb 4, 2026</td>
+                <td>Understand sponsored content, InMail, and lead generation forms. Plan a B2B lead gen campaign.</td>
+            </tr>
+            <tr>
+                <td>17</td>
+                <td>Social Commerce &amp; Shopping</td>
+                <td>https://academy.hubspot.com/lessons/social-commerce-strategies</td>
+                <td>Feb 11, 2026</td>
+                <td>Learn shopping features, product catalogs, and social selling tactics. Set up a mock social shop.</td>
+            </tr>
+            <tr>
+                <td>18</td>
+                <td>Influencer Marketing Basics</td>
+                <td>https://academy.hubspot.com/lessons/influencer-marketing-fundamentals</td>
+                <td>Feb 18, 2026</td>
+                <td>Understand influencer partnerships, outreach strategies, and campaign management. Create influencer prospect list.</td>
+            </tr>
+            <tr>
+                <td>19</td>
+                <td>Crisis Management &amp; Reputation</td>
+                <td>https://academy.hubspot.com/lessons/social-media-crisis-management</td>
+                <td>Feb 25, 2026</td>
+                <td>Learn crisis prevention, response strategies, and reputation recovery. Develop crisis response playbook.</td>
+            </tr>
+            <tr>
+                <td>20</td>
+                <td>Advanced Analytics &amp; Reporting</td>
+                <td>https://academy.hubspot.com/lessons/advanced-social-media-analytics</td>
+                <td>Mar 4, 2026</td>
+                <td>Master attribution modeling, cross-platform reporting, and ROI calculation. Build comprehensive report template.</td>
+            </tr>
+            <tr>
+                <td>21</td>
+                <td>Social Media Tools &amp; Automation</td>
+                <td>https://academy.hubspot.com/lessons/social-media-management-tools</td>
+                <td>Mar 11, 2026</td>
+                <td>Learn scheduling tools, automation best practices, and workflow optimization. Set up HubSpot Social Media tools.</td>
+            </tr>
+            <tr>
+                <td>22</td>
+                <td>Emerging Trends &amp; Platforms</td>
+                <td>https://academy.hubspot.com/lessons/emerging-social-media-trends</td>
+                <td>Mar 18, 2026</td>
+                <td>Understand TikTok, Clubhouse, and new platform strategies. Experiment with 2 emerging platforms.</td>
+            </tr>
+            <tr>
+                <td>23</td>
+                <td>Social Media Strategy Integration</td>
+                <td>https://academy.hubspot.com/lessons/integrating-social-media-with-marketing</td>
+                <td>Mar 25, 2026</td>
+                <td>Learn omnichannel integration, lead nurturing, and sales enablement. Map social media customer journey.</td>
+            </tr>
+            <tr>
+                <td>24</td>
+                <td>Personal Branding &amp; Thought Leadership</td>
+                <td>https://academy.hubspot.com/lessons/personal-branding-on-social-media</td>
+                <td>Apr 1, 2026</td>
+                <td>Master executive presence, content positioning, and authority building. Develop personal brand strategy.</td>
+            </tr>
+            <tr>
+                <td>25</td>
+                <td>Campaign Planning &amp; Execution</td>
+                <td>https://academy.hubspot.com/lessons/social-media-campaign-planning</td>
+                <td>Apr 8, 2026</td>
+                <td>Practice end-to-end campaign development, from brief to execution. Plan complete product launch campaign.</td>
+            </tr>
+            <tr>
+                <td>26</td>
+                <td>Certification Exam &amp; Final Project</td>
+                <td>https://academy.hubspot.com/courses/social-media</td>
+                <td>Apr 15, 2026</td>
+                <td>Complete HubSpot certification exam and present comprehensive social media strategy for chosen business.</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <hr>
+      <h1>Troubleshooting</h1>
+      <div class="troubleshooting-section">
+        <h2>A provided lesson URL isn't accessible.</h2>
+         <p>If a lesson URL provided by Claude isn't accessible, ask Claude with this prompt below.</p>
+         <pre class="code-block-in-troubleshooting">[<strong style='font-size:17px;'>(the URL here)</strong>](<strong style='font-size:17px;'>(the URL here)</strong>) isn't accessible. Replace it with the correct URL or update the study plan with the alternative.</pre>
+      </div>
+      <p style="padding-top:50px;">To summarize this article, you learned how to create a study plan using Claud Sonnet 4. If this information is helpful, I appreciate you for sharing your thoughts on social media. You can share this article by clicking the share button with 3 connected dots below.<p>
+      <div class="flex-container">
+        <button class="dropbtn" id="sourcesOpenButton"><strong>Sources</strong></button>
+      </div>
+      <div class="dropdown">
+        <div id="sources" class="dropdown-content">
+          <ul>
+            <li>https://www.reddit.com/r/Entrepreneur/comments/11ncsxy/whats_the_best_high_income_skill_to_start_learning/</li>
+            <li>https://www.reddit.com/r/careerguidance/comments/1h48ira/comment/lzwpdp3/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button</li>
+            <li>https://www.reddit.com/r/careerguidance/comments/1nk75il/how_do_you_stay_motivated_to_upskill_after_long/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+  </body>
+</html>
