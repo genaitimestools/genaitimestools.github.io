@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+    <meta charset="UTF-8"></meta>
+    <meta content="HTML, CSS, JavaScript" name="keywords"></meta>
+    <meta content="Gen AI × Tools" name="author"></meta>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"></meta>
+    <meta content="ie=edge" http-equiv="X-UA-Compatible"></meta>
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@GenAITimesTool">
+    <meta name="twitter:title" content="How to Create a Quiz in Google Forms with AI for Free">
+    <meta name="twitter:image" content="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi-cHfjfSNgn7UfmRRRo4ckkaUhfYqqxpCYCXeU45fX8ABEJ-EN84UTOD7vidNv2Ce4sfe3Ox_qdobnDag_-YBivDD3xErGXhUDeeuBASCEu7pR8utDveNrFlLYycLibkyjHEdbrV80ezUFJ4RYncsn9dfrx8IrBw70_W_V1mpE3eSYfF757p1iCcMt1r4/s1600/Screenshot%202025-09-30%20134237.png">
+    <title>How to Create a Quiz in Google Forms with AI for Free</title>
+    <link href="https://genaitimestools.github.io/My%20blog/article_style(for_pasting_in_the_HTML_editor_on_Blogger).css" rel="stylesheet">
+    <script src="https://genaitimestools.github.io/My%20blog/article_script.js"></script>
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        const pullDownButtonIds = ["result1OpenButton", "result2OpenButton", "result3OpenButton"];
+        const pullDownContentIds = ["result1", "result2", "result3"];
+        
+        singleDropDownify(pullDownButtonIds, pullDownContentIds);
+      });
+    </script>
+    <style>
+      .dropbtn {
+        border:2px double black;
+        border-radius:5px 5px 0px 0px;
+        background-color:white;
+      }
+      
+      .dropdown-content h2 {
+        padding-left:12px;
+      }
+    </style>
+  </head>
+  <body style="width:890px; margin:auto;">
+    <article>
+      <p style="padding-bottom: 50px;">Whether you are a teacher or corporate trainer, you often create a quiz in Google Forms. But quiz creation often takes time and reduces time for interacting with students directly, leading to poor learning experience for students. To lighten your burden for this task, in this article, I go through how to create a quiz in Google Forms using Gemini 2.5 Pro and Google Apps Script. Before getting started, I assume you have a Google account.</p>
+      <p id="step_by_step_guide" style="font-size:0.1px;">d</p>
+      <h1 id="preparation">Step-by-Step Guide</h1>
+      <h2>Step 1: Generate Google Apps Script for Google Forms Quiz Generation</h2>
+      <p>First, generate a Google Apps Script to generate a quiz in Google Forms using Gemini 2.5 Pro.</p>
+      <ol>
+        <li>Visit <a href="https://gemini.google.com">https://gemini.google.com</a>.</li>
+        <li>Click "<strong>2.5 Flash</strong>."
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjEzCbnEPVeam4LUFv4pE5VmvYb3weduqLoXydAi3ndx63AcQK8_TbHF2XX432Sb3JjkA5vlgBJGQJ9lHq2abu0KgBrNCNVhIAMX13DlfW4dvpyHXH5phKxwzg3x4KaWAlsgP1BLzS4dnrudoCwKrmOwNB7zXT-8Z_aShQk1R2aSyr2PUIlzc_unD_IJBE/s1600/Screenshot%202025-09-20%20082602.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="921" data-original-width="1830" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjEzCbnEPVeam4LUFv4pE5VmvYb3weduqLoXydAi3ndx63AcQK8_TbHF2XX432Sb3JjkA5vlgBJGQJ9lHq2abu0KgBrNCNVhIAMX13DlfW4dvpyHXH5phKxwzg3x4KaWAlsgP1BLzS4dnrudoCwKrmOwNB7zXT-8Z_aShQk1R2aSyr2PUIlzc_unD_IJBE/s1600/Screenshot%202025-09-20%20082602.png"/></a></div>
+          <div class="image-source">Source: https://gemini.google.com</div>
+        </li>
+        <li>Choose "<strong>2.5 Pro</strong>."</li>
+        <li>Type this prompt template in the textbox.
+          <pre>[Task]: Write GAS code to generate a quiz in Google Form. 
+[Purpose]: <strong>(explain the purpose)</strong>.
+[Question Types]: <strong>(type question types)</strong>.
+[Target]: <strong>(set the target)</strong>.
+[Number of Questions]: <strong>(set the number of questions)</strong>
+[Constraints]:
+- When you create a multiple choice, write in this format. Please change the question number for each question as well as placeholders enclosed with “(” and “)”.
+
+```
+const q1 = form.addMultipleChoiceItem();
+q1.setTitle("(Question))
+q1.setChoices([
+    q1.createChoice("(Choice 1)"),
+    q1.createChoice("(Choice 2)"),
+    q1.createChoice("(Choice 3)"),
+    q1.createChoice("(Choice 4)")
+  ]);
+```
+
+- Stop publishing the form by writing this code:
+
+```
+const form = FormApp.create('the form's title here');
+
+form.setPublished(false);
+```
+
+- In the end of the code, always log the editor URL in this format: "Editor URL: (the URL here)"
+</pre>
+        </li>
+        <li>Click "<strong>+</strong>" to upload your study material file (videos, audios, or documents), or reference another study material or article's URL in the <strong>[Purpose]</strong> section in the prompt.
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhwdnY7niakPho3Is0s1eDzPBq3JkBSwhNDw8lRWBQ_5DuxcD9CH5JndS4HFRLQUi0BljUqLnRQIz5xTxmaI2XhCBgCs5RBDCmD6kONRSCF44868dIfduk3Dbk9b8ySm-j6aOBfyyNaslMT-AsNZQrtO3Um248Bzk0WhYRd0iUGqXq2BzRyIUnyIlfSVLE/s1600/Screenshot%202025-09-20%20084359.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="918" data-original-width="1740" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhwdnY7niakPho3Is0s1eDzPBq3JkBSwhNDw8lRWBQ_5DuxcD9CH5JndS4HFRLQUi0BljUqLnRQIz5xTxmaI2XhCBgCs5RBDCmD6kONRSCF44868dIfduk3Dbk9b8ySm-j6aOBfyyNaslMT-AsNZQrtO3Um248Bzk0WhYRd0iUGqXq2BzRyIUnyIlfSVLE/s1600/Screenshot%202025-09-20%20084359.png"/></a></div>
+          <div class="image-source">Source: https://gemini.google.com</div>
+        </li>
+        <li>Fill other bold placeholders enclosed with "<strong>(</strong>" and "<strong>)</strong>" in the prompt.</li>
+        <li>Press <strong>Enter</strong>.</li>
+        <li>Google Apps Script code will be generated.</li>
+        <li>Click the copy button in the top right corner of the generated code block to copy the code.
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgU282JalbiRvPapMTVHxWqwIvN6YuyJGIPqB-12RJSCTzzOYXgfjp3KJpU1hyphenhyphenO5Md5qCe-06TB46oaX-x9zQ9oOy5cCCjBdBJyXYPaFi6hOrTSMdXwX2o1tuxP0HJtiRF6LXHX7SoHMfpl8q0xUbVy4P_YZDXdgAhftzDIBcjQZIzdFGv11BgaAcJdEi0/s1600/Screenshot%202025-09-30%20124305.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="635" data-original-width="890" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgU282JalbiRvPapMTVHxWqwIvN6YuyJGIPqB-12RJSCTzzOYXgfjp3KJpU1hyphenhyphenO5Md5qCe-06TB46oaX-x9zQ9oOy5cCCjBdBJyXYPaFi6hOrTSMdXwX2o1tuxP0HJtiRF6LXHX7SoHMfpl8q0xUbVy4P_YZDXdgAhftzDIBcjQZIzdFGv11BgaAcJdEi0/s1600/Screenshot%202025-09-30%20124305.png"/></a></div>
+          <div class="image-source">Source: https://gemini.google.com</div>
+        </li>
+        <li>Type this prompt in the same textbox.
+          <pre>Generate the questions' answers.</pre>
+        </li>
+        <li>Press <strong>Enter</strong>.</li>
+        <li>The questions's answers will be generated.</li>
+      </ol>
+      <h2>Step 2: Generate a Quiz</h2>
+      <p>After Gemini 2.5 Pro generates the Google Apps Script code, execute the code to create a quiz.</p>
+      <ol>
+        <li>Visit <a href="https://script.google.com">https://script.google.com</a>.</li>
+        <li>Click "<strong>New project</strong>."
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjDBGyVUqWxT4aq5s4MCn-keouF6SiODkEzmZEOEp0Idbjolpu2efpPH417FlWuxOHQcga5HG9cbWOZ4eHzitl4MA5oYrBZyjyC4zqWlTaw9QbmgZmM5vWB0VHoi7kKBYbjCuqJuibY5aZ2ZYbl2UZGVq0VXex3v_Hv8KyFZYW5AUSqu4ysjx8xaAnzBBs/s1600/Screenshot%202025-09-25%20112149.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="925" data-original-width="1851" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjDBGyVUqWxT4aq5s4MCn-keouF6SiODkEzmZEOEp0Idbjolpu2efpPH417FlWuxOHQcga5HG9cbWOZ4eHzitl4MA5oYrBZyjyC4zqWlTaw9QbmgZmM5vWB0VHoi7kKBYbjCuqJuibY5aZ2ZYbl2UZGVq0VXex3v_Hv8KyFZYW5AUSqu4ysjx8xaAnzBBs/s1600/Screenshot%202025-09-25%20112149.png"/></a></div>
+          <div class="image-source">Source: https://script.google.com</div>
+        </li>
+        <li>A new project will be created. Replace the existing code with the copied code.
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiQYYNP4zORskf67kz5ak3e128Nc4C8fheS8yIYOlGRbWV-NsjSNTVAvWI0qZBdJRUH8tcJ4lWN9mtijn9F2nB2aBcrz6hv24IQuL7w-GoZl_3ClViXisre2f64BE1I7Gz-KQKEzrCP5bifCf7WbzjLYsY7iTNSJ4dQyIJNbBDiDccV6R6B4X1GzmYP0Zg/s1600/Screenshot%202025-09-25%20132457.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="923" data-original-width="1837" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiQYYNP4zORskf67kz5ak3e128Nc4C8fheS8yIYOlGRbWV-NsjSNTVAvWI0qZBdJRUH8tcJ4lWN9mtijn9F2nB2aBcrz6hv24IQuL7w-GoZl_3ClViXisre2f64BE1I7Gz-KQKEzrCP5bifCf7WbzjLYsY7iTNSJ4dQyIJNbBDiDccV6R6B4X1GzmYP0Zg/s1600/Screenshot%202025-09-25%20132457.png"/></a></div>
+          <div class="image-source">Source: https://script.google.com</div>
+        </li>
+        <li>Click "<strong>Run</strong>."
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhvZ43QkL1TXFtg_4Mh09D_L2emFJUaKC9SQetI-_gD0U4nF30vgmguiOI5QWymNrswvI8hYpP0JedYI0C6YGe6ass2ZVq_LF4ewICdTW5VST15jRXY-kz84xKWuNwihMVLovrDQVm_osntnG8nJZOuUM9VfRP92QeUbEArdTGqu7jGz3DCk6eaVZ_Pw48/s1600/Screenshot%202025-09-25%20123715.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="131" data-original-width="1041" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhvZ43QkL1TXFtg_4Mh09D_L2emFJUaKC9SQetI-_gD0U4nF30vgmguiOI5QWymNrswvI8hYpP0JedYI0C6YGe6ass2ZVq_LF4ewICdTW5VST15jRXY-kz84xKWuNwihMVLovrDQVm_osntnG8nJZOuUM9VfRP92QeUbEArdTGqu7jGz3DCk6eaVZ_Pw48/s1600/Screenshot%202025-09-25%20123715.png"/></a></div>
+          <div class="image-source">Source: https://script.google.com</div>
+        </li>
+        <li>A pop-up will be opened. Click "<strong>Review permissions</strong>."
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhnqzBxdDO3JaHXyiukeXRtjRYqtLaTZXXDHd_-oq1leDWcUIoij0_spGSpePfmQfo7GzNXSbor_BF5zNm_DTwvKZrIDds1Qv2ksos8ErRItSQTroNpZNQHN6mrDOwugbueHbb5j4FiDtto0znKmhIrVVEnNKrvkXHxs8f4rMgT9NsulvfXrH2y69JmBUk/s1600/Screenshot%202025-09-25%20125714.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="250" data-original-width="606" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhnqzBxdDO3JaHXyiukeXRtjRYqtLaTZXXDHd_-oq1leDWcUIoij0_spGSpePfmQfo7GzNXSbor_BF5zNm_DTwvKZrIDds1Qv2ksos8ErRItSQTroNpZNQHN6mrDOwugbueHbb5j4FiDtto0znKmhIrVVEnNKrvkXHxs8f4rMgT9NsulvfXrH2y69JmBUk/s1600/Screenshot%202025-09-25%20125714.png"/></a></div>
+          <div class="image-source">Source: https://script.google.com</div>
+        </li>
+        <li>Sign in to your account.</li>
+        <li>Another pop-up will be opened. Click "<strong>Advanced</strong>."
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiF1n6Q3RL_xKQlrmYbJJTD3u_lPg6fhHeFr2GJxFh48BRlQS4RFoMzAWUoHtkN_RsvLtNRMOSBbXNNyK3C76H3O_WFZ4UbZyZdc6_8Sd6_53CTu0fvr1YrV4KvqqI0f0TlOaqcA4lmqSJBijoJkcovTeuhF_G8KeA5qHXh2dRnFUE2cWyUWdNSFSfh5Ew/s1600/Screenshot%202025-09-25%20125732.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="912" data-original-width="812" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiF1n6Q3RL_xKQlrmYbJJTD3u_lPg6fhHeFr2GJxFh48BRlQS4RFoMzAWUoHtkN_RsvLtNRMOSBbXNNyK3C76H3O_WFZ4UbZyZdc6_8Sd6_53CTu0fvr1YrV4KvqqI0f0TlOaqcA4lmqSJBijoJkcovTeuhF_G8KeA5qHXh2dRnFUE2cWyUWdNSFSfh5Ew/s1600/Screenshot%202025-09-25%20125732.png"/></a></div>
+          <div class="image-source">Source: https://account.google.com</div>
+        </li>
+        <li>Click "<strong>Go to Untitled project (unsafe)</strong>."
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg4knRvQ1HHYvrYZcpEgypsGLiX3ZEeDJaaNP5oOz_vjVyjdZ9lreu0ERgIfuyr4hgQjCLCvyq_wG-u6nHn2mnygyrBqpgSGA6HulXjPU3Lcqy1Sb2ihoyNdHPv3Cibm_LcPL8VLkEO759xXc0XTEXuGJ_Q0WBLJZwEL4Oyis6DuO4ob7MkDCsX70kObu4/s1600/Screenshot%202025-09-25%20125741.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="911" data-original-width="811" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg4knRvQ1HHYvrYZcpEgypsGLiX3ZEeDJaaNP5oOz_vjVyjdZ9lreu0ERgIfuyr4hgQjCLCvyq_wG-u6nHn2mnygyrBqpgSGA6HulXjPU3Lcqy1Sb2ihoyNdHPv3Cibm_LcPL8VLkEO759xXc0XTEXuGJ_Q0WBLJZwEL4Oyis6DuO4ob7MkDCsX70kObu4/s1600/Screenshot%202025-09-25%20125741.png"/></a></div>
+          <div class="image-source">Source: https://account.google.com</div>
+        </li>
+        <li>Click "<strong>Continue</strong>."
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgUABpL-KG5CiV9tNpn22Bc-Idklalpeu_kYxwx4-mayVgsYQTJmyy8S0ZSHlCIg4F4gzVWg-A-PnXNBDAapj0dCwgamOOva1r5MyRB2AwUGcPyafp01wHEarGOyUrS1QeEyLlkvizE5uLYlxF41SKPYXczvwgfr1gs5zfYzbbNDSwXeOREVWtrAYfH1oE/s1600/Screenshot%202025-09-30%20130415.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="905" data-original-width="792" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgUABpL-KG5CiV9tNpn22Bc-Idklalpeu_kYxwx4-mayVgsYQTJmyy8S0ZSHlCIg4F4gzVWg-A-PnXNBDAapj0dCwgamOOva1r5MyRB2AwUGcPyafp01wHEarGOyUrS1QeEyLlkvizE5uLYlxF41SKPYXczvwgfr1gs5zfYzbbNDSwXeOREVWtrAYfH1oE/s1600/Screenshot%202025-09-30%20130415.png"/></a></div>
+          <div class="image-source">Source: https://account.google.com</div>
+        </li>
+        <li>The script will be executed.</li>
+        <li>Copy this URL.
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgLLQoP4WDtr3dOLNhPeFYHY6jp_gPgG5nWDxHT9aTWra_yiNVwR1AtfgQN3Ni5j-3IKDIZu0q1mLCEwOR6KcwCCTeOTeJ0Uc1p2bNRDKBAewoHtAEHPgSZJ_QcwzaYGIXa8j8FyCx0tT0-eKWY4h1UQeUu8qjIWxlK18kkm8YvIgFJyVWMUI4ZQ_1dXtI/s1600/Screenshot%202025-09-30%20133048.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="182" data-original-width="1557" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgLLQoP4WDtr3dOLNhPeFYHY6jp_gPgG5nWDxHT9aTWra_yiNVwR1AtfgQN3Ni5j-3IKDIZu0q1mLCEwOR6KcwCCTeOTeJ0Uc1p2bNRDKBAewoHtAEHPgSZJ_QcwzaYGIXa8j8FyCx0tT0-eKWY4h1UQeUu8qjIWxlK18kkm8YvIgFJyVWMUI4ZQ_1dXtI/s1600/Screenshot%202025-09-30%20133048.png"/></a></div>
+          <div class="image-source">Source: https://script.google.com</div>
+        </li>
+        <li>Access the URL.</li>
+      </ol>
+      <p>Here's the example of a form.</p>
+      <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi-cHfjfSNgn7UfmRRRo4ckkaUhfYqqxpCYCXeU45fX8ABEJ-EN84UTOD7vidNv2Ce4sfe3Ox_qdobnDag_-YBivDD3xErGXhUDeeuBASCEu7pR8utDveNrFlLYycLibkyjHEdbrV80ezUFJ4RYncsn9dfrx8IrBw70_W_V1mpE3eSYfF757p1iCcMt1r4/s1600/Screenshot%202025-09-30%20134237.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="903" data-original-width="1042" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi-cHfjfSNgn7UfmRRRo4ckkaUhfYqqxpCYCXeU45fX8ABEJ-EN84UTOD7vidNv2Ce4sfe3Ox_qdobnDag_-YBivDD3xErGXhUDeeuBASCEu7pR8utDveNrFlLYycLibkyjHEdbrV80ezUFJ4RYncsn9dfrx8IrBw70_W_V1mpE3eSYfF757p1iCcMt1r4/s1600/Screenshot%202025-09-30%20134237.png"/></a></div>
+      <hr>
+      <h1>Use Cases</h1>
+      <p>Here are 3 use cases you can try with this AI application.</p>
+      <h2>For Anti-Cheating</h2>
+      <p><a href="https://www.reddit.com/r/Teachers/comments/9htajm/what_do_i_do_when_tons_of_students_failed_my_quiz/">One questioner</a> mentioned students googling answers or switching tabs during quizzes. In response to the question, <a href="https://www.reddit.com/r/Teachers/comments/1miyjay/comment/n77fwt8/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button">the first commenter</a> adviced including thought-provoking questions in the quiz as a measure. Then, I thought it would be useful if I streamlined this process with AI. So, I added a follow-up prompt after the first prompt execution and tested it. Looking at the quiz, Gemini thoughtfully mixed these questions in the quiz. As a result, it seems not just a fact-matching quiz but also a quiz that allows students to apply their learned knowledge. Here's the follow-up prompt and the result if the purpose is to test the understanding of <a href="https://aitimestools.blogspot.com/2025/09/how-to-create-deep-research-report-with.html">this article</a>.</p>
+      <p>Follow-up Prompt</p>
+      <pre>To check if [Target] truly engaged with the source, mix creative questions that ask for the answerer's original thoughts.</pre>
+      <p>Result</p>
+      <div class="flex-container">
+        <button class="dropbtn" id="result1OpenButton"><strong>Result</strong></button>
+      </div>
+      <div class="dropdown">
+        <div class="dropdown-content" id="result1">
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhrLE4yF2V5GVmQrR6C5Vh7jSCEeq2jT5-4L3rbIcsRTGAy0rE4h6sdzUOHrcJ6Ofd5NhlvFEeCq7rOSpTXFHkXA_fvXG21PeH3CjmwWaWhtcAmIx5SPQEusd2JJQMQKkbtJgWM8U6VJO4ZpsRWu355nl4tfS22VKaKVilxdYV_B9RU_wPU_TIPOFJVcgI/s1600/image%20%284%29.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="3085" data-original-width="1890" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhrLE4yF2V5GVmQrR6C5Vh7jSCEeq2jT5-4L3rbIcsRTGAy0rE4h6sdzUOHrcJ6Ofd5NhlvFEeCq7rOSpTXFHkXA_fvXG21PeH3CjmwWaWhtcAmIx5SPQEusd2JJQMQKkbtJgWM8U6VJO4ZpsRWu355nl4tfS22VKaKVilxdYV_B9RU_wPU_TIPOFJVcgI/s1600/image%20%284%29.png"/></a></div>
+        </div>
+      </div>
+      <p id="use_case_2" style="font-size:0.1px;">d</p>
+      <h2>For Personalized Learning</h2>
+      <p>In this <a href="https://www.reddit.com/r/Teachers/comments/qxmv3a/you_can_literally_tell_them_the_answers_and_they/">Reddit thread</a>, one teacher claimed that their students got wrong answers in activities or opportunities to practice even when they were taught the answers. <a href="https://www.reddit.com/r/Teachers/comments/qxmv3a/comment/hlc6ihp/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button">Another teacher</a> mentioned that attendance was the only thing they have to do because they get credit through credit recovery. Overall, it seems that students had low motivation to learning. However, despite the motivation, there's one way to address this problem—AI-powered, interest-based learning. Teachers can ask students with low motivation for their interests and describe about them in the <strong>[Target]</strong> section in this prompt below. This helps diverse students learn in a personalized way.  Here's the prompt parameter example and the result.</p>
+      <p>Parameter Example</p>
+      <pre>[Task]: Write GAS code to generate a quiz in Google Form.
+[Purpose]: [Target] will be able to understand the difference between zero, first, and second conditionals explained in [this article](https://learnenglish.britishcouncil.org/grammar/b1-b2-grammar/conditionals-zero-first-second).
+[Question Types]: Short answer, multiple choice, checkboxes, dropdown.
+[Target]: A high school student with a learning disability and an interest in illustration.
+[Number of Questions]: 10
+[Constraints]: When you create a multiple choice, write in this format. Please change the question number for each question as well as placeholders enclosed with “(” and “)”.
+```
+const q1 = form.addMultipleChoiceItem();
+q1.setTitle("(Question))
+q1.setChoices([
+    q1.createChoice("(Choice 1)"),
+    q1.createChoice("(Choice 2)"),
+    q1.createChoice("(Choice 3)"),
+    q1.createChoice("(Choice 4)")
+  ]);
+```
+- Stop publishing the form by writing this code:
+
+```
+const form = FormApp.create('the form's title here');
+
+form.setPublished(false);
+```
+
+- In the end of the code, always log the editor URL in this format: "Editor URL: (the URL here)."</pre>
+      <p>Result</p>
+      <div class="flex-container">
+        <button class="dropbtn" id="result2OpenButton"><strong>Result</strong></button>
+      </div>
+      <div class="dropdown">
+        <div class="dropdown-content" id="result2">
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEibGDb2sK6kFa-ZkRA-uF13xLCi6oHEoLib-eM14UXfmuIvJXLyz1qfSeRwca_5EXqYj0xfbSTtfBJ9SncNQURIamCdyZci47syNdsNM8ZzrgXDF4xHmtKFRzBQjA_tuEcKasIHbRVbt3rpRVkLBjuperz2afz5npIB3Ug0kwgLyU576Ixs8QY5bMlHE6I/s1600/image.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="3132" data-original-width="1890" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEibGDb2sK6kFa-ZkRA-uF13xLCi6oHEoLib-eM14UXfmuIvJXLyz1qfSeRwca_5EXqYj0xfbSTtfBJ9SncNQURIamCdyZci47syNdsNM8ZzrgXDF4xHmtKFRzBQjA_tuEcKasIHbRVbt3rpRVkLBjuperz2afz5npIB3Ug0kwgLyU576Ixs8QY5bMlHE6I/s1600/image.png"/></a></div>
+        </div>
+      </div>
+      <p id="use_case_3" style="font-size:0.1px;">d</p>
+      <h2>Before-Test Quiz</h2>
+      <p><a href="https://www.reddit.com/r/Teachers/comments/179okgb/what_to_do_when_i_have_some_problems_with_a/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button">Some students</a> need more practice before their tests unless they fail academically. On the other hand, teachers' burdens for quiz creation are serious. To keep up with the demand, a data-driven quiz that specifically approaches their weaknesses is needed. To base quizzes on your student's performance, I added <strong>[Past Students' Performance]</strong> section in the original prompt. Here's the optimized prompt, the example, and the result.</p>
+      <p>Prompt Template</p>
+      <pre>[Task]: Write GAS code to generate a quiz in Google Form. 
+[Purpose]: <strong>(explain the purpose)</strong>.
+[Question Types]: <strong>(type question types)</strong>.
+[Target]: <strong>(set the target)</strong>.
+[Number of Questions]: <strong>(set the number of questions)</strong>
+[Past Students' Performance]: <strong>(describe clear data that show your students' weaknesses)</strong>
+[Constraints]:
+- When you create a multiple choice, write in this format. Please change the question number for each question as well as placeholders enclosed with “(” and “)”.
+
+```
+const q1 = form.addMultipleChoiceItem();
+q1.setTitle("(Question))
+q1.setChoices([
+    q1.createChoice("(Choice 1)"),
+    q1.createChoice("(Choice 2)"),
+    q1.createChoice("(Choice 3)"),
+    q1.createChoice("(Choice 4)")
+  ]);
+```
+
+- Stop publishing the form by writing this code:
+
+```
+const form = FormApp.create('the form's title here');
+
+form.setPublished(false);
+```
+
+- In the end of the code, always log the editor URL in this format: "Editor URL: (the URL here)."</pre>
+      <p>Parameter Example</p>
+      <pre>[Task]: Write GAS code to generate a quiz in Google Forms.
+[Purpose]: All my students will be able to understand [present perfect tense](https://learnenglish.britishcouncil.org/grammar/b1-b2-grammar/present-perfect) in English.
+[Question Types]: Short answer, multiple choice, checkboxes, dropdown.
+[Target]: 5th grade students in the US.
+[Number of Questions]: 10
+[Past Students' Performance]: According to a past test, 70% of my students failed to distinguish between present perfect tense and past tense.
+[Constraints]: When you create a multiple choice, write in this format. Please change the question number for each question as well as placeholders enclosed with “(” and “)”.
+```
+const q1 = form.addMultipleChoiceItem();
+q1.setTitle("(Question))
+q1.setChoices([
+    q1.createChoice("(Choice 1)"),
+    q1.createChoice("(Choice 2)"),
+    q1.createChoice("(Choice 3)"),
+    q1.createChoice("(Choice 4)")
+  ]);
+```
+- Stop publishing the form by writing this code:
+
+```
+const form = FormApp.create('the form's title here');
+
+form.setPublished(false);
+```
+
+- In the end of the code, always log the editor URL in this format: "Editor URL: (the URL here)."</pre>
+      <p>Result</p>
+      <div class="flex-container">
+        <button class="dropbtn" id="result3OpenButton"><strong>Result</strong></button>
+      </div>
+      <div class="dropdown">
+        <div class="dropdown-content" id="result3">
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiuDsGo2ZdnOc8sYv_9LZ24ocKOSgPklJY7C13HFTVntRHhlJqYivTYH6DDSP-lJm38MU2WnPM6_MCvbJHCAknSzclZv5wCeyaRVAtnJbBz50dWwHcsvOhksq-frPPpN-pCgIVR5ghwtxCyZt8CvgIVh80TQAPtjLkD2rU5efoo0oXHUX3yWU3r_mVlp50/s1600/image%20%285%29.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="3247" data-original-width="1890" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiuDsGo2ZdnOc8sYv_9LZ24ocKOSgPklJY7C13HFTVntRHhlJqYivTYH6DDSP-lJm38MU2WnPM6_MCvbJHCAknSzclZv5wCeyaRVAtnJbBz50dWwHcsvOhksq-frPPpN-pCgIVR5ghwtxCyZt8CvgIVh80TQAPtjLkD2rU5efoo0oXHUX3yWU3r_mVlp50/s1600/image%20%285%29.png"/></a></div>
+        </div>
+      </div>
+      <hr>
+      <p id="troubleshooting" style="font-size:0.1px;">d</p>
+      <h1 id="troubleshooting_case_1">Troubleshooting</h1>
+      <div class="troubleshooting-section">
+        <h2>Errors related to Google Apps Script</h2>
+        <p>If your Google Apps Script code is causing an error, ask Gemini  with this prompt below.</p>
+        <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgwQDx1vyqU1fRD8NegZ0fykS3e6jUxL1372fkujPACWpT6IsvU61doN__LC58miy8rPXevvV6X2rwKtbbKOw7eBJm8Ld3JHJkYL3oF4qsOiUrZqwiHiKt-WV7QNgLISmHFuE1yFHagzEiJIM41gdD_DCFvkiC3iwPNyh84khiOShTOJ3JHt3aW0mpueb4/s1600/Screenshot%202025-10-01%20153940.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="113" data-original-width="1558" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgwQDx1vyqU1fRD8NegZ0fykS3e6jUxL1372fkujPACWpT6IsvU61doN__LC58miy8rPXevvV6X2rwKtbbKOw7eBJm8Ld3JHJkYL3oF4qsOiUrZqwiHiKt-WV7QNgLISmHFuE1yFHagzEiJIM41gdD_DCFvkiC3iwPNyh84khiOShTOJ3JHt3aW0mpueb4/s1600/Screenshot%202025-10-01%20153940.png"/></a></div> 
+        <div class="image-source">Source: https://script.google.com</div>
+        <pre class="code-block-in-troubleshooting">It seems your code is having this error. Fix it.
+```
+<strong style="font-size:17px;">(The error message here)</strong>
+```</pre>
+      </div>
+      <p style="padding-top:50px;">In summary, you learned how to create a quiz in Google Forms with Gemini 2.5 Pro and Google Apps Script. If this information is helpful, please share you thoughts on social media. You can share this article by clicking the button with 3 connected dots below.<p>
+      <p style="padding-top:50px; display:none;">In summary, you learned how to create a quiz in Google Forms with Gemini 2.5 Pro and Google Apps Script.<p>
+      <div class="flex-container">
+        <button class="dropbtn" id="sourcesOpenButton"><strong>Sources</strong></button>
+      </div>
+      <div class="dropdown">
+        <div id="sources" class="dropdown-content">
+          <ul>
+            <li>https://www.reddit.com/r/Teachers/comments/1miyjay/any_teachers_or_course_creators_here_frustrated/</li>
+            <li>https://www.reddit.com/r/Teachers/comments/9htajm/what_do_i_do_when_tons_of_students_failed_my_quiz/</li>
+            <li>https://www.reddit.com/r/Teachers/comments/qxmv3a/you_can_literally_tell_them_the_answers_and_they/</li>
+            <li>https://www.reddit.com/r/Teachers/comments/179okgb/what_to_do_when_i_have_some_problems_with_a/</li>
+            <li>https://learnenglish.britishcouncil.org/grammar/b1-b2-grammar/conditionals-zero-first-second</li>
+            <li>https://learnenglish.britishcouncil.org/grammar/b1-b2-grammar/present-perfect</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+  </body>
+</html>
