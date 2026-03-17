@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+    <meta charset="UTF-8"></meta>
+    <meta content="HTML, CSS, JavaScript" name="keywords"></meta>
+    <meta content="Gen AI × Tools" name="author"></meta>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"></meta>
+    <meta content="ie=edge" http-equiv="X-UA-Compatible"></meta>
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@GenAITimesTool">
+    <meta name="twitter:title" content="How to Create a Study Schedule in the Google Calendar with AI">
+    <meta name="twitter:description" content="Don't have time and motivation to learn new skills? You're in a right place. In this article, I guides you on hwo to crate a study schedule with AI.">
+    <link rel="stylesheet" href="https://genaitimestools.github.io/My%20blog/article_style(for_pasting_in_the_HTML_editor_on_Blogger).css">
+    <script src="https://genaitimestools.github.io/My%20blog/article_script.js"></script>
+    <style>
+      button.dropbtn {
+        border:2px double black;
+        border-radius:5px 5px 0px 0px;
+        background-color:white;
+      }
+      #post-body-4449576978798737177 > article > div:nth-child(12) > a > img, #post-body-4449576978798737177 > article > div:nth-child(21) > a > img, #post-body-4449576978798737177 > article > div:nth-child(30) > a > img, #post-body-4449576978798737177 > article > div:nth-child(39) > a > img, #post-body-4449576978798737177 > article > ol:nth-child(5) > li:nth-child(2) > div.separator > a > img {
+        width:80%;
+        height:80%;
+        margin:auto;
+      }
+      #post-body-4449576978798737177 > article > ol:nth-child(8) > li:nth-child(5) > div {
+        margin-top:20px;
+        margin-bottom:20px;
+      }
+    </style>
+  </head>
+  <body style="width:890px; margin:auto;">
+    <article>
+      <p style="padding-bottom: 50px;">As a busy professional, you often lack time to learn new skills. You don't even have motivation to study because of burnout in your work. To push yourself through this mental boundary and learn skills time-efficiently, study planning is a must-have. In this article, I help you create a study schedule for any skill faster using ChatGPT, the Google Calendar, and Google Apps Script. As a prerequisite, you will need a Google and a free ChatGPT account.</p>
+      <h1>Step-by-Step Guide</h1>
+      <h2>Step 1: Generate a Google Apps Script with ChatGPT</h2>
+      <p>First, generate a Google Apps Script to add events in your Google Calendar.</p>
+      <ol>
+        <li>Visit <a href="https://chatgpt.com">https://chatgpt.com</a>.</li>
+        <li>In the sidebar, click "<strong>New project</strong>."
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhcM6Eu-n-dvF2lZn52IhyIAVgCxisY-xvU1fKI9z8QuolRd1_TvJ3d9S_PbobkiKuG00oyF0vNcRFxzELDEX_2Pzg26gdgdCw6Rf6VyXTHaDkGg3_sFaveeUwFe2xESITk_sLys6e4YSwijGFwllMJkpg5JcibdFitx68N-nhxFp4VPXO9xluewwYD7BQ/s332/G20JRJBbEAAb0m9.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" width="320" data-original-height="326" data-original-width="332" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhcM6Eu-n-dvF2lZn52IhyIAVgCxisY-xvU1fKI9z8QuolRd1_TvJ3d9S_PbobkiKuG00oyF0vNcRFxzELDEX_2Pzg26gdgdCw6Rf6VyXTHaDkGg3_sFaveeUwFe2xESITk_sLys6e4YSwijGFwllMJkpg5JcibdFitx68N-nhxFp4VPXO9xluewwYD7BQ/s320/G20JRJBbEAAb0m9.png"/></a></div>
+          <div class="image-source">Source: https://chatgpt.com</div>  
+        </li>
+        <li>The project creation popup will be opened. Enter "<strong>Study Schedule Generator</strong>" in the textbox.
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEicnyEtclIGfX4sCorEFohUDlccvFiJvcwwJX3fHTVseUHIR8ZOHcgymwDd-gaJA_agJIYnl92yfBegBlbPPmsjhOWV8llWZi-sVX0OGAB69Bc55uTsWqiFJUezHz0bRx1ZRM5XXKqUsfyxScwnLTn0kux7E92bGO32AWQ9hZpyf0DIjw1t29PtvSgTGUg/s1600/Screenshot%202025-11-04%20152940.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="935" data-original-width="1918" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEicnyEtclIGfX4sCorEFohUDlccvFiJvcwwJX3fHTVseUHIR8ZOHcgymwDd-gaJA_agJIYnl92yfBegBlbPPmsjhOWV8llWZi-sVX0OGAB69Bc55uTsWqiFJUezHz0bRx1ZRM5XXKqUsfyxScwnLTn0kux7E92bGO32AWQ9hZpyf0DIjw1t29PtvSgTGUg/s1600/Screenshot%202025-11-04%20152940.png"/></a></div>
+          <div class="image-source">Source: https://chatgpt.com</div>
+        </li>
+        <li>Click "<strong>Create project</strong>."</li>
+        <li>Click "<strong>...</strong>" at the top right corner of the screen.
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj-w6-5vVDm9Wgw9X_vHyZIf8Vw6H0Q-AhrLT_HR1XiytseP0IXfpkkwUSw5Dqmg7w-gpq1bbC5s8s1hcdgCvRW0b4Kmoqk4E_cR3cBCOlMECBH85OwCn9EB7P_P94HPZMxcPcu5xPsbKgljG2lZmuk3KOxvkKHzbfHmeK6wGc7kjQ04kfEYk-fA69Dpnw/s1600/Screenshot%202025-11-04%20153531.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="925" data-original-width="1919" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj-w6-5vVDm9Wgw9X_vHyZIf8Vw6H0Q-AhrLT_HR1XiytseP0IXfpkkwUSw5Dqmg7w-gpq1bbC5s8s1hcdgCvRW0b4Kmoqk4E_cR3cBCOlMECBH85OwCn9EB7P_P94HPZMxcPcu5xPsbKgljG2lZmuk3KOxvkKHzbfHmeK6wGc7kjQ04kfEYk-fA69Dpnw/s1600/Screenshot%202025-11-04%20153531.png"/></a></div>
+          <div class="image-source">Source: https://chatgpt.com</div>
+        </li>
+        <li>Click "<strong>Add instructions</strong>."</li>
+        <li>The instructions page will be opened. Enter this instruction in the textbox.
+          <pre>## Role and Goal
+
+This Gem's sole objective is to generate **Google Apps Script (GAS) code** that creates a detailed learning schedule (events) in Google Calendar, based on the specific learning skill, duration, and available time provided by the user.
+
+## Input
+
+Input from the user must be in the following Markdown format:
+
+```
+### Input
+---
+Skill: (Skill you want to learn)
+Start Date: (Learning start date. e.g., "Tomorrow", "2024-12-01")
+Duration: (Learning duration. e.g., "3 months", "4 weeks")
+Level: (Current skill level. e.g., "Complete beginner", "Understands the basics")
+Available Time: (Time slots available for learning. e.g., "Weekdays 7 PM - 9 PM", "Saturday and Sunday mornings")
+---
+```
+
+## Actions and Rules
+
+1.  **Strict Parsing of Input Parameters:**
+
+      * Accurately parse the five parameters: `Skill`, `Start Date`, `Duration`, `Level`, and `Available Time`.
+
+2.  **Internal Construction of Learning Roadmap:**
+
+      * Based on the parsed parameters, **internally** construct a realistic learning roadmap (key topics, learning order).
+
+3.  **Search and Auto-Selection of Optimal Resources:**
+
+      * Use the `Google Search` tool to find **free** online learning resources (tutorial sites, video series, official documentation, etc.) that fit the constructed roadmap.
+      * From the search results, **automatically select one** resource that is determined to be the **most systematic and reliable**. (It will not present options or ask the user to choose.)
+
+4.  **Generation of GAS Code Logic:**
+
+      * Design the specific GAS code logic to create events in Google Calendar based on the selected resource and the input constraints (`Start Date`, `Duration`, `Available Time`).
+      * The code must use `CalendarApp.getDefaultCalendar()` and include logic to place learning events (`createEvent`) during the available time slots.
+
+5.  **Specification of Event Details:**
+
+      * The **description** of each event created with `createEvent` must include the following HTML format, containing a **specific lesson URL** and the **goal for that lesson**.
+        ```html
+        <b>Lesson URL:</b> (A specific lesson URL extracted from the selected resource)
+        <b>Goal:</b> (A specific learning goal to be achieved in that lesson)
+        ```
+      * The `Lesson URL` must be a valid, accessible URL. Avoid placeholders or just the top-level domain.
+
+6.  **Mandatory Logging Code:**
+
+      * **Must** include code in the following format to log the event URL within the GAS code (specifically, immediately after the `event` variable is defined, e.g., inside the event creation loop).
+      * The `calendar` variable is assumed to be the return value of `CalendarApp.getDefaultCalendar()`, and the `event` variable is the return value of `calendar.createEvent()`.
+
+    <!-- end list -->
+
+    ```javascript
+    // Example of event creation (place logging code immediately after this)
+    // var event = calendar.createEvent(title, startTime, endTime, {description: description});
+
+    // Mandatory logging code
+    const eventId = event.getId().split('@')[0];
+    const calendarId = calendar.getId();
+    const encodedId = Utilities.base64Encode(eventId + " " + calendarId).replace(/=/g, '');
+    const eventUrl = "https://www.google.com/calendar/event?eid=" + encodedId;
+        
+    Logger.log("Created: " + eventUrl);
+    ```
+
+## Output
+
+  * **Sole Output:**
+
+      * The response must **only** be the **Google Apps Script code snippet**.
+      * It must be provided in a single Markdown code block (` ```javascript ... ``` `).
+
+  * **Prohibitions:**
+
+      * **Do not include any text** other than the code (no greetings, preambles, explanations of the code, usage instructions, or concluding remarks).
+      * The entire response must begin with ` ```javascript ` and end with ` ``` `.</pre>
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgMOe97eMaFHQ5Q_Yye-NQpFnS-E8kvqMTQO0CUv5NgmQH4Wvs-D_DYMH8a3DupGKwunZ9CZXgY6nv9gwFO3GON_r2fii7i8jsV070-282kf3h-GFIRTaCvleFWCvHcw_nCBqsrfrb7SAO2hc7ZlWtpQjNEDyCvQD8qN6M6DHxWagmoPIikHTIdZLXTjoU/s1600/G20JhBiaAAEDLMu.jpg" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="921" data-original-width="1295" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgMOe97eMaFHQ5Q_Yjye-NQpFnS-E8kvqMTQO0CUv5NgmQH4Wvs-D_DYMH8a3DupGKwunZ9CZXgY6nv9gwFO3GON_r2fii7i8jsV070-282kf3h-GFIRTaCvleFWCvHcw_nCBqsrfrb7SAO2hc7ZlWtpQjNEDyCvQD8qN6M6DHxWagmoPIikHTIdZLXTjoU/s1600/G20JhBiaAAEDLMu.jpg"/></a></div>
+          <div class="image-source">Source: https://chatgpt.com</div>
+        </li>
+        <li>Click ""<strong>Save</strong>."</li>
+        <li>The project is created. 
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEie-QPMNBvv4eACoKuRiyxLucLMSHx5slCR9GmZyBOs5xUWkeBFvH-UKjHaUd44XBGMrf11SDarSmV3DkOMCRuZdjsfbZSrbGAAcAacsaCmkUTbqgHaasUPED08CBSLvc6HhmI5OVdkI0nlbzLZhbsQszeXFVXtAryxvHHuxRNrb6r3E7n9YYF_7PwnkLg/s1600/Screenshot%202025-11-04%20153844.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="924" data-original-width="1919" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEie-QPMNBvv4eACoKuRiyxLucLMSHx5slCR9GmZyBOs5xUWkeBFvH-UKjHaUd44XBGMrf11SDarSmV3DkOMCRuZdjsfbZSrbGAAcAacsaCmkUTbqgHaasUPED08CBSLvc6HhmI5OVdkI0nlbzLZhbsQszeXFVXtAryxvHHuxRNrb6r3E7n9YYF_7PwnkLg/s1600/Screenshot%202025-11-04%20153844.png"/></a></div>
+          <div class="image-source" id="enter_prompt_template">Source: https://chatgpt.com</div><br>
+        </li>
+        <li>Enter this prompt template in the textbox.
+          <pre>Skill: <strong>(describe a skill you want to learn)</strong>
+Start Date: <strong>(describe when you start learning)</strong>
+Duration: <strong>(describe the duration)</strong>
+Level: <strong>(describe your level)</strong>
+Available Time: <strong>(describe your spare time)</strong></pre>
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgDxSMiRWms6w70fa-CBa_OpIFYoyx58nSl2sidNaLtJ6ZtYc9jYmcTQN2cPNE00cBoRILX6ii2QyW8LOsz3JCtiChks26a4U17-J8bsZYc86Phxfxid6UW61griUmDIib4UVE1sO-II1TTgdGMCY-0kH-YtLCw0tf_wVLb1dMiYgkq5y6pDLpg2Kj9Bk8/s1600/Screenshot%202025-11-04%20153844.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="923" data-original-width="1918" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgDxSMiRWms6w70fa-CBa_OpIFYoyx58nSl2sidNaLtJ6ZtYc9jYmcTQN2cPNE00cBoRILX6ii2QyW8LOsz3JCtiChks26a4U17-J8bsZYc86Phxfxid6UW61griUmDIib4UVE1sO-II1TTgdGMCY-0kH-YtLCw0tf_wVLb1dMiYgkq5y6pDLpg2Kj9Bk8/s1600/Screenshot%202025-11-04%20153844.png"/></a></div>
+          <div class="image-source">Source: https://chatgpt.com</div>
+        </li>
+        <li>Fill bold placeholders enclosed with "<strong>(</strong>" and "<strong>)</strong>" in the prompt.</li>
+        <li>Click <strong>Enter</strong>.</li>
+        <li>Google Apps Script will be generated.</li>
+        <li>Click "<strong>Copy code</strong>" in the top right corner of the generated code block.
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiu9JxPIrlKqq2aRwDDSZ30Rz14rbkpfayyHOr7tdpVJqC6hpGAQmP1Rm4ieZ4jGZg0SogowdxdZIaSanzmWK0XaAo-g_GdkG4XGrcZtkNXuf1BirEfMnagGyTIpEhUqi87okqhexKHf4zmb_4pOGiiloYXA328mGike585m7QXy-K6sJwF5imPrc68yHg/s1600/Screenshot%202025-11-04%20154709.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="843" data-original-width="968" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiu9JxPIrlKqq2aRwDDSZ30Rz14rbkpfayyHOr7tdpVJqC6hpGAQmP1Rm4ieZ4jGZg0SogowdxdZIaSanzmWK0XaAo-g_GdkG4XGrcZtkNXuf1BirEfMnagGyTIpEhUqi87okqhexKHf4zmb_4pOGiiloYXA328mGike585m7QXy-K6sJwF5imPrc68yHg/s1600/Screenshot%202025-11-04%20154709.png"/></a></div>
+        </li>
+        <li>Enter this prompt in the same textbox. 
+          <pre>[Task]: Suggest 3 actionable recalling habits that are tailored to my level and done within 15 minutes.
+[Format]: 
+- Output in this format for each habit.
+
+## (habit title here)
+
+- **What:** (describe what it is)
+- **How:** (describe how it works)
+-  **Why:** (describe why it works for me)</pre>
+        </li>
+        <li>Click <strong>Enter</strong>.</li>
+      </ol>
+      <h2>Step 2: Create a Study Schedule in the Google Calendar</h2>
+      <p>After you generate Google Apps Script, create a study schedule in the Google Calendar programmatically.</p>
+      <ol>
+        <li>Visit <a href="https://script.google.com">https://script.google.com</a>.</li>
+        <li>Click "<strong>New project</strong>."
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjDBGyVUqWxT4aq5s4MCn-keouF6SiODkEzmZEOEp0Idbjolpu2efpPH417FlWuxOHQcga5HG9cbWOZ4eHzitl4MA5oYrBZyjyC4zqWlTaw9QbmgZmM5vWB0VHoi7kKBYbjCuqJuibY5aZ2ZYbl2UZGVq0VXex3v_Hv8KyFZYW5AUSqu4ysjx8xaAnzBBs/s1600/Screenshot%202025-09-25%20112149.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="925" data-original-width="1851" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjDBGyVUqWxT4aq5s4MCn-keouF6SiODkEzmZEOEp0Idbjolpu2efpPH417FlWuxOHQcga5HG9cbWOZ4eHzitl4MA5oYrBZyjyC4zqWlTaw9QbmgZmM5vWB0VHoi7kKBYbjCuqJuibY5aZ2ZYbl2UZGVq0VXex3v_Hv8KyFZYW5AUSqu4ysjx8xaAnzBBs/s1600/Screenshot%202025-09-25%20112149.png"/></a></div>
+          <div class="image-source">Source: https://script.google.com</div>
+        </li>
+        <li>A new project will be created. Replace the existing code with the copied code.
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiQYYNP4zORskf67kz5ak3e128Nc4C8fheS8yIYOlGRbWV-NsjSNTVAvWI0qZBdJRUH8tcJ4lWN9mtijn9F2nB2aBcrz6hv24IQuL7w-GoZl_3ClViXisre2f64BE1I7Gz-KQKEzrCP5bifCf7WbzjLYsY7iTNSJ4dQyIJNbBDiDccV6R6B4X1GzmYP0Zg/s1600/Screenshot%202025-09-25%20132457.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="923" data-original-width="1837" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiQYYNP4zORskf67kz5ak3e128Nc4C8fheS8yIYOlGRbWV-NsjSNTVAvWI0qZBdJRUH8tcJ4lWN9mtijn9F2nB2aBcrz6hv24IQuL7w-GoZl_3ClViXisre2f64BE1I7Gz-KQKEzrCP5bifCf7WbzjLYsY7iTNSJ4dQyIJNbBDiDccV6R6B4X1GzmYP0Zg/s1600/Screenshot%202025-09-25%20132457.png"/></a></div>
+          <div class="image-source">Source: https://script.google.com</div>
+        </li>
+        <li>Click "<strong>Ctrl</strong> + <strong>S</strong>" if your operating system is Windows or "<strong>Command (⌘)</strong> + <strong>S</strong>" if your operating system is Mac to save the code.</li>
+        <li>Run the script. For more info, read the 2nd to 7th steps in <a href="https://genaitimestools.github.io/How%20to%20Filter%20Unimportant%20Emails%20from%20Your%20Gmail%20Inbox.html#run_script">this section</a> below.
+          <div class="article-card">
+            <div class="also-read-text">
+              <span>Also Read</span>
+            </div>
+            <div class="article-card-content" value='https://genaitimestools.github.io/How%20to%20Filter%20Unimportant%20Emails%20from%20Your%20Gmail%20Inbox.html#run_script'>
+              <div class="thumbnail">
+                <img alt="thumbnail of the article 'How to Filter Unimportant Emails from Your Gmail Inbox'" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjwlri8G9OfRlTZ8W_3Fy9b7KnyKcV7FwYLQe21xMsW_u1PgQ4qOQKUC6DU0q4tYxBxiSLcHeJ2j0PmY8Y7-e8Vw2pwz75V9eXVHpCd53tI-fO424ExYqauHEWQTrTuRj71oewL-1evpt96h_1ZQBNlBqZEJyapaw5PqWsZe6icdRnQro_swgKJAqagAVs/s1600/thumbnail.png">
+              </div>
+              <div class="article-title">
+                <strong>How to Filter Unimportant Emails from Your Gmail Inbox</strong>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>After execution, you will see many created events in the section "<strong>Execution log</strong>." Copy the first URL.
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjSIdPrghm72sgdlC9KjLWcGitcHbJok38SXPPZ55q4098pXU_VOlq2d5NS4K4roUHNdoItE53Xm2fSnwURdRDs934AnKbKZOmwAgbQdQx5XWcUU2-9DAzJlszkol5Z_wVF-D2b0WwdZGfPGwr9CTf52GEBqnNpAPK-qkHpTLg1Ua8JXiXI2tOKHwl14Ic/s1600/Screenshot%202025-10-31%20205425.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="417" data-original-width="1555" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjSIdPrghm72sgdlC9KjLWcGitcHbJok38SXPPZ55q4098pXU_VOlq2d5NS4K4roUHNdoItE53Xm2fSnwURdRDs934AnKbKZOmwAgbQdQx5XWcUU2-9DAzJlszkol5Z_wVF-D2b0WwdZGfPGwr9CTf52GEBqnNpAPK-qkHpTLg1Ua8JXiXI2tOKHwl14Ic/s1600/Screenshot%202025-10-31%20205425.png"/></a></div>
+          <div class="image-source">Source: https://script.google.com</div>
+        </li>
+        <li>Access the URL.</li>
+      </ol> 
+      <h2>Step 4: Check and Update the Study Schedule</h2>
+      <p>After you create the study schedule in the Google Calendar and access the first event, check if the lesson URL exists on the web. If it doesn't exist, read the "<a href="#lesson_url_not_existed">A Lesson URL Doesn't Exist on the Web</a>" section to fix it.</p>
+      <p>Here's the example of an event created.</p>
+        <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjodKNQyoIuqlQnZPdz-YXd7SWTT7gVKYxhAa55W-MefDUKazo5acQKy-xy4n6WNXKAuVEl35OoPdWNLjAVUXYeBExJmCFu2KEYXsGAiO9dMmSgACEMzmghq1XBjUMi7SqEcwZ9PX41JqrX8ecZ8h-paYimMYNgNuXsPeAsqXgMCJtTYhyGFGxpNKRfTdk/s1600/Screenshot%202025-11-04%20153331.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="611" data-original-width="558" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjodKNQyoIuqlQnZPdz-YXd7SWTT7gVKYxhAa55W-MefDUKazo5acQKy-xy4n6WNXKAuVEl35OoPdWNLjAVUXYeBExJmCFu2KEYXsGAiO9dMmSgACEMzmghq1XBjUMi7SqEcwZ9PX41JqrX8ecZ8h-paYimMYNgNuXsPeAsqXgMCJtTYhyGFGxpNKRfTdk/s1600/Screenshot%202025-11-04%20153331.png"/></a></div>
+        <div class="image-source" id="use_cases">Source: https://calendar.google.com</div>
+      <hr id="use_cases">
+      <h1>Use Cases</h1>
+      <h2>Career Change Skill Learning Schedule</h2>
+      <p>For busy professionals who want to change their careers, one challenge is less skill acquisition time. If you were to enter into a new domain without deliberate preparation and experience, you would suffer with low pay longer than those who already did that. To mitigate that risk, instruct ChatGPT to generate a study schedule that works in a short time or duration. Because of that, you can learn essentials in your spare time, and even when you actually change your career, you can spot and solve your problems you will face. Here's the parameter example for the Google Apps Script generation prompt template, the result, and the result for the recalling habit ideation prompt.</p>      
+      <p>Parameter Example for Google Apps Script Generation Prompt Template</p>
+      <pre>Skill: mobile app development
+Start Date: December in this year.
+Duration: 3 months
+Level: I have 10 years of experience as a web developer.
+Available Time: 1 hour on Saturday and Sunday</pre>
+      <p>The Result</p>
+      <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi05fSwotwsHgyCft0AatxiwHSqgPx16jnB2JrNaC-oQeV6GMmofI5NDW2m_IpM3OZp-LbuH77bSWU7Ls1fcrUww4IZYOpu1Yoo0tfrmoiCLWD-sNuQ_7V8V0bqRy__BmK0-TmBEpmg5O1GQZDVMDxs9GQ7wUvDnPhNPVuUdc8Xj3IKS-O6Dqtk8HIGvmY/s1600/Screenshot%202025-11-04%20152316.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="440" data-original-width="558" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi05fSwotwsHgyCft0AatxiwHSqgPx16jnB2JrNaC-oQeV6GMmofI5NDW2m_IpM3OZp-LbuH77bSWU7Ls1fcrUww4IZYOpu1Yoo0tfrmoiCLWD-sNuQ_7V8V0bqRy__BmK0-TmBEpmg5O1GQZDVMDxs9GQ7wUvDnPhNPVuUdc8Xj3IKS-O6Dqtk8HIGvmY/s1600/Screenshot%202025-11-04%20152316.png"/></a></div>
+      <div class="image-source">Source: https://calendar.google.com</div>
+      <p>Result for the Recalling Habit Ideation Prompt</p>
+      <pre>## 1. Micro-Review Mapping
+
+* **What:** Quickly sketch a mind map connecting the mobile app concepts you’ve learned that week — such as UI layout, API integration, and navigation flow.
+* **How:** In 15 minutes, start from one main topic (e.g., “Fragments”) and branch out with key ideas, short notes, and real-world examples from your current learning project.
+* **Why:** As an experienced web developer, visualizing relationships helps you recall how mobile concepts relate to your existing web knowledge, reinforcing memory through structure and association.
+
+---
+
+## 2. Flash Recall with Code Prompts
+
+* **What:** Test your recall by writing mini code snippets from memory — for example, the syntax for creating an `Activity`, setting up Retrofit, or managing state.
+* **How:** Open a blank note or IDE and try to recreate small code patterns without looking them up. Spend 5 minutes per snippet and immediately check your accuracy.
+* **Why:** You already have strong coding muscle memory from web development, so active recall through partial reconstruction quickly solidifies Android-specific syntax and logic.
+
+---
+
+## 3. 3-Point Verbal Recap
+
+* **What:** Summarize three main takeaways from the week’s learning out loud — one concept, one practical use, and one lesson learned from an error.
+* **How:** Set a timer for 15 minutes, record yourself summarizing these three points, and listen back to identify any gaps in understanding.
+* **Why:** Speaking consolidates knowledge through articulation. As an advanced learner, verbal recaps activate metacognition, helping you connect abstract concepts to real implementation.</pre>
+      <h2>Freelancing Starter Kit</h2>
+      <p>According to <a href="https://www.freelancermap.com/blog/10-skills-which-no-freelancer-can-do-without/">freelancermap</a>, sales is one of the skills every freelancer has to have. Also in multiple Reddit threads, freelancers mentioned sales as an essential skill. To learn it, some people may prefer online courses over paper. In a situation like this, this study scheduler helps you find the best free course that is suitable for your preference. Here's the parameter example for the first Google Apps Script generation prompt template, the result, and the result for the recalling habit ideation prompt.</p> 
+      <p>Parameter Example for Google Apps Script Generation Prompt Template</p>
+      <pre>Skill: sales
+Start Date: February in next year.
+Duration: 3 months
+Level: I'm going to start personal coaching as a freelancer in April next year.
+Available Time: 2 hours on Sunday</pre>
+      <p>The Result</p>
+      <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiugHfmyosOEbY9CJkFtNf4ds_PEH1-ZxP1GqQo09Yg_Y6BiVl5LSsw3Q4mvyiUd4CS6dryXQKPbCNuoYT2pwsoQiTNJdn-ozLzeY0cTaoJS8vnx41pv96aTTIT0W6zrrnXRRK0CVtoWNKQMbrR6YeC8sxv51u7MLyJUIWjaTjXBBWAUmtnTRTaZS2CXb4/s1600/Screenshot%202025-11-04%20151632.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="633" data-original-width="565" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiugHfmyosOEbY9CJkFtNf4ds_PEH1-ZxP1GqQo09Yg_Y6BiVl5LSsw3Q4mvyiUd4CS6dryXQKPbCNuoYT2pwsoQiTNJdn-ozLzeY0cTaoJS8vnx41pv96aTTIT0W6zrrnXRRK0CVtoWNKQMbrR6YeC8sxv51u7MLyJUIWjaTjXBBWAUmtnTRTaZS2CXb4/s1600/Screenshot%202025-11-04%20151632.png"/></a></div>
+      <div class="image-source">Source: https://calendar.google.com</div>
+      <p>Result for the Recalling Habit Ideation Prompt</p>
+      <pre>## 1. 5-Minute Flash Recall After Study
+
+* **What:** Immediately after your 2-hour Sunday sales session, spend 5 minutes recalling the key points without looking at your notes.
+* **How:** Write down or record yourself summarizing the three most important ideas or techniques you learned — for example, “how to qualify coaching clients” or “how to handle objections.”
+* **Why:** As someone preparing to start personal coaching soon, this quick recall strengthens memory retention and helps you instantly translate abstract sales concepts into client-ready insights.
+
+---
+
+## 2. Midweek “Sales Scenario Recap”
+
+* **What:** Take 10–15 minutes midweek (e.g., Wednesday evening) to visualize or rehearse one of your recent lessons in a real-life scenario.
+* **How:** Picture a potential coaching client and mentally walk through the sales conversation using what you learned — such as rapport-building or closing techniques.
+* **Why:** This habit links theory with practice and prepares you for actual client interactions by improving recall under realistic conditions.
+
+---
+
+## 3. Rapid Self-Quiz with Keywords
+
+* **What:** At the end of each week, list 5–10 key terms from your recent sales topic and quiz yourself without looking at your notes.
+* **How:** Ask yourself: “What does ‘value proposition’ mean for my coaching service?” or “How can I reframe objections?” Then verify your answers.
+* **Why:** This quick, structured recall helps you cement key vocabulary and sales principles — crucial for speaking confidently and naturally in coaching calls.</pre>
+      <h2>Side Hustle Skill Learning Schedule</h2>
+      <p>If you think that freelancing or a career change with zero or low income is unstable for your financial life, get your foot in the door as a side hustle. This way, you can work in your spare time, and if your business grows to the extent that it generates more revenue or sales than your cost of living, you can start working full-time. To achieve that momentum, you need to acquire business skills such as financial accounting and business management skills in addition to hard skills. If you are doing a side hustle, you want to balance skill learning with it. So, use this AI-powered study scheduler to establish your learning habit as a growth engine. Here's a parameter example for the Google Apps Script generation prompt template, the result, and a result for the recalling habit ideation prompt.</p>
+      <p>Parameter Example for Google Apps Script Generation Prompt Template</p>
+      <pre>Skill: financial accouting
+Start Date: December, 25th, 2025. 
+Duration: 2 months 
+Level: Complete beginner
+Available Time: 1 hour</pre>
+      <p>The Result</p>
+      <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgEXFqz7ArfUotcLoNfVVihCQAL5gHHW1OjpZ7LxEN4nN4cmR2YLu6vHC35rb6Uap3bkVeC-xcJEcYoXV5kRvxrIv3Exxa7BhBiuzFQxSyU07GFaJDfC2Y-35OIVoCoc99nKJg1WRgX2LX_wueHpFp1zTvnm08NuI_UaLqh5mbEOvNKn7JvjMh4Ya9nZDQ/s1600/Screenshot%202025-11-04%20151836.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="488" data-original-width="559" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgEXFqz7ArfUotcLoNfVVihCQAL5gHHW1OjpZ7LxEN4nN4cmR2YLu6vHC35rb6Uap3bkVeC-xcJEcYoXV5kRvxrIv3Exxa7BhBiuzFQxSyU07GFaJDfC2Y-35OIVoCoc99nKJg1WRgX2LX_wueHpFp1zTvnm08NuI_UaLqh5mbEOvNKn7JvjMh4Ya9nZDQ/s1600/Screenshot%202025-11-04%20151836.png"/></a></div>
+      <div class="image-source">Source: https://calendar.google.com</div>
+      <p>Result for the Recalling Habit Ideation Prompt</p>
+      <pre>## 1. Flash Recall with Accounting Terms
+
+* **What:** Spend 15 minutes recalling key accounting terms (like assets, liabilities, equity) from memory without looking at notes.
+* **How:** Take a blank sheet or open a notes app, write as many terms and definitions as you can remember from your last study session, then check your accuracy using your course material.
+* **Why:** This strengthens memory connections by forcing active recall — essential for beginners who need to internalize accounting vocabulary before applying it to problems.
+
+---
+
+## 2. Explain a Concept Out Loud
+
+* **What:** Pick one concept (e.g., “the accounting equation”) and explain it aloud as if teaching a beginner.
+* **How:** Use a timer for 15 minutes. Speak without notes, using examples like “If I buy equipment with cash…” to make it real. Record yourself or do it in front of a mirror.
+* **Why:** Teaching forces you to reconstruct knowledge from memory, exposing any weak spots while improving comprehension and confidence in financial terms.
+
+---
+
+## 3. Quick Journal Review Drill
+
+* **What:** Recall how journal entries work by writing three sample transactions from memory (e.g., purchasing supplies, earning revenue, paying rent).
+* **How:** Without looking up examples, write the debit and credit sides for each transaction. Then, check them against your notes or the resource.
+* **Why:** Practicing journal entries builds procedural memory — it trains your brain to recall accounting logic automatically, which is vital for applying theory to practice.</pre>
+      <hr>
+      <h1>Troubleshooting</h1>
+      <p>Here's the common trouble and the solution that happen in this workflow.</p>
+      <h2 id="lesson_url_not_existed">A Lesson URL Doesn't Exist on the Web</h2>
+      <p>When accessing lesson URLs, you sometimes receive a "404 Not Found" error because the URLs don't exist on the web. To fix it, include these URLs in this prompt template, and ask ChatGPT with the prompt.</p>
+      <pre>The following URLs don't exist. Change to another free course that is still tailored to me.
+      
+- <strong>(broken URL 1)</strong>
+- <strong>(broken URL 2)</strong></pre>
+      <hr>
+      <p style="padding-top:50px;">In summary, this article rewrote a playbook for traditional study scheduling by leveraging existing weapons (ChatGPT, Google Apps Script, and the Google Calendar). If this information is useful for you, feel free to share your thoughts on social media. You can share this article by clicking the button with 3 connected dots.</p>
+      <div class="flex-container">
+        <button class="dropbtn" id="sourcesOpenButton"><strong>Sources</strong></button>
+      </div>
+      <div class="dropdown">
+        <div id="sources" class="dropdown-content">
+          <ul>
+            <li>https://www.reddit.com/r/Freelancers/comments/11kb3ij/would_it_be_possible_for_me_to_learn_a_skill_and/</li>
+            <li>https://www.reddit.com/r/Freelancers/comments/1myy56d/what_freelancing_skill_should_i_learn_now/</li>
+            <li>https://www.reddit.com/r/freelancing/comments/1n00rvo/the_hardest_lesson_ive_learned_as_a_freelancer/</li>
+            <li>https://www.reddit.com/r/Upwork/comments/1l93g2v/i_want_to_become_a_freelancer_but_dont_know_where/</li>
+            <li>https://www.reddit.com/r/careerguidance/comments/1h48ira/comment/lzwpdp3/?utm_source=share&amp;utm_medium=web3x&amp;utm_name=web3xcss&amp;utm_term=1&amp;utm_content=share_button</li>
+            <li>https://www.reddit.com/r/careerguidance/comments/1nk75il/how_do_you_stay_motivated_to_upskill_after_long/?utm_source=share&amp;utm_medium=web3x&amp;utm_name=web3xcss&amp;utm_term=1&amp;utm_content=share_button</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+  </body>
+</html>
