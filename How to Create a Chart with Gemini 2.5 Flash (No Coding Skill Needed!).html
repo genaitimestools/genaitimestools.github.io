@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"></meta>
+    <meta content="HTML, CSS, JavaScript" name="keywords"></meta>
+    <meta content="Gen AI × Tools" name="author"></meta>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"></meta>
+    <meta content="ie=edge" http-equiv="X-UA-Compatible"></meta>
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@GenAITimesTool">
+    <meta name="twitter:title" content="How to Create a Chart with Gemini 2.5 Flash (No Coding Skill Needed!)">
+    <meta name="twitter:image" content="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjZ7JlHN9UCbC23lXrtbLt6Srybfl3cBnCDXdRqnFkOit9n62B_inui-3yRsJ0yNmLXBgpDuYker38VhwaVgjT4HP38VoNPXTFjypfMZ_RnnBQrv_dEsMRiMNX4XydAIUXxrqlFx9D9jIdD_Veo8Qxg6mKnwkAF3HdlhuHch0U7or6EgwdvJRB9OIKG6bU/s1600/cover%20image.png">
+    <link href="https://genaitimestools.github.io/My%20blog/article_style(for_pasting_in_the_HTML_editor_on_Blogger).css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const myChart = document.getElementById('myChart');
+        const ctx = document.getElementById('myPieChart');
+        const newChart = new Chart(myChart, {
+          type: 'line',
+          data: {
+            labels: ['2023', '2024', '2025', '2026', '2027'],
+            datasets: [{
+              label: 'Electricity (TWh)',
+              data: [50, 70, 85, 100, 110],
+              borderColor: 'rgb(75, 192, 192)',
+              tension: 0.1,
+              fill: false
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+              y: {
+                beginAtZero: true,
+                title: {
+                  display: true,
+                  text: 'Electricity (TWh)'
+                }
+              },
+              x: {
+                title: {
+                  display: true,
+                  text: 'Year'
+                }
+              }
+            },
+            plugins: {
+              title: {
+                display: true,
+                text: 'Projected Global AI Sector Electricity Use (TWh)',
+                font: {
+                  size: 16
+                }
+              }
+            }
+          }
+        });
+        
+        const myPieChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['Software', 'Services'],
+                datasets: [{
+                    label: 'Market Share (%)',
+                    data: [64.2, 35.8],
+                    backgroundColor: [
+                        'rgba(54, 162, 235, 0.8)', // Blue
+                        'rgba(255, 99, 132, 0.8)'  // Red
+                    ],
+                    borderColor: [
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 99, 132, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Generative AI Market Share by Component (2024)',
+                        font: {
+                            size: 18
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(tooltipItem) {
+                                let label = tooltipItem.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                if (tooltipItem.raw) {
+                                    label += tooltipItem.raw + '%';
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                }
+            }
+        });       
+      });
+    </script>
+    <script src="https://genaitimestools.github.io/My%20blog/article_script.js"></script>
+    <style>
+      #post-body-8386007764955142345 article iframe {
+        width:90%;
+        height:500px;
+        margin-left:auto;
+        margin-right:auto;
+        display: block;
+        border:1px double gray;
+        border-radius:2px;
+      }
+      .chart-container-container {
+        width:100%;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        margin:0;
+      }
+
+      .chart-container {
+        width: 70%;
+        padding:20px;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      }
+      button.dropbtn {
+        border:2px double black;
+        border-radius:5px 5px 0px 0px;
+        background-color:white;
+      }
+    </style>
+  </head>
+  <body style="width:890px; margin:auto;">
+    <article>
+      <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjZ7JlHN9UCbC23lXrtbLt6Srybfl3cBnCDXdRqnFkOit9n62B_inui-3yRsJ0yNmLXBgpDuYker38VhwaVgjT4HP38VoNPXTFjypfMZ_RnnBQrv_dEsMRiMNX4XydAIUXxrqlFx9D9jIdD_Veo8Qxg6mKnwkAF3HdlhuHch0U7or6EgwdvJRB9OIKG6bU/s1600/cover%20image.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="736" data-original-width="1408" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjZ7JlHN9UCbC23lXrtbLt6Srybfl3cBnCDXdRqnFkOit9n62B_inui-3yRsJ0yNmLXBgpDuYker38VhwaVgjT4HP38VoNPXTFjypfMZ_RnnBQrv_dEsMRiMNX4XydAIUXxrqlFx9D9jIdD_Veo8Qxg6mKnwkAF3HdlhuHch0U7or6EgwdvJRB9OIKG6bU/s1600/cover%20image.png"/></a></div>
+      <p style="padding-bottom: 50px;">When creating a chart, are you still creating and editing it in Excel manually? Setting the data range, choosing an appropriate chart type, and adjusting the design... This is such an extra yet time-consuming task! In this guide, you will explore how you can lighten this burden and focus more on creative tasks. Before diving deeper, you need a Google account.</p>
+      <h1>Step-by-Step Guide</h1>
+      <h2>Step 1: Generate a chart</h2>
+      <ol>
+        <li>Visit <a href="https://gemini.google.com/">https://gemini.google.com/</a>.</li>
+        <li>Click the "<strong>+</strong>" button near the textbox.</li>
+        <li>Upload your Excel or CSV file to create a chart.</li>
+        <li>Click "<strong>Tools</strong>".</li>
+        <li>Click "<strong>Canvas</strong>".</li>
+        <li>Execute this prompt.
+          <pre>Visualize this data in a html file using Chart.js. When you write the code, use this template below and write the code in the placeholder "code".
+
+
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div style="height:95%; width:95%; margin:auto;"&gt;
+      &lt;canvas id="myChart"&gt;&lt;/canvas&gt;
+    &lt;/div&gt;
+    &lt;script src="https://cdn.jsdelivr.net/npm/chart.js"&gt;&lt;/script&gt;
+    &lt;script&gt;
+      (code)
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</pre>
+        </li>
+      </ol>
+      <h2>Step 2: Edit the Chart (optional)</h2>
+      <p>The design of the generated chart may lack the design. In this case, ask Gemini to fix the design in the same chat.</p>
+      <h2>Step 3: Complete Chart Generation</h2>
+      <p>Once you finish editing, save your chart on your computer.</p>
+      <ol>
+        <li>Right-click the chart.</li>
+        <li>Click "<strong>Save image as</strong>" to download it as an image.</li>
+      </ol>
+      <p>Here's an example I created.</p>
+      <div class="chart-container-container">
+        <div class="chart-container" style="height:600px;">  
+          <canvas id="myChart"></canvas>  
+        </div>  
+      </div>
+      <hr>
+      <h1>Use Cases</h1>
+      <h2>In a presentation</h2>
+      <p>When creating presentation slides, you sometimes visualize data in a chart. In such a case, upload your data file, and create the chart.</p>
+      <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhbnh6YgdoBhWIJj-cMqCjVUwkdB23giAgCENv_7GvCG6Ab3SS2pHbpWGUGQ3YTBYGAdArPHVtZEIpVrmAgDgiSL_NN_FH7jf1qI0y8rT27k8XahjXkzqNSSXoxmjvOinFDwRmbgJ_JsP1bqoOwtYqrS-QfbEjQ7Zt2UhDx5zAuDGx0KAKgEsgCMyVrT-4/s1600/Screenshot%202025-09-08%20135119.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="The screenshot of a presentation slide that include the image of a chart created by chart.js." border="0" data-original-height="1079" data-original-width="1919" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhbnh6YgdoBhWIJj-cMqCjVUwkdB23giAgCENv_7GvCG6Ab3SS2pHbpWGUGQ3YTBYGAdArPHVtZEIpVrmAgDgiSL_NN_FH7jf1qI0y8rT27k8XahjXkzqNSSXoxmjvOinFDwRmbgJ_JsP1bqoOwtYqrS-QfbEjQ7Zt2UhDx5zAuDGx0KAKgEsgCMyVrT-4/s1600/Screenshot%202025-09-08%20135119.png"/></a></div>
+      <h2>In a report</h2>
+      <p>When including visuals in a report, you can customize the design of the chart, such as the color, size, and visibility of ticks, scale, legends, and tooltips.</p>
+      <iframe style="width:100%; height:500px;" src="https://genaitimestools.github.io/My%20blog/report_with_chart.js/report_with_chart.js.html"></iframe>
+      <h2>In an article</h2>
+      <p>If an article is data-driven, you often embed charts in the HTML code. In this case, Chart.js makes charts interactive such as with animation and changing the visibility of certain data.</p>
+      <div class="chart-container-container">
+        <div class="chart-container">
+          <canvas id="myPieChart"></canvas>
+        </div>
+      </div>
+      <hr>
+      <h1>Troubleshooting</h1>
+      <div class="troubleshooting-section">
+        <h2>A chart isn't displayed.</h2>
+         <p>When a chart seems to have syntax errors or is not visible, ask Gemini below in the same chat as you generate the chart.</p>
+         <pre class="code-block-in-troubleshooting">It seems the chart is not visible. Check the syntax of the code.</pre>
+      </div>
+      <p style="padding-top:50px;">In summary, this article walked through how you can streamline chart creation and designing using Gemini 2.5 Flash and Chart.js. I hope this information is helpful. I appreciate you for sharing your thoughts on social media. You can share this article by clicking the share button below.<p>
+      <div class="flex-container">
+        <button class="dropbtn" id="sourcesOpenButton"><strong>Sources</strong></button>
+      </div>
+      <div class="dropdown">
+        <div id="sources" class="dropdown-content">
+          <ul>
+            <li>https://www.theverge.com/24066646/ai-electricity-energy-watts-generative-consumption</li>
+            <li>https://www.grandviewresearch.com/industry-analysis/generative-ai-market-report</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+  </body>
+</html>
