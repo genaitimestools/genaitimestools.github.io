@@ -29,7 +29,51 @@
       <h2>Step 1: Search Unimportant Emails from Your Inbox</h2>
       <p id="run_script">First, you will need to get all unread emails.</p>
       <ol>
-        <li>Visit <a href="https://script.google.com/d/1salchU48QdqXl6AzrYEG6TAipnAsd7NaCCKskL2bkpX8Ms7120HOCTji/edit?usp=sharing">my Google Apps Script project</a>.</li>
+        <li>Visit <a href="https://script.google.com">https://script.google.com</a>.</li>
+        <li>Click "<strong>New project</strong>."
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjDBGyVUqWxT4aq5s4MCn-keouF6SiODkEzmZEOEp0Idbjolpu2efpPH417FlWuxOHQcga5HG9cbWOZ4eHzitl4MA5oYrBZyjyC4zqWlTaw9QbmgZmM5vWB0VHoi7kKBYbjCuqJuibY5aZ2ZYbl2UZGVq0VXex3v_Hv8KyFZYW5AUSqu4ysjx8xaAnzBBs/s1600/Screenshot%202025-09-25%20112149.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="925" data-original-width="1851" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjDBGyVUqWxT4aq5s4MCn-keouF6SiODkEzmZEOEp0Idbjolpu2efpPH417FlWuxOHQcga5HG9cbWOZ4eHzitl4MA5oYrBZyjyC4zqWlTaw9QbmgZmM5vWB0VHoi7kKBYbjCuqJuibY5aZ2ZYbl2UZGVq0VXex3v_Hv8KyFZYW5AUSqu4ysjx8xaAnzBBs/s1600/Screenshot%202025-09-25%20112149.png"/></a></div>
+          <div class="image-source">Source: https://script.google.com</div>
+        </li>
+        <li>A new project will be created. Replace the existing code with the following code.
+          <pre>function collectUnreadEmails() {
+  const inBoxUnreadEmails = searchEmailSubjectAndBody("is:unread in:inbox");
+  
+  console.log(inBoxUnreadEmails);
+}
+
+function searchEmailSubjectAndBody(query) {
+  // get all emails' subjects and bodies matches with the query from your Gmail account.
+  const userId = "me";
+
+  let emailData = "";
+
+  const options = {
+    maxResults: 100,
+    q: query
+  };
+
+  try {
+    const response = Gmail.Users.Messages.list(userId, options);
+    const messages = response.messages;
+  
+    for (let i = 0; i &lt; messages.length; i++) {
+      const searchedEmailData = Gmail.Users.Messages.get(userId, messages[i].id);
+      
+      const body = searchedEmailData.snippet;
+      
+      const subject = searchedEmailData.payload.headers.filter(obj => obj.name === "Subject")[0].value;
+      
+      emailData += `- Email ${i + 1}\n\nSubject: ${subject}\nBody: ${body}\n\n`;
+    }
+
+    return emailData;
+  } catch (err) {
+    console.log(`Failed with error: ${err.message}`);
+  }
+}</pre>
+          <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiQYYNP4zORskf67kz5ak3e128Nc4C8fheS8yIYOlGRbWV-NsjSNTVAvWI0qZBdJRUH8tcJ4lWN9mtijn9F2nB2aBcrz6hv24IQuL7w-GoZl_3ClViXisre2f64BE1I7Gz-KQKEzrCP5bifCf7WbzjLYsY7iTNSJ4dQyIJNbBDiDccV6R6B4X1GzmYP0Zg/s1600/Screenshot%202025-09-25%20132457.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="923" data-original-width="1837" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiQYYNP4zORskf67kz5ak3e128Nc4C8fheS8yIYOlGRbWV-NsjSNTVAvWI0qZBdJRUH8tcJ4lWN9mtijn9F2nB2aBcrz6hv24IQuL7w-GoZl_3ClViXisre2f64BE1I7Gz-KQKEzrCP5bifCf7WbzjLYsY7iTNSJ4dQyIJNbBDiDccV6R6B4X1GzmYP0Zg/s1600/Screenshot%202025-09-25%20132457.png"/></a></div>
+          <div class="image-source">Source: https://script.google.com</div>
+        </li>
         <li>Click "<strong>Run</strong>."
           <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgwScf7O_kPjrM5T4ggayQaacM0FtBgUpC26S-NInZznUdV24r2PF0X3gSxp_l2JnoMXDfmfVPIdPU2p4AWlmwM8mTEFb81USq92grmYmg47-AlpiF3tbFfCaffv8TswXFMz-cL3TZFW-909QF5YWVELsCEMfZwUNfmYXAabjUbrpwPBSIpsT0pLoDwk-4/s1600/Screenshot%202025-10-21%20114547.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="128" data-original-width="1075" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgwScf7O_kPjrM5T4ggayQaacM0FtBgUpC26S-NInZznUdV24r2PF0X3gSxp_l2JnoMXDfmfVPIdPU2p4AWlmwM8mTEFb81USq92grmYmg47-AlpiF3tbFfCaffv8TswXFMz-cL3TZFW-909QF5YWVELsCEMfZwUNfmYXAabjUbrpwPBSIpsT0pLoDwk-4/s1600/Screenshot%202025-10-21%20114547.png"/></a></div>
           <div class="image-source">Source: https://script.google.com</div>
